@@ -6,7 +6,7 @@ class MyDocument extends Document {
         <Head>
           <link
             rel="apple-touch-icon"
-            sizes="76x76"
+            sizes="180x180"
             href="/static/favicons/apple-touch-icon.png"
           />
           <link
@@ -25,10 +25,17 @@ class MyDocument extends Document {
           <link
             rel="mask-icon"
             href="/static/favicons/safari-pinned-tab.svg"
-            color="#5bbad5"
+            color="#2d89ef"
           />
-          <meta name="msapplication-TileColor" content="#000000" />
-          <meta name="theme-color" content="#000000" />
+          <link rel="shortcut icon" href="/static/favicons/favicon.ico" />
+          <meta name="apple-mobile-web-app-title" content="Karuppusamy" />
+          <meta name="application-name" content="Karuppusamy" />
+          <meta name="msapplication-TileColor" content="#2d89ef" />
+          <meta
+            name="msapplication-config"
+            content="/static/favicons/browserconfig.xml"
+          />
+          <meta name="theme-color" content="#ffffff" />
           <link rel="alternate" type="application/rss+xml" href="/index.xml" />
           <link
             rel="preconnect"
