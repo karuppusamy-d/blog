@@ -1,12 +1,13 @@
 {
-  "name": "tailwind-nextjs-starter-blog",
-  "version": "0.2.1",
+  "name": "karuppusamy-blog",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "start": "next-remote-watch ./data",
     "dev": "next dev",
     "build": "next build && node ./scripts/generate-sitemap",
     "serve": "next start",
+    "format": "prettier --write ./",
     "analyze": "env ANALYZE=true next build"
   },
   "dependencies": {
