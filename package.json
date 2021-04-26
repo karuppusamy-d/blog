@@ -7,8 +7,7 @@
     "dev": "next dev",
     "build": "next build && node ./scripts/generate-sitemap",
     "serve": "next start",
-    "analyze": "env ANALYZE=true next build",
-    "prepare": "husky install"
+    "analyze": "env ANALYZE=true next build"
   },
   "dependencies": {
     "@mapbox/rehype-prism": "^0.5.0",
@@ -49,7 +48,6 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "file-loader": "^6.0.0",
     "globby": "11.0.1",
-    "husky": "^6.0.0",
     "lint-staged": "^10.5.3",
     "next-compose-plugins": "^2.2.1",
     "next-remote-watch": "^1.0.0",
@@ -65,7 +63,7 @@
     "*.+(js|jsx|ts|tsx)": [
       "eslint --fix"
     ],
-    "*.+(js|jsx|ts|tsx|json|css|md|mdx)": [
+    "*.+(js|jsx|ts|tsx|json|css|md|mdx|scss)": [
       "prettier --write"
     ]
   }
