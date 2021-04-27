@@ -30,7 +30,7 @@ export default function About() {
             {/* <div className="text-gray-500 dark:text-gray-400">
               Stanford University
             </div> */}
-            <div className="flex pt-6 space-x-3">
+            <div className="flex pt-6 space-x-3 text-2xl text-gray-700 dark:text-gray-200">
               <SocialIcon kind="gmail" href={`mailto:${siteMetadata.email}`} />
               <SocialIcon kind="facebook" href={siteMetadata.facebook} />
               <SocialIcon kind="twitter" href={siteMetadata.twitter} />
