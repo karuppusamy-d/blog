@@ -15,7 +15,6 @@ module.exports = {
     extend: {
       spacing: {
         "9/16": "56.25%",
-        18: "4.5rem", // NavBar Height
       },
       inset: {
         18: "4.5rem", // NavBar Height
@@ -152,10 +151,10 @@ module.exports = {
           },
         },
       }),
-    },
-    boxShadow: {
-      light: "0 0 12px 0 rgba(0, 0, 0, 0.09)",
-      dark: "0 0 5px 2px rgba(255, 255, 255, 0.09)",
+      boxShadow: {
+        light: "0 0 12px 0 rgba(0, 0, 0, 0.09)",
+        dark: "0 0 5px 2px rgba(255, 255, 255, 0.09)",
+      },
     },
   },
   variants: {
