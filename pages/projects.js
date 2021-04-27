@@ -9,8 +9,8 @@ export default function Projects() {
   return (
     <>
       <PageSeo
-        title={`Projects - ${siteMetadata.author}`}
-        description={siteMetadata.description}
+        title={`Projects | ${siteMetadata.author}`}
+        description={siteMetadata.projectsDescription}
         url={`${siteMetadata.siteUrl}/projects`}
       />
       <div className="divide-y divide-gray-200 dark:divide-gray-700">

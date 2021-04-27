@@ -46,8 +46,8 @@ export default function Tag({ posts, tag }) {
   return (
     <>
       <PageSeo
-        title={`${tag} - ${siteMetadata.title}`}
-        description={`${tag} tags - ${siteMetadata.title}`}
+        title={`Tags - ${title} | ${siteMetadata.title}`}
+        description={`Tags - ${title} - ${siteMetadata.title}`}
         url={`${siteMetadata.siteUrl}/tags/${tag}`}
       />
       <ListLayout posts={posts} title={title} />
