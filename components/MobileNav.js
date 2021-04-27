@@ -29,7 +29,6 @@ const MobileNav = () => {
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 20 20"
           fill="currentColor"
-          className="text-gray-900 dark:text-gray-100"
         >
           {navShow ? (
             <path
@@ -46,31 +45,35 @@ const MobileNav = () => {
           )}
         </svg>
       </button>
+
       <div
-        className={`fixed w-full h-full top-24 right-0 bg-gray-200 dark:bg-gray-800 z-10 transform ease-in-out duration-300 ${
+        className={`fixed w-9/12 h-full top-18 right-0 bg-gray-200 dark:bg-gray-800 z-10 transform ease-in-out duration-500 ${
           navShow ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <button
-          type="button"
-          aria-label="toggle modal"
-          className="fixed w-full h-full cursor-auto focus:outline-none"
-          onClick={onToggleNav}
-        ></button>
-        <nav className="fixed h-full mt-8">
+        <div className="fixed h-full mt-4">
           {headerNavLinks.map((link) => (
-            <div key={link.title} className="px-12 py-4">
+            <div key={link.title} className="px-8 py-4">
               <Link
                 href={link.href}
-                className="text-2xl font-bold tracking-widest text-gray-900 dark:text-gray-100"
+                className="text-base font-semibold tracking-wider"
                 onClick={onToggleNav}
               >
                 {link.title}
               </Link>
             </div>
           ))}
-        </nav>
+        </div>
       </div>
+
+      <button
+        type="button"
+        aria-label="toggle navmenu"
+        className={`fixed w-full h-full top-18 inset-x-0 backdrop-filter backdrop-blur-sm cursor-auto focus:outline-none ${
+          navShow ? "block" : "hidden"
+        }`}
+        onClick={onToggleNav}
+      ></button>
     </div>
   );
 };

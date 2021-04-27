@@ -1,4 +1,3 @@
-const defaultTheme = require("tailwindcss/defaultTheme");
 const colors = require("tailwindcss/colors");
 
 module.exports = {
@@ -16,6 +15,10 @@ module.exports = {
     extend: {
       spacing: {
         "9/16": "56.25%",
+        18: "4.5rem", // NavBar Height
+      },
+      inset: {
+        18: "4.5rem", // NavBar Height
       },
       lineHeight: {
         11: "2.75rem",
@@ -151,7 +154,7 @@ module.exports = {
       }),
     },
     boxShadow: {
-      sm: "0 0 12px 0 rgba(0, 0, 0, 0.09)",
+      light: "0 0 12px 0 rgba(0, 0, 0, 0.09)",
       dark: "0 0 5px 2px rgba(255, 255, 255, 0.09)",
     },
   },

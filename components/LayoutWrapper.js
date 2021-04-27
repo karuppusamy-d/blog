@@ -4,13 +4,13 @@ import Footer from "./Footer";
 
 const LayoutWrapper = ({ children }) => {
   return (
-    <SectionContainer>
-      <div className="flex flex-col justify-between h-screen">
-        <Navbar />
-        <main className="mt-20">{children}</main>
-        <Footer />
-      </div>
-    </SectionContainer>
+    <>
+      <Navbar />
+      <main className="mt-18 mb-10">
+        <SectionContainer>{children}</SectionContainer>
+      </main>
+      <Footer />
+    </>
   );
 };
 

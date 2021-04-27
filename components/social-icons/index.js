@@ -1,6 +1,7 @@
-import Mail from "./mail.svg";
+import Gmail from "./gmail.svg";
 import Github from "./github.svg";
 import Facebook from "./facebook.svg";
+import Instagram from "./instagram.svg";
 import Youtube from "./youtube.svg";
 import Linkedin from "./linkedin.svg";
 import Twitter from "./twitter.svg";
@@ -8,9 +9,10 @@ import Twitter from "./twitter.svg";
 // Icons taken from: https://simpleicons.org/
 
 const components = {
-  mail: Mail,
+  gmail: Gmail,
   github: Github,
   facebook: Facebook,
+  instagram: Instagram,
   youtube: Youtube,
   linkedin: Linkedin,
   twitter: Twitter,

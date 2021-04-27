@@ -23,7 +23,7 @@ export default function PostLayout({ children, frontMatter, next, prev }) {
   const { slug, fileName, date, title, tags } = frontMatter;
 
   return (
-    <SectionContainer>
+    <>
       <BlogSeo
         url={`${siteMetdata.siteUrl}/blog/${frontMatter.slug}`}
         {...frontMatter}
@@ -149,6 +149,6 @@ export default function PostLayout({ children, frontMatter, next, prev }) {
           </div>
         </div>
       </article>
-    </SectionContainer>
+    </>
   );
 }
