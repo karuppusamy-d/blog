@@ -14,15 +14,15 @@ export default function Projects() {
         url={`${siteMetadata.siteUrl}/projects`}
       />
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
-        <div className="pt-10 pb-6 space-y-2 md:space-y-3">
-          <h1 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl md:text-5xl">
+        <div className="pt-10 pb-4 space-y-2 xl:space-y-3 xl:pb-6">
+          <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-100 xl:text-5xl">
             Projects
           </h1>
-          <p className="text-sm sm:text-base md:text-lg text-gray-500 dark:text-gray-400">
+          <p className="text-sm xl:text-base text-gray-500 dark:text-gray-400">
             My Awesome Creations
           </p>
         </div>
-        <div className="container py-12">
+        <div className="container py-10">
           <div className="flex flex-wrap -m-4">
             {projectsData.map((d) => (
               <Card
