@@ -13,17 +13,8 @@ module.exports = {
   darkMode: "class",
   theme: {
     extend: {
-      spacing: {
-        "9/16": "56.25%",
-      },
       inset: {
         18: "4.5rem", // NavBar Height
-      },
-      lineHeight: {
-        11: "2.75rem",
-        12: "3rem",
-        13: "3.25rem",
-        14: "3.5rem",
       },
       fontFamily: {
         sans: ["'Poppins'", "sans-serif"],
@@ -153,7 +144,7 @@ module.exports = {
       }),
       boxShadow: {
         light: "0 0 12px 0 rgba(0, 0, 0, 0.09)",
-        dark: "0 0 12px 0 rgba(0, 0, 0, 0.18)",
+        dark: "0 2px 12px 0 rgba(0, 0, 0, 0.18)",
       },
     },
   },
