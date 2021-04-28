@@ -15,9 +15,9 @@ export default function ListLayout({ posts, title }) {
 
   return (
     <>
-      <div className="divide-y min-h-[80vh]">
-        <div className="pt-10 pb-6 space-y-2 md:space-y-5">
-          <h1 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl md:text-5xl">
+      <div className="divide-y divide-gray-200 dark:divide-gray-700 min-h-[80vh]">
+        <div className="pt-10 pb-5 space-y-3 xl:space-y-4 xl:pb-6">
+          <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-100 xl:text-5xl">
             {title}
           </h1>
           <div className="relative max-w-lg">
@@ -44,16 +44,16 @@ export default function ListLayout({ posts, title }) {
             </svg>
           </div>
         </div>
-        <ul>
+        <ul className="divide-y divide-gray-200 dark:divide-gray-700">
           {!filteredBlogPosts.length && "No posts found."}
           {filteredBlogPosts.map((frontMatter) => {
             const { slug, date, title, summary, tags } = frontMatter;
             return (
-              <li key={slug} className="py-4">
-                <article className="space-y-2 xl:grid xl:grid-cols-4 xl:space-y-0 xl:items-baseline">
+              <li key={slug} className="py-8 xl:py-10">
+                <article className="space-y-1 xl:grid xl:grid-cols-4 xl:space-y-0 xl:items-baseline">
                   <dl>
                     <dt className="sr-only">Published on</dt>
-                    <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
+                    <dd className="text-sm xl:text-base font-medium text-gray-500 dark:text-gray-400">
                       <time dateTime={date}>
                         {new Date(date).toLocaleDateString(
                           siteMetadata.locale,
@@ -62,16 +62,16 @@ export default function ListLayout({ posts, title }) {
                       </time>
                     </dd>
                   </dl>
-                  <div className="space-y-3 xl:col-span-3">
-                    <div>
-                      <h3 className="text-2xl font-bold leading-8 tracking-tight">
+                  <div className="space-y-1 xl:col-span-3">
+                    <div className="space-y-2">
+                      <h2 className="text-xl xl:text-2xl font-semibold tracking-tight">
                         <Link
                           href={`/blog/${slug}`}
                           className="text-gray-900 dark:text-gray-100"
                         >
                           {title}
                         </Link>
-                      </h3>
+                      </h2>
                       <div className="flex flex-wrap">
                         {tags.map((tag) => (
                           <Tag key={tag} text={tag} />
