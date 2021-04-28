@@ -5,6 +5,7 @@ import Instagram from "./instagram.svg";
 import Youtube from "./youtube.svg";
 import Linkedin from "./linkedin.svg";
 import Twitter from "./twitter.svg";
+import Whatsapp from "./whatsapp.svg";
 
 // Icons taken from: https://simpleicons.org/
 
@@ -16,6 +17,7 @@ const components = {
   youtube: Youtube,
   linkedin: Linkedin,
   twitter: Twitter,
+  whatsapp: Whatsapp,
 };
 
 const SocialIcon = ({ kind, href }) => {
