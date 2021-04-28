@@ -5,8 +5,8 @@ import SocialIcon from "@/components/social-icons";
 export default function Footer() {
   return (
     <footer>
-      <div className="flex flex-col items-center border-t-2 text-gray-600 dark:text-gray-200">
-        <div className="flex mt-10 mb-6 text-xl space-x-4">
+      <div className="flex flex-col items-center border-t-[1px] border-gray-200 dark:border-gray-600 text-gray-600 dark:text-gray-200">
+        <div className="flex mt-[1.75rem] mb-3 text-xl space-x-3">
           <SocialIcon kind="gmail" href={`mailto:${siteMetadata.email}`} />
           <SocialIcon kind="facebook" href={siteMetadata.facebook} />
           <SocialIcon kind="twitter" href={siteMetadata.twitter} />
@@ -15,7 +15,7 @@ export default function Footer() {
           {/* <SocialIcon kind="youtube" href={siteMetadata.youtube}/> */}
           <SocialIcon kind="github" href={siteMetadata.github} />
         </div>
-        <div className="flex mb-6 space-x-2 text-sm">
+        <div className="flex mb-6 space-x-2 text-md">
           <div>{`© ${new Date().getFullYear()}`}</div>
           <div>{` • `}</div>
           <Link href="/">{siteMetadata.title}</Link>
