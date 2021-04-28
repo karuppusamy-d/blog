@@ -1,15 +1,14 @@
 import Link from "@/components/Link";
 import PageTitle from "@/components/PageTitle";
 import { BlogSeo } from "@/components/SEO";
+import SocialIcon from "@/components/social-icons";
 import Tag from "@/components/Tag";
 import siteMetadata from "@/data/siteMetadata";
 
 const editUrl = (fileName) =>
   `${siteMetadata.siteRepo}/blob/main/data/blog/${fileName}`;
-const discussUrl = (slug) =>
-  `https://mobile.twitter.com/search?q=${encodeURIComponent(
-    `${siteMetadata.siteUrl}/blog/${slug}`
-  )}`;
+const PageUrl = (slug) =>
+  `${encodeURIComponent(`${siteMetadata.siteUrl}/blog/${slug}`)}`;
 
 const postDateTemplate = {
   weekday: "long",
@@ -78,65 +77,78 @@ export default function PostLayout({ children, frontMatter, next, prev }) {
                 </ul>
               </dd>
             </dl>
+
             <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:pb-0 xl:col-span-3 xl:row-span-2">
               <div className="pt-8 pb-6 prose dark:prose-dark max-w-none">
                 {children}
               </div>
-              <div className="pt-6 pb-6 text-sm text-gray-700 dark:text-gray-300">
-                <Link href={discussUrl(slug)} rel="nofollow">
-                  {"Discuss on Twitter"}
-                </Link>
-                {` • `}
+              <div className="flex flex-column py-6 space-x-3 text-sm text-gray-700 dark:text-gray-300">
+                <div className="flex flex-column items-center space-x-3">
+                  <SocialIcon
+                    kind="whatsapp"
+                    href={`whatsapp://send?text=${PageUrl(slug)}`}
+                  />
+                  <SocialIcon
+                    kind="facebook"
+                    href={`https://www.facebook.com/share.php?display=page&u=${PageUrl(
+                      slug
+                    )}`}
+                  />
+                  <SocialIcon
+                    kind="twitter"
+                    href={`https://twitter.com/intent/tweet?url=${PageUrl(
+                      slug
+                    )}`}
+                  />
+                  <SocialIcon
+                    kind="linkedin"
+                    href={`https://www.linkedin.com/sharing/share-offsite/?url=${PageUrl(
+                      slug
+                    )}`}
+                  />
+                </div>
+                <div> • </div>
                 <Link href={editUrl(fileName)}>{"View on GitHub"}</Link>
               </div>
             </div>
-            <div>
-              <div className="text-sm font-medium leading-5 divide-gray-200 xl:divide-y dark:divide-gray-700 xl:col-start-1 xl:row-start-2">
-                {tags && (
-                  <div className="pt-8 pb-4 xl:py-8">
-                    <h2 className="text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">
-                      Tags
-                    </h2>
-                    <div className="flex flex-wrap">
-                      {tags.map((tag) => (
-                        <Tag key={tag} text={tag} />
-                      ))}
+
+            <div className="text-sm font-medium divide-gray-200 xl:divide-y dark:divide-gray-700 xl:col-start-1 xl:row-start-2">
+              {tags && (
+                <div className="pt-8 pb-4 xl:py-8">
+                  <h2 className="text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">
+                    Tags
+                  </h2>
+                  <div className="flex flex-wrap">
+                    {tags.map((tag) => (
+                      <Tag key={tag} text={tag} />
+                    ))}
+                  </div>
+                </div>
+              )}
+              {(next || prev) && (
+                <div className="flex justify-between pt-4 pb-2 xl:block xl:space-y-8 xl:py-8">
+                  {prev && (
+                    <div>
+                      <h2 className="text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">
+                        Previous Article
+                      </h2>
+                      <div className="text-blue-500 hover:text-blue-600 dark:hover:text-blue-400">
+                        <Link href={`/blog/${prev.slug}`}>{prev.title}</Link>
+                      </div>
                     </div>
-                  </div>
-                )}
-                {(next || prev) && (
-                  <div className="flex justify-between pt-4 pb-2 xl:block xl:space-y-8 xl:py-8">
-                    {prev && (
-                      <div>
-                        <h2 className="text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">
-                          Previous Article
-                        </h2>
-                        <div className="text-blue-500 hover:text-blue-600 dark:hover:text-blue-400">
-                          <Link href={`/blog/${prev.slug}`}>{prev.title}</Link>
-                        </div>
+                  )}
+                  {next && (
+                    <div>
+                      <h2 className="text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">
+                        Next Article
+                      </h2>
+                      <div className="text-blue-500 hover:text-blue-600 dark:hover:text-blue-400">
+                        <Link href={`/blog/${next.slug}`}>{next.title}</Link>
                       </div>
-                    )}
-                    {next && (
-                      <div>
-                        <h2 className="text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">
-                          Next Article
-                        </h2>
-                        <div className="text-blue-500 hover:text-blue-600 dark:hover:text-blue-400">
-                          <Link href={`/blog/${next.slug}`}>{next.title}</Link>
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                )}
-              </div>
-              {/* <div className="pt-4 xl:pt-8">
-                <Link
-                  href="/blog"
-                  className="text-blue-500 hover:text-blue-600 dark:hover:text-blue-400"
-                >
-                  &larr; Back to the blog
-                </Link>
-              </div> */}
+                    </div>
+                  )}
+                </div>
+              )}
             </div>
           </div>
         </div>
