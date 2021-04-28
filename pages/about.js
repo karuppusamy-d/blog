@@ -26,7 +26,9 @@ export default function About() {
             <h3 className="pt-4 pb-2 text-2xl font-bold leading-8 tracking-tight">
               {siteMetadata.author}
             </h3>
-            <div className="text-gray-500 dark:text-gray-400">Developer</div>
+            <div className="text-gray-500 dark:text-gray-400">
+              {siteMetadata.headline}
+            </div>
             {/* <div className="text-gray-500 dark:text-gray-400">
               Stanford University
             </div> */}
