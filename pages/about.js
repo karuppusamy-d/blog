@@ -10,20 +10,20 @@ export default function About() {
         description={siteMetadata.description}
         url={`${siteMetadata.siteUrl}/about`}
       />
-      <div className="divide-y min-h-[80vh]">
-        <div className="pt-10 pb-6">
-          <h1 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl md:text-5xl">
+      <div className="divide-y divide-gray-200 dark:divide-gray-700 min-h-[80vh]">
+        <div className="pt-10 pb-5 xl:pb-6">
+          <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-100 xl:text-5xl">
             About
           </h1>
         </div>
-        <div className="items-start space-y-2 xl:grid xl:grid-cols-3 xl:gap-x-8 xl:space-y-0">
-          <div className="flex flex-col items-center pt-8 space-x-2">
+        <div className="items-center space-y-2 xl:grid xl:grid-cols-3 xl:gap-x-8 xl:space-y-0">
+          <div className="flex flex-col items-center pt-8 space-x-2 xl:py-12">
             <img
               src={siteMetadata.image}
               alt="avatar"
-              className="w-48 h-48 rounded-full"
+              className="w-32 xl:w-48 h-32 xl:h-48 rounded-full"
             />
-            <h3 className="pt-4 pb-2 text-2xl font-bold leading-8 tracking-tight">
+            <h3 className="pt-4 pb-1 text-xl xl:text-2xl font-semibold tracking-tight">
               {siteMetadata.author}
             </h3>
             <div className="text-gray-500 dark:text-gray-400">
@@ -32,7 +32,7 @@ export default function About() {
             {/* <div className="text-gray-500 dark:text-gray-400">
               Stanford University
             </div> */}
-            <div className="flex pt-6 space-x-3 text-2xl text-gray-700 dark:text-gray-200">
+            <div className="flex pt-4 xl:pt-6 space-x-2 xl:space-x-3 text-xl xl:text-2xl text-gray-700 dark:text-gray-300">
               <SocialIcon kind="gmail" href={`mailto:${siteMetadata.email}`} />
               <SocialIcon kind="facebook" href={siteMetadata.facebook} />
               <SocialIcon kind="twitter" href={siteMetadata.twitter} />
@@ -42,7 +42,7 @@ export default function About() {
               <SocialIcon kind="github" href={siteMetadata.github} />
             </div>
           </div>
-          <div className="pt-10 pb-8 prose dark:prose-dark max-w-none xl:col-span-2">
+          <div className="pt-6 prose dark:prose-dark max-w-none xl:pb-6 xl:col-span-2">
             <p>
               I am proficient in Web Development, Software Development, Arduino
               Development and PCB designing.
