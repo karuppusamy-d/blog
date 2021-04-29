@@ -1,24 +1,22 @@
-import Link from "@/components/Link";
+import Link from "next/link";
 
 export default function FourZeroFour() {
   return (
-    <div className="flex flex-col items-start justify-start md:justify-center md:items-center md:flex-row md:space-x-6 min-h-[80vh]">
-      <div className="pt-6 pb-8 space-x-2 md:space-y-5">
-        <h1 className="text-6xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 md:text-8xl md:leading-14 md:border-r-2 md:px-6">
+    <div className="flex flex-col items-start justify-center divide-y divide-gray-200 dark:divide-gray-700 md:justify-center md:items-center md:flex-row md:divide-y-0 md:space-x-6 min-h-[80vh]">
+      <div className="pb-4">
+        <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-100 md:text-6xl md:border-r-2 md:px-6">
           404
         </h1>
       </div>
-      <div className="max-w-md">
+      <div className="max-w-md pt-5 md:p-0">
         <p className="mb-4 text-xl font-bold leading-normal md:text-2xl">
           Sorry we couldn't find this page.
         </p>
-        <p className="mb-8">
+        <p className="mb-6 text-gray-600 dark:text-gray-300">
           But dont worry, you can find plenty of other things on our homepage.
         </p>
         <Link href="/">
-          <button className="inline px-4 py-2 text-sm font-medium text-white transition-colors duration-500 bg-blue-400 border border-transparent rounded-lg shadow-lg focus:outline-none hover:bg-blue-500">
-            Back to homepage
-          </button>
+          <button className="btn px-6 py-2">Back to homepage</button>
         </Link>
       </div>
     </div>
