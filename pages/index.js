@@ -34,11 +34,14 @@ export default function Home({ posts }) {
               <br /> I'am <span className="text-blue-400">Karuppusamy</span>
               <br /> Web Developer
             </h1>
-            <Link href="#contact">
-              <button className="inline px-7 py-2 text-base font-semibold text-white transition-colors duration-300 bg-blue-400 rounded-lg shadow-lg hover:bg-blue-500 focus:outline-none focus:ring focus:ring-offset-2 focus:ring-blue-400 focus:ring-opacity-70 dark:ring-offset-gray-900 dark:bg-blue-500 dark:hover:bg-blue-400">
-                Contact
-              </button>
-            </Link>
+            <a
+              href={siteMetadata.contactPage}
+              className="btn px-6 py-2 text-base"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Contact
+            </a>
           </div>
         </div>
         <div className="flex my-12 text-2xl space-x-5">
