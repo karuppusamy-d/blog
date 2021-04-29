@@ -25,7 +25,7 @@ module.exports = {
     "plugin:prettier/recommended",
   ],
   rules: {
-    "prettier/prettier": "error",
+    "prettier/prettier": "off",
     "react/react-in-jsx-scope": "off",
     "jsx-a11y/anchor-is-valid": [
       "error",
@@ -36,7 +36,8 @@ module.exports = {
       },
     ],
     "react/prop-types": 0,
-    "no-unused-vars": 0,
+    "no-console": "warn",
+    "no-unused-vars": "warn",
     "react/no-unescaped-entities": 0,
   },
 };
