@@ -81,6 +81,15 @@ export default function ListLayout({ posts, title }) {
                     <div className="prose text-gray-500 max-w-none dark:text-gray-400">
                       {summary}
                     </div>
+                    <div className="text-sm font-medium">
+                      <Link
+                        href={`/blog/${slug}`}
+                        className="text-blue-500 hover:text-blue-600 dark:hover:text-blue-400"
+                        aria-label={`Read "${title}"`}
+                      >
+                        Read more &rarr;
+                      </Link>
+                    </div>
                   </div>
                 </article>
               </li>
