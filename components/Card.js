@@ -24,7 +24,7 @@ const Card = ({ title, description, imgSrc, href }) => (
         />
       )}
       <div className="p-6">
-        <h2 className="text-2xl font-bold leading-8 tracking-tight mb-3">
+        <h2 className="text-2xl font-bold tracking-[0.015em] mb-3">
           {href ? (
             <Link href={href} aria-label={`Link to ${title}`}>
               {title}
@@ -33,7 +33,7 @@ const Card = ({ title, description, imgSrc, href }) => (
             title
           )}
         </h2>
-        <p className="prose text-gray-500 max-w-none dark:text-gray-400 mb-3">
+        <p className="tracking-wide leading-relaxed text-gray-600 max-w-none dark:text-gray-200 mb-3">
           {description}
         </p>
         {href && (
