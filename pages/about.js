@@ -44,20 +44,18 @@ export default function About() {
           </div>
           <div className="pt-6 prose dark:prose-dark max-w-none xl:pb-6 xl:col-span-2">
             <p>
-              I am proficient in Web Development, Software Development, Arduino
-              Development and PCB designing.
+              I am Karuppusamy, a self-learnt programmer. I currently live in
+              India with my family. A hard-working and ambitious person who
+              isn’t afraid to face a challenge.
             </p>
             <p>
-              He leads the clean energy group which develops 3D air
-              pollution-climate models, writes differential equation solvers,
-              and manufactures titanium plated air ballons. In his free time he
-              bakes raspberry pi.
+              I do passionate about programming. Because I love what I do, I
+              have a steady source of motivation that drives me to do my best.
             </p>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque
-              elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin
-              eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet.
-              Duis dapibus diam vel metus tempus vulputate.
+              I love learning different skills and creating awesome projects
+              based on my knowledge. I am currently learning Cloud Computing and
+              Adobe Premier.
             </p>
           </div>
         </div>
