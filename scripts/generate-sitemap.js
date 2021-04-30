@@ -11,6 +11,7 @@ const siteMetadata = require("../data/siteMetadata");
     "data/**/*.md",
     "public/tags/**/*.xml",
     "!pages/_*.js",
+    "!pages/404.js",
     "!pages/api",
   ]);
 
