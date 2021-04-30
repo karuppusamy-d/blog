@@ -83,7 +83,7 @@ export default function PostLayout({ children, frontMatter, next, prev }) {
                 {children}
               </div>
               <div className="flex flex-column py-6 space-x-3 text-sm text-gray-700 dark:text-gray-300">
-                <div className="flex flex-column items-center space-x-3">
+                <div className="flex flex-column text-base items-center space-x-3">
                   <SocialIcon
                     kind="whatsapp"
                     href={`whatsapp://send?text=${PageUrl(slug)}`}

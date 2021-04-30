@@ -32,7 +32,7 @@ export default function Home({ posts }) {
             <h1 className="mb-6 text-3xl sm:text-4xl md:text-5xl font-bold leading-tight sm:leading-tight md:leading-tight">
               Hi,
               <br /> I'am <span className="text-blue-400">Karuppusamy</span>
-              <br /> Web Developer
+              <br /> Developer
             </h1>
             <a
               href={siteMetadata.contactPage}
@@ -120,13 +120,14 @@ export default function Home({ posts }) {
         </ul>
       </div>
       {posts.length > MAX_DISPLAY && (
-        <div className="flex justify-end text-base font-medium leading-6">
-          <Link
-            href="/blog"
-            className="text-blue-500 hover:text-blue-600 dark:hover:text-blue-400"
-            aria-label="all posts"
-          >
-            All Posts &rarr;
+        <div className="flex justify-end font-medium">
+          <Link href="/blog">
+            <a
+              className="text-blue-500 hover:text-blue-600 dark:hover:text-blue-400"
+              aria-label="all posts"
+            >
+              All Posts &rarr;
+            </a>
           </Link>
         </div>
       )}
