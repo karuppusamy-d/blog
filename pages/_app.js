@@ -11,7 +11,11 @@ import MDXComponents from "@/components/MDXComponents";
 
 export default function App({ Component, pageProps }) {
   return (
-    <ThemeProvider attribute="class">
+    <ThemeProvider
+      defaultTheme="system"
+      disableTransitionOnChange
+      attribute="class"
+    >
       <MDXProvider components={MDXComponents}>
         <Head>
           <meta content="width=device-width, initial-scale=1" name="viewport" />
