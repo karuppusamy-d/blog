@@ -12,11 +12,12 @@ const ThemeSwitch = () => {
     <button
       aria-label="Toggle Dark Mode"
       type="button"
-      className="w-8 h-8 p-1 ml-1 mr-1 rounded sm:ml-4"
+      className="w-8 h-8 p-1 ml-1 mr-1 rounded sm:ml-4 focus:outline-none focus-visible:ring-2 focus:ring-gray-800 dark:focus:ring-gray-200"
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
+        aria-label="Toggle Dark Mode"
         viewBox="0 0 20 20"
         fill="currentColor"
       >
