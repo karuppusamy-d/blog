@@ -44,7 +44,7 @@ export default function About() {
           </div>
           <div className="pt-6 prose dark:prose-dark max-w-none xl:pb-6 xl:col-span-2">
             <p>
-              I am Karuppusamy, a self-learnt programmer. I currently live in
+              I am Karuppusamy, a self-learned programmer. I currently live in
               India with my family. A hard-working and ambitious person who
               isn’t afraid to face a challenge.
             </p>
