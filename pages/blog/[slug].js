@@ -51,7 +51,7 @@ export default function Blog({ post, prev, next }) {
           {content}
         </PostLayout>
       ) : (
-        <div className="mt-24 text-center">
+        <div className="text-center flex flex-col items-center justify-center min-h-[80vh]">
           <PageTitle>
             Under Construction{" "}
             <span role="img" aria-label="roadwork sign">
