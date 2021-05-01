@@ -82,8 +82,8 @@ export default function PostLayout({ children, frontMatter, next, prev }) {
               <div className="pt-8 pb-6 prose dark:prose-dark max-w-none">
                 {children}
               </div>
-              <div className="flex flex-column py-6 space-x-3 text-sm text-gray-700 dark:text-gray-300">
-                <div className="flex flex-column text-base items-center space-x-3">
+              <div className="flex flex-column py-6 space-x-3 text-sm sm:text-base text-gray-700 dark:text-gray-300">
+                <div className="flex flex-column text-base sm:text-[1.2rem] items-center space-x-3">
                   <SocialIcon
                     kind="whatsapp"
                     href={`whatsapp://send?text=${PageUrl(slug)}`}
@@ -115,7 +115,7 @@ export default function PostLayout({ children, frontMatter, next, prev }) {
             <div className="text-sm font-medium divide-gray-200 xl:divide-y dark:divide-gray-700 xl:col-start-1 xl:row-start-2">
               {tags && (
                 <div className="pt-8 pb-4 xl:py-8">
-                  <h2 className="text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">
+                  <h2 className="text-sm tracking-wide text-gray-500 uppercase dark:text-gray-400">
                     Tags
                   </h2>
                   <div className="flex flex-wrap">
