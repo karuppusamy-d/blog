@@ -42,7 +42,7 @@ export default function About() {
               <SocialIcon kind="github" href={siteMetadata.github} />
             </div>
           </div>
-          <div className="pt-6 prose dark:prose-dark max-w-none xl:pb-6 xl:col-span-2">
+          <div className="pt-6 prose dark:prose-dark leading-relaxed max-w-none xl:pb-6 xl:col-span-2">
             <p>
               I am Karuppusamy, a self-learned programmer. I currently live in
               India with my family. A hard-working and ambitious person who

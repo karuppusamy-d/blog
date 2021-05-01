@@ -33,7 +33,7 @@ const Card = ({ title, description, imgSrc, href }) => (
             title
           )}
         </h2>
-        <p className="tracking-wide leading-relaxed text-gray-600 max-w-none dark:text-gray-200 mb-3">
+        <p className="tracking-wide leading-relaxed text-gray-600 max-w-none dark:text-gray-300 mb-3">
           {description}
         </p>
         {href && (
