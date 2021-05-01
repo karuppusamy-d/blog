@@ -6,7 +6,7 @@ I am Karuppusamy, a self-learned programmer. I currently live in India with my f
 
 I do passionate about programming. Because I love what I do, I have a steady source of motivation that drives me to do my best.
 
-[Blog Website](https://blog.karuppusamy.me/)
+[Website](https://karuppusamy.me/)
 
 ## Quick Start Guide
 
