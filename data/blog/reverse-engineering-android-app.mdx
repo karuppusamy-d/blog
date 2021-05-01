@@ -1,0 +1,225 @@
+---
+title: Reverse Engineering Android App
+date: "2021-05-01"
+tags: ["Android", "Reverse Engineering"]
+draft: false
+summary: In this post, I am going to explain how to reverse engineer an Android app that requires an activation code based on the IMEI number to use it.
+
+images: []
+---
+
+## Introduction
+
+In this post, I am going to explain how to reverse engineer an Android app that requires an activation code based on the IMEI number to use it.
+
+<blockquote>
+  Disclaimer: This article is just for educational purposes
+</blockquote>
+
+## Target app
+
+This app displays a primary key according to the IMEI number. The user needs to enter the correct activation code to activate the app. However, I am not going to expose the app name.
+
+## Decompile source code from APK
+
+First download Jadx Decompiler from [here](https://github.com/skylot/jadx/releases).
+
+Open the target APK with Jadx Decompiler. Now you will see the source code of the app. Export the source code of the app by navigating to `File -> Save as gradle project`.
+
+![jadx-decompiler](/static/images/blog/jadx-decompiler.jpg)
+
+Alternatively, you can use a hosted solution of Jadx Decompiler like [this](http://www.javadecompilers.com/apk). You just need to upload the apk and it will give a decompiled source in a zip file.
+
+## Find the activation code
+
+Now open the saved project with your favourite code editor and search for the function which activates the app.
+
+![jadx-decompiler](/static/images/blog/vscode-search-activation.jpg)
+
+In this case `this.btnactivate.setOnClickListener(new View.OnClickListener()` is the event listener of the activate button. So let's look at that and try to understand it's working.
+
+```java:activation.java
+// Button OnClickListener
+this.btnactivate.setOnClickListener(new View.OnClickListener() {
+    public void onClick(View v) {
+        Activation activation = Activation.this;
+        activation.straccode = activation.activationcode.getText().toString().trim();
+        String prkey = Activation.primarykeyprinted;
+        String stringimei = Activation.this.hexValue().trim();
+        String imeikey = Activation.this.ReturnKey() + stringimei;
+        Activation activation2 = Activation.this;
+        activation2.strActccode = activation2.straccode;
+        Activation activation3 = Activation.this;
+        activation3.firsttimedecode = Activation.Decode(activation3.strActccode, "W894517Q3AKREFMVBPCX6GIUYLHZ2J0OTSDN");
+        Activation activation4 = Activation.this;
+        activation4.Secondtimedecode = Activation.Decode(activation4.firsttimedecode, "W894517Q3AKREFMVBPCX6GIUYLHZ2J0OTSDN");
+        if (prkey.trim().length() <= 0 || imeikey.trim().length() <= 0 || Activation.this.strActccode.trim().length() <= 0) {
+            Activation.this.PopupRegister("Example App", "Activation code is incorrect !", 0);
+        } else if (prkey.equals(Activation.this.Secondtimedecode)) {
+            SharedPreferences.Editor editor1 = Activation.this.getSharedPreferences("strActcKey", 0).edit();
+            editor1.putString("strActcKey", Activation.this.Secondtimedecode);
+            editor1.commit();
+            Activation activation5 = Activation.this;
+            activation5.activationcodestring = activation5.strActccode;
+            SharedPreferences.Editor editor = Activation.this.getSharedPreferences("strActccode", 0).edit();
+            editor.putString("strActccode", Activation.this.activationcodestring);
+            editor.commit();
+            Activation.this.sessionNew.createLoginSession();
+            Activation.this.PopupRegister("Example App", "Example App is now Activated ", 1);
+        } else {
+            Activation.this.PopupRegister("Example App", "Activation code incorrect !", 0);
+        }
+    }
+}
+
+// Decode Function
+public static String Decode(String inString, String strCodeString) {
+    String RetString = inString;
+    if (inString.length() > 0 && inString.length() <= 14) {
+        int CutPos = strCodeString.indexOf(inString.substring(0, 1));
+        String NewString = strCodeString.substring(CutPos + 1) + strCodeString.substring(0, CutPos + 1);
+        RetString = "";
+        for (int i = 1; i < inString.length(); i++) {
+            String TmpChar = inString.substring(i, i + 1);
+            int pos = (NewString.indexOf(TmpChar) - i) - 1;
+            if (pos <= -1) {
+                pos += strCodeString.length();
+            }
+            RetString = NewString.indexOf(TmpChar) > -1 ? RetString + strCodeString.charAt(pos) : RetString + TmpChar;
+        }
+    }
+    return RetString;
+}
+```
+
+## Analyzing the code
+
+If we look at the code, the user input is passed into the `Decode()` function two times, and the result is compared with the primary key. So the activation code is an encoded version of the primary key.
+
+So here, we need to reverse the decode function to return the activation code for the given primary key.
+
+At first, it may difficult to understand, but if you analyze the code line by line it's just a simple encryption algorithm.
+
+```java:activation-min.java
+public void onClick(View v) {
+    Activation activation = Activation.this;
+    activation.straccode = activation.activationcode.getText().toString().trim(); // User Input ( Activation Code )
+    String prkey = Activation.primarykeyprinted; // Primary Key
+
+    // get IMEI Code
+    String stringimei = Activation.this.hexValue().trim();
+    String imeikey = Activation.this.ReturnKey() + stringimei;
+
+    // Decode Activation code two times with Decode Function with Decryption String
+    // Decryption String is 36 char long (A-Z + 0-9) and shuffled
+    activation.strActivationCode = activation.straccode;
+    activation.firstTimeDecode = Activation.Decode(activation.strActivationCode, "W894517Q3AKREFMVBPCX6GIUYLHZ2J0OTSDN");
+    activation.secondTimeDecode = Activation.Decode(activation.firstTimeDecode, "W894517Q3AKREFMVBPCX6GIUYLHZ2J0OTSDN");
+
+    // Check if IMEI, Primary Key and Activation Code Exist
+    if (prkey.trim().length() <= 0 || imeikey.trim().length() <= 0 || Activation.this.strActccode.trim().length() <= 0) {
+        Activation.this.PopupRegister("Example App", "Activation code is incorrect !", 0);
+
+    // If Second time Decoded String equal to Primary Key
+    } else if (prkey.equals(Activation.this.secondTimeDecode)) {
+        // App Activated Successfully
+        Activation.this.PopupRegister("Example App", "Example App is now Activated ", 1);
+    } else {
+        Activation.this.PopupRegister("Example App", "Activation code incorrect !", 0);
+    }
+}
+
+// Decode Function
+public static String Decode(String str, String strCode) {
+    String result = str;
+    if (str.length() > 0 && str.length() <= 14) {
+        int curPos = strCode.indexOf(str.substring(0, 1));
+        String newString = strCode.substring(curPos + 1) + strCode.substring(0, curPos + 1);
+        result = "";
+        for (int i = 1; i < str.length(); i++) {
+            String TmpChar = str.substring(i, i + 1);
+            int pos = (newString.indexOf(TmpChar) - i) - 1;
+            if (pos <= -1) {
+                pos += strCode.length();
+            }
+            result = newString.indexOf(TmpChar) > -1 ? result + strCode.charAt(pos) : result + TmpChar;
+        }
+    }
+    return result;
+}
+```
+
+## Converting to Javascript
+
+Firstly, I am going to convert the code to JavaScript. So I can easily add breakpoints and run code line by line within the browser to test its working.
+
+```javascript:javascript-code.js
+function Decode(str, strCode) {
+  let result = str;
+  if (str.length > 0 && str.length <= 14) {
+    /* ---- newString (Decryption String) Generation ---- */
+    let currentPos = strCode.indexOf(str[0]);
+    let newString =
+      strCode.substring(currentPos + 1) + strCode.substring(0, currentPos + 1);
+    /* ---- End newString Generation ---- */
+
+    result = "";
+    for (let i = 1; i < str.length; i++) {
+      // Loop through str [1 - length]
+
+      let tmpChar = str[i];
+      let pos = newString.indexOf(tmpChar) - i - 1;
+
+      // if pos is negative
+      if (pos <= -1) {
+        pos += strCode.length;
+      }
+
+      // if tmpChar present inside newString (Always true)
+      if (newString.indexOf(tmpChar) > -1) {
+        result = result + strCode[pos];
+      } else {
+        result = result + tmpChar;
+      }
+    }
+  }
+
+  // result.length = str.length - 1
+  return result;
+}
+```
+
+## Final code
+
+Here is the final code to generate the activation code for the given primary key.
+
+```javascript:final-code.js
+function Encode(primaryKey, strCode) {
+  /* ---- newString (Encryption String) Generation ---- */
+  let currentPos = strCode.indexOf(primaryKey[0]);
+  let newString =
+    strCode.substring(currentPos + 1) + strCode.substring(0, currentPos + 1);
+  /* ---- End newString Generation ---- */
+
+  let result = primaryKey[0];
+
+  for (let i = 0; i < primaryKey.length; i++) {
+    // Loop through primaryKey
+    let char = primaryKey[i];
+
+    let pos = strCode.indexOf(char) + i + 2;
+
+    // If pos is negative
+    if (pos >= newString.length) {
+      pos -= newString.length;
+    }
+
+    result = result + newString[pos];
+  }
+
+  // result.length = primaryKey.length + 1
+  return result;
+}
+```
+
+I will explain how I reversed this encryption algorithm in the next post.
