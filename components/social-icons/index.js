@@ -27,7 +27,6 @@ const SocialIcon = ({ kind, href }) => {
 
   return (
     <a target="_blank" rel="noopener noreferrer" href={href}>
-      <span className="sr-only">{kind}</span>
       <SocialSvg
         className="fill-current hover:text-blue-500 dark:hover:text-blue-400 h-[1em] transition-colors duration-500"
         aria-label={kind}

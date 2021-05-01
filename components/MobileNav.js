@@ -21,12 +21,12 @@ const MobileNav = () => {
     <div className="sm:hidden">
       <button
         type="button"
-        className="w-8 h-8 ml-1 mr-1 rounded flex"
-        aria-label="Toggle Menu"
+        className="w-8 h-8 ml-1 mr-1 rounded flex focus:outline-none focus-visible:ring-2 focus:ring-gray-800 dark:focus:ring-gray-200"
         onClick={onToggleNav}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
+          aria-label="Toggle Menu"
           viewBox="0 0 20 20"
           fill="currentColor"
         >

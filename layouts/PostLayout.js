@@ -54,7 +54,7 @@ export default function PostLayout({ children, frontMatter, next, prev }) {
             style={{ gridTemplateRows: "auto 1fr" }}
           >
             <dl className="pt-6 pb-8 xl:py-8 xl:border-b xl:border-gray-200 xl:dark:border-gray-700">
-              <dt className="sr-only">Authors</dt>
+              <dt className="sr-only">Author</dt>
               <dd>
                 <ul className="flex justify-center space-x-8 xl:block sm:space-x-12 xl:space-x-0 xl:space-y-8">
                   <li className="flex items-center space-x-2">
