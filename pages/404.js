@@ -16,7 +16,7 @@ export default function FourZeroFour() {
           But dont worry, you can find plenty of other things on our homepage.
         </p>
         <Link href="/">
-          <button className="btn px-6 py-2">Back to homepage</button>
+          <button className="btn">Back to homepage</button>
         </Link>
       </div>
     </div>

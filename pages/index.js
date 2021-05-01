@@ -29,19 +29,19 @@ export default function Home({ posts }) {
       >
         <div className="flex-grow flex flex-col justify-center">
           <div>
-            <h1 className="mb-6 text-3xl sm:text-4xl md:text-5xl font-bold leading-tight sm:leading-tight md:leading-tight">
+            <h1 className="mb-4 text-3xl font-bold leading-snug sm:mb-6 sm:text-[2.75rem] sm:leading-snug md:text-[3.5rem] md:leading-snug">
               Hi,
               <br /> I'am <span className="text-blue-400">Karuppusamy</span>
               <br /> Developer
             </h1>
-            <a
-              href={siteMetadata.contactPage}
-              className="btn px-6 py-2 text-base"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Contact
-            </a>
+            <Link href="/about">
+              <a
+                className="btn text-[0.8rem] sm:text-base"
+                aria-label="Know More"
+              >
+                Know more
+              </a>
+            </Link>
           </div>
         </div>
         <div className="flex my-12 text-2xl space-x-5">
