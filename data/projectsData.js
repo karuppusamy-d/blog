@@ -17,14 +17,14 @@ const projectsData = [
     title: "Water Level Controller",
     description:
       "It is based on ESP32 / ESP8266 and contains only an ultrasonic sensor and a relay. It automatically controls the water pump and fills the tanks when empty. It integrates with google assistant and a specially designed android app. Its cost is low because of fewer components.",
-    imgSrc: "/static/images/projects/project.png",
+    imgSrc: "/static/images/twitter-card.png",
     // href: "/blog/water-level-controller",
   },
   {
     title: "Arduino Based Multimeter",
     description:
       "It is based on Arduino Nano. It can measure Voltage, Current, Resistance, Continuity, Capacitance and Inductance with good accuracy and speed. It can handle the current of 10A and voltage ranges from 0V to 50V with 6MOhm I/P Impedance. Its output is displayed in a 16x2 LED Display.",
-    imgSrc: "/static/images/projects/project.png",
+    imgSrc: "/static/images/twitter-card.png",
     // href: "/blog/multimeter",
   },
 ];
