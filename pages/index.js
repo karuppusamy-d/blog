@@ -36,10 +36,10 @@ export default function Home({ posts }) {
             </h1>
             <Link href="/about">
               <a
-                className="btn text-[0.8rem] sm:text-base"
+                className="btn text-[0.85rem] sm:text-base"
                 aria-label="Know More"
               >
-                Know more
+                About me
               </a>
             </Link>
           </div>

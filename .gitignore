@@ -19,6 +19,10 @@ public/sitemap.xml
 /public/index.xml
 /public/tags
 
+# pwa
+/public/sw.js
+/public/workbox-*.js
+
 # misc
 .DS_Store
 
