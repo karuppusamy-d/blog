@@ -54,8 +54,8 @@ export default function About() {
             </p>
             <p>
               I love learning different skills and creating awesome projects
-              based on my knowledge. I am currently learning Cloud Computing and
-              Adobe Premier.
+              based on my knowledge. I am currently learning Linux and Cloud
+              Computing.
             </p>
           </div>
         </div>
