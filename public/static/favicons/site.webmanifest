@@ -36,22 +36,50 @@
     {
       "name": "Open Home",
       "short_name": "Home",
-      "url": "/"
+      "url": "/",
+      "description": "Home page",
+      "icons": [
+        {
+          "src": "/static/favicons/android-chrome-192x192.png",
+          "sizes": "192x192"
+        }
+      ]
     },
     {
       "name": "Open Posts",
       "short_name": "Posts",
-      "url": "/blog"
+      "url": "/blog",
+      "description": "My posts.",
+      "icons": [
+        {
+          "src": "/static/favicons/android-chrome-192x192.png",
+          "sizes": "192x192"
+        }
+      ]
     },
     {
       "name": "Open Projects",
       "short_name": "Projects",
-      "url": "/projects"
+      "url": "/projects",
+      "description": "My awesome projects.",
+      "icons": [
+        {
+          "src": "/static/favicons/android-chrome-192x192.png",
+          "sizes": "192x192"
+        }
+      ]
     },
     {
       "name": "Open About",
       "short_name": "About",
-      "url": "/about"
+      "url": "/about",
+      "description": "Know more about me",
+      "icons": [
+        {
+          "src": "/static/favicons/android-chrome-192x192.png",
+          "sizes": "192x192"
+        }
+      ]
     }
   ],
   "theme_color": "#ffffff",
