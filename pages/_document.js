@@ -28,8 +28,11 @@ class MyDocument extends Document {
             color="#2d89ef"
           />
           <link rel="shortcut icon" href="/static/favicons/favicon.ico" />
-          <meta name="apple-mobile-web-app-title" content="Karuppusamy" />
-          <meta name="application-name" content="Karuppusamy" />
+          <meta
+            name="apple-mobile-web-app-title"
+            content="Karuppusamy | Developer"
+          />
+          <meta name="application-name" content="Karuppusamy | Developer" />
           <meta name="msapplication-TileColor" content="#2d89ef" />
           <meta
             name="msapplication-config"
