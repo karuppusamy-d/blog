@@ -39,17 +39,16 @@ class MyDocument extends Document {
             content="/static/favicons/browserconfig.xml"
           />
           <meta name="theme-color" content="#ffffff" />
+          <meta name="apple-mobile-web-app-capable" content="yes" />
+
+          {/*  RSS Feed url */}
           <link rel="alternate" type="application/rss+xml" href="/index.xml" />
 
+          {/* Fonts  */}
           <link
             rel="preconnect"
             href="https://fonts.gstatic.com"
             crossOrigin="anonymous"
-          />
-          <link
-            rel="preload"
-            as="style"
-            href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
           />
           <link
             rel="stylesheet"

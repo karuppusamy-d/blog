@@ -45,6 +45,7 @@ module.exports = withBundleAnalyzer(
     },
 
     pwa: {
+      dest: "public",
       disable: !isProd,
     },
   })
