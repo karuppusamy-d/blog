@@ -16,7 +16,8 @@ public/sitemap.xml
 
 # production
 /build
-*.xml
+/public/index.xml
+/public/tags
 
 # misc
 .DS_Store
