@@ -8,8 +8,14 @@
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .remark-code-title {
-  @apply px-5 py-3 font-mono text-sm font-bold text-gray-200 bg-gray-700 rounded-t;
+  @apply px-5 py-3 font-mono text-sm font-bold text-gray-200 rounded-t;
+
+  background: #0b2132;
 }
 
 .remark-code-title + pre {
@@ -20,6 +26,8 @@
   @apply hidden;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+/* Downloaded from https://github.com/PrismJS/prism-themes */
+@import "./prism-themes/night-owl.css";
+/* @import "./prism-themes/cobalt.css"; */
+/* @import "./prism-themes/gruvbox-dark.css"; */
+/* @import "./prism-themes/coldark-dark.css"; */
