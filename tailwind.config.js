@@ -52,8 +52,8 @@ module.exports = {
               color: theme("colors.gray.900"),
             },
             "p > code": {
-              color: "#e00000",
-              backgroundColor: theme("colors.gray.100"),
+              color: theme("colors.blue.700"),
+              backgroundColor: "#f5f7ff",
               padding: "0.3em 0.6em",
               borderRadius: "0.25rem",
             },
@@ -111,7 +111,7 @@ module.exports = {
             },
             "p > code": {
               backgroundColor: "#0b2132",
-              color: theme("colors.red.500"),
+              color: theme("colors.blue.400"),
             },
             hr: { borderColor: theme("colors.gray.700") },
             "ol li:before": {
