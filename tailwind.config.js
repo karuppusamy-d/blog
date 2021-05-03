@@ -18,6 +18,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ["'Poppins'", "sans-serif"],
+        mono: ["Consolas", "Monaco", "Andale Mono", "Ubuntu Mono", "monospace"],
       },
       colors: {
         blue: colors.lightBlue,
@@ -75,6 +76,10 @@ module.exports = {
               color: theme("colors.gray.900"),
               borderLeftColor: theme("colors.gray.200"),
             },
+            pre: {
+              color: "#111b27",
+              backgroundColor: "#f5f7ff",
+            },
           },
         },
         dark: {
@@ -127,6 +132,10 @@ module.exports = {
             blockquote: {
               color: theme("colors.gray.100"),
               borderLeftColor: theme("colors.gray.700"),
+            },
+            pre: {
+              color: "white",
+              backgroundColor: "#011627",
             },
           },
         },

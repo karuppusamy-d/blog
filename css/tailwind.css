@@ -12,10 +12,25 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Text Selection Color */
+::selection {
+  background: hsl(200, 100%, 90%);
+}
+.dark ::selection {
+  background: hsl(220, 100%, 25%);
+}
+
+/* Code Block Title */
 .remark-code-title {
   @apply px-5 py-3 font-mono text-sm font-bold text-gray-200 rounded-t;
 
-  background: #0b2132;
+  background-color: hsl(228, 55%, 93%);
+  color: hsl(217, 19%, 27%);
+}
+
+.dark .remark-code-title {
+  background-color: hsl(207, 65%, 12%);
+  color: hsl(207, 65%, 90%);
 }
 
 .remark-code-title + pre {
@@ -26,8 +41,12 @@ html {
   @apply hidden;
 }
 
-/* Downloaded from https://github.com/PrismJS/prism-themes */
-@import "./prism-themes/night-owl.css";
-/* @import "./prism-themes/cobalt.css"; */
-/* @import "./prism-themes/gruvbox-dark.css"; */
-/* @import "./prism-themes/coldark-dark.css"; */
+/* Themes for Code Block */
+@import "./code-theme-light.css";
+@import "./code-theme-dark.css";
+
+/* 
+Downloaded more themes from https://github.com/PrismJS/prism-themes
+Keep only Code blocks and necessary code from downloaded theme.
+For dark theme wrap code around ".dark"
+*/
