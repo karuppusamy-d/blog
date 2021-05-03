@@ -13,12 +13,12 @@ html {
 }
 
 /* Text Selection Color */
-::selection {
+/* ::selection {
   background: hsl(217, 100%, 92%);
 }
 .dark ::selection {
-  background: hsl(220, 100%, 25%);
-}
+  background: hsl(220, 100%, 30%);
+} */
 
 /* Code Block Title */
 .remark-code-title {

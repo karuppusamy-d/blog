@@ -18,7 +18,7 @@ pre[class*="language-"]::selection,
 pre[class*="language-"] ::selection,
 code[class*="language-"]::selection,
 code[class*="language-"] ::selection {
-  background: hsl(230, 45%, 93%);
+  background: hsl(230, 60%, 93%);
 }
 
 /* Code blocks */
