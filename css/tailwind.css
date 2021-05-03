@@ -14,7 +14,7 @@ html {
 
 /* Text Selection Color */
 ::selection {
-  background: hsl(200, 100%, 90%);
+  background: hsl(217, 100%, 92%);
 }
 .dark ::selection {
   background: hsl(220, 100%, 25%);
