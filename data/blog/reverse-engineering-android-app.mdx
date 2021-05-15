@@ -1,19 +1,19 @@
 ---
 title: Reverse Engineering Android App
 date: "2021-05-01"
+lastmod: "2021-05-15"
 tags: ["Android", "Reverse Engineering"]
 draft: false
-summary: In this post, I am going to explain how to reverse engineer an Android app that requires an activation code based on the IMEI number to use it.
-
+summary: How to reverse engineer an Android app that requires an activation code based on the IMEI number to use it.
 images: ["/static/images/blog/reverse-engineering-android-app.jpg"]
 ---
 
 ## Introduction
 
-In this post, I am going to explain how to reverse engineer an Android app that requires an activation code based on the IMEI number to use it.
+In this post, I am going to show how to reverse engineer an Android app that requires an activation code based on the IMEI number to use it.
 
 <blockquote>
-  Disclaimer: This article is just for educational purposes
+  <strong>⚠️ Disclaimer:</strong> This article is just for educational purpose.
 </blockquote>
 
 ## Target app
@@ -50,9 +50,9 @@ this.btnactivate.setOnClickListener(new View.OnClickListener() {
         Activation activation2 = Activation.this;
         activation2.strActccode = activation2.straccode;
         Activation activation3 = Activation.this;
-        activation3.firsttimedecode = Activation.Decode(activation3.strActccode, "W894517Q3AKREFMVBPCX6GIUYLHZ2J0OTSDN");
+        activation3.firsttimedecode = Activation.Decode(activation3.strActccode, "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789");
         Activation activation4 = Activation.this;
-        activation4.Secondtimedecode = Activation.Decode(activation4.firsttimedecode, "W894517Q3AKREFMVBPCX6GIUYLHZ2J0OTSDN");
+        activation4.Secondtimedecode = Activation.Decode(activation4.firsttimedecode, "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789");
         if (prkey.trim().length() <= 0 || imeikey.trim().length() <= 0 || Activation.this.strActccode.trim().length() <= 0) {
             Activation.this.PopupRegister("Example App", "Activation code is incorrect !", 0);
         } else if (prkey.equals(Activation.this.Secondtimedecode)) {
@@ -98,7 +98,7 @@ If we look at the code, the user input is passed into the `Decode()` function tw
 
 So here, we need to reverse the decode function to return the activation code for the given primary key.
 
-At first, it may difficult to understand, but if you analyze the code line by line it's just a simple encryption algorithm.
+At first, it may difficult to understand, but if you analyze the code line by line it's just a simple symmetric cipher algorithm.
 
 ```java:activation-min.java
 public void onClick(View v) {
@@ -113,8 +113,8 @@ public void onClick(View v) {
     // Decode Activation code two times with Decode Function with Decryption String
     // Decryption String is 36 char long (A-Z + 0-9) and shuffled
     activation.strActivationCode = activation.straccode;
-    activation.firstTimeDecode = Activation.Decode(activation.strActivationCode, "W894517Q3AKREFMVBPCX6GIUYLHZ2J0OTSDN");
-    activation.secondTimeDecode = Activation.Decode(activation.firstTimeDecode, "W894517Q3AKREFMVBPCX6GIUYLHZ2J0OTSDN");
+    activation.firstTimeDecode = Activation.Decode(activation.strActivationCode, "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789");
+    activation.secondTimeDecode = Activation.Decode(activation.firstTimeDecode, "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789");
 
     // Check if IMEI, Primary Key and Activation Code Exist
     if (prkey.trim().length() <= 0 || imeikey.trim().length() <= 0 || Activation.this.strActccode.trim().length() <= 0) {
@@ -149,12 +149,12 @@ public static String Decode(String str, String strCode) {
 }
 ```
 
-## Converting to Javascript
+## Reversing the code
 
 Firstly, I am going to convert the code to JavaScript. So I can easily add breakpoints and run code line by line within the browser to test its working.
 
 ```javascript:javascript-code.js
-function Decode(str, strCode) {
+function Decode(str, strCode = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789") {
   let result = str;
   if (str.length > 0 && str.length <= 14) {
     /* ---- newString (Decryption String) Generation ---- */
@@ -175,7 +175,7 @@ function Decode(str, strCode) {
         pos += strCode.length;
       }
 
-      // if tmpChar present inside newString (Always true)
+      // if tmpChar present inside newString (Always true for our purpose)
       if (newString.indexOf(tmpChar) > -1) {
         result = result + strCode[pos];
       } else {
@@ -189,37 +189,35 @@ function Decode(str, strCode) {
 }
 ```
 
+Now run the code in debugging mode and find the algorithm. This decode function uses a symmetric cipher algorithm. Now use this knowledge to write the encode function.
+
+I explained how to reverse the symmetric cipher algorithm [here.](/blog/reverse-engineering-symmetric-cipher-algorithm)
+
 ## Final code
 
-Here is the final code to generate the activation code for the given primary key.
+Here is the code to generate the activation key for the given primary key.
 
 ```javascript:final-code.js
-function Encode(primaryKey, strCode) {
+function Encode(str, strCode = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789") {
   /* ---- newString (Encryption String) Generation ---- */
-  let currentPos = strCode.indexOf(primaryKey[0]);
+  let currentPos = strCode.indexOf(str[0]);
   let newString =
     strCode.substring(currentPos + 1) + strCode.substring(0, currentPos + 1);
   /* ---- End newString Generation ---- */
+  let result = str[0];
 
-  let result = primaryKey[0];
-
-  for (let i = 0; i < primaryKey.length; i++) {
-    // Loop through primaryKey
-    let char = primaryKey[i];
-
+  for (let i = 0; i < str.length; i++) {
+    // Loop through str
+    let char = str[i];
     let pos = strCode.indexOf(char) + i + 2;
 
     // If pos is negative
     if (pos >= newString.length) {
       pos -= newString.length;
     }
-
     result = result + newString[pos];
   }
-
-  // result.length = primaryKey.length + 1
+  // result.length = str.length + 1
   return result;
 }
 ```
-
-I will explain how I reversed this encryption algorithm in the next post.
