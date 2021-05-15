@@ -73,8 +73,10 @@ module.exports = {
             },
             strong: { color: theme("colors.gray.600") },
             blockquote: {
+              fontWeight: "400",
               color: theme("colors.gray.900"),
               borderLeftColor: theme("colors.gray.200"),
+              paddingLeft: "0.6em",
             },
             pre: {
               color: "#111b27",
