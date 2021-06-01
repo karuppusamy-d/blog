@@ -12,12 +12,12 @@ import PageTitle from "@/components/PageTitle";
 import generateRss from "@/lib/generate-rss";
 
 export async function getStaticPaths() {
-  const posts = await getFiles("blog");
+  const posts = getFiles("blog");
 
   return {
     paths: posts.map((p) => ({
       params: {
-        slug: formatSlug(p),
+        slug: formatSlug(p).split("/"),
       },
     })),
     fallback: false,
@@ -26,7 +26,9 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const allPosts = await getAllFilesFrontMatter("blog");
-  const postIndex = allPosts.findIndex((post) => post.slug === params.slug);
+  const postIndex = allPosts.findIndex(
+    (post) => formatSlug(post.slug) === params.slug.join("/")
+  );
   const prev = allPosts[postIndex + 1] || null;
   const next = allPosts[postIndex - 1] || null;
   const post = await getFileBySlug("blog", params.slug);
