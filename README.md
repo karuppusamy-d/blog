@@ -8,6 +8,19 @@ I do passionate about programming. Because I love what I do, I have a steady sou
 
 [Website](https://karuppusamy.me/)
 
+## Features
+
+- PWA Support
+- SEO Optimized
+- Projects Page
+- Support for Tags
+- Light and dark theme
+- Support for Nested Routes
+- [MDX - write JSX in markdown documents!](https://mdxjs.com/)
+- Math display supported via [KaTeX](https://katex.org/)
+- Server-side syntax highlighting with [rehype-prism](https://github.com/mapbox/rehype-prism)
+- Automatic image optimization via [next/image](https://nextjs.org/docs/basic-features/image-optimization)
+
 ## Quick Start Guide
 
 1. `npx degit https://github.com/karuppusamy-d/blog.git`
@@ -88,6 +101,12 @@ images:
 ---
 ```
 
+### Nested Routes
+
+Simplify create multiple folders inside the main /data/blog folder and add your .md/.mdx files to them. You can even create something like /data/blog/nested-route/deeply-nested-route/your-post.md
+
+> Warning: Don't create empty folders inside /data/blog folder. It will break dev server.
+
 ### Compose
 
 `scripts/compose.js` can be used to easily generate a post with pre-filled front matter.
@@ -110,6 +129,6 @@ The easiest way to deploy the template is to use the [Vercel Platform](https://v
 **Netlify / Github Pages / Firebase etc.**  
 As the template uses `next/image` for image optimization, additional configurations has to be made to deploy on other popular static hosting websites like [Netlify](https://www.netlify.com/) or [Github Pages](https://pages.github.com/). An alternative image optimization provider such as Imgix, Cloudinary or Akamai has to be used. Alternatively, replace the `next/image` component with a standard `<img>` tag. See [`next/image` documentation](https://nextjs.org/docs/basic-features/image-optimization) for more details.
 
-## Contribution
+## Credits
 
 This is a modified version of [Tailwind Nextjs Starter Blog](https://github.com/timlrx/tailwind-nextjs-starter-blog)
