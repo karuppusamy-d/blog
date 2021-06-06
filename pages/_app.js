@@ -5,7 +5,7 @@ import { DefaultSeo } from "next-seo";
 import Head from "next/head";
 import Router from "next/router";
 import ProgressBar from "@badrap/bar-of-progress";
-
+import * as gtag from "@/lib/gtag";
 import { SEO } from "@/components/SEO";
 import LayoutWrapper from "@/components/LayoutWrapper";
 
@@ -16,8 +16,13 @@ const progress = new ProgressBar({
   delay: 100,
 });
 
+const handleRouteChange = (url) => {
+  progress.finish();
+  gtag.pageview(url);
+};
+
 Router.events.on("routeChangeStart", progress.start);
-Router.events.on("routeChangeComplete", progress.finish);
+Router.events.on("routeChangeComplete", handleRouteChange);
 Router.events.on("routeChangeError", progress.finish);
 
 export default function App({ Component, pageProps }) {
