@@ -11,6 +11,7 @@
     "analyze": "cross-env ANALYZE=true next build"
   },
   "dependencies": {
+    "@badrap/bar-of-progress": "^0.1.2",
     "@mapbox/rehype-prism": "^0.6.0",
     "@tailwindcss/forms": "^0.3.3",
     "@tailwindcss/typography": "^0.4.1",
