@@ -15,7 +15,7 @@ export default function Footer() {
           <SocialIcon kind="github" href={siteMetadata.github} />
           <SocialIcon kind="gmail" href={`mailto:${siteMetadata.email}`} />
         </div>
-        <div className="flex mb-6 space-x-2 text-md">
+        <div className="flex mb-6 space-x-2">
           <div>{`© ${new Date().getFullYear()}`}</div>
           <div>{` • `}</div>
           <Link href="/">{siteMetadata.title}</Link>
