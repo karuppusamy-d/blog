@@ -31,7 +31,7 @@ export async function getStaticProps({ params }) {
   );
   const prev = allPosts[postIndex + 1] || null;
   const next = allPosts[postIndex - 1] || null;
-  const post = await getFileBySlug("blog", params.slug);
+  const post = await getFileBySlug("blog", params.slug.join("/"));
 
   // rss
   const rss = generateRss(allPosts);
