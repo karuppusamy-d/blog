@@ -18,6 +18,7 @@ const ThemeSwitch = () => {
         xmlns="http://www.w3.org/2000/svg"
         aria-label="Toggle Dark Mode"
         viewBox="0 0 20 20"
+        height="100%"
         fill="currentColor"
       >
         {mounted && currTheme === "dark" ? (
