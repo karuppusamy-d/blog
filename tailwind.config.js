@@ -11,9 +11,6 @@ module.exports = {
   darkMode: "class",
   theme: {
     extend: {
-      inset: {
-        18: "4.5rem", // NavBar Height
-      },
       fontFamily: {
         sans: ["'Poppins'", "sans-serif"],
         mono: ["Consolas", "Monaco", "Andale Mono", "Ubuntu Mono", "monospace"],
@@ -143,7 +140,8 @@ module.exports = {
       }),
       boxShadow: {
         light: "0 0 12px 0 rgba(0, 0, 0, 0.09)",
-        dark: "0 2px 12px 0 rgba(0, 0, 0, 0.18)",
+        dark: "0 1px 1px 0 rgba(75, 85, 99, 0.3)",
+        "light-lg": "0 2px 20px 0 rgba(0, 0, 0, 0.09)",
       },
     },
   },
