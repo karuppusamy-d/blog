@@ -16,7 +16,7 @@ module.exports = {
         mono: ["Consolas", "Monaco", "Andale Mono", "Ubuntu Mono", "monospace"],
       },
       colors: {
-        blue: colors.lightBlue,
+        blue: colors.sky,
       },
       typography: (theme) => ({
         DEFAULT: {
