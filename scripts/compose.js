@@ -1,4 +1,4 @@
-const fs = require("fs");
+import { writeFile } from "fs";
 
 const args = process.argv.slice(2);
 const title = args[0];
@@ -22,10 +22,10 @@ date: '${date}'
 tags: []
 draft: true
 summary: 
-images: []
+images: ["/static/images/twitter-card.png"]
 ---
 `;
 
-fs.writeFile(`data/blog/${fileName}.${ext}`, frontMatter, (err) => {
+writeFile(`data/blog/${fileName}.${ext}`, frontMatter, (err) => {
   if (err) throw err;
 });
