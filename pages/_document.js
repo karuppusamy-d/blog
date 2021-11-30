@@ -58,8 +58,8 @@ class MyDocument extends Document {
 
           <link
             rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css"
-            integrity="sha256-hFAmQt2dGk6G99nu2cEWz8/1JGRnBP/BsGoZwQ7WeLE="
+            href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css"
+            integrity="sha256-9/mhQQwkpU5okPfM5l0v3LnP9xtc6JK8dKW0/WlGaUc="
             crossOrigin="anonymous"
           />
 
