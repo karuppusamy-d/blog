@@ -34,12 +34,13 @@ export default function Home({ posts }) {
               <br /> I'am <span className="text-blue-400">Karuppusamy</span>
               <br /> Developer
             </h1>
-            <Link href="/about">
+            <Link href="https://drive.google.com/file/d/1zzxmzG-v7VOmDWEQQo_SSg4Y8WfDUi0i/view">
               <a
                 className="btn text-[0.85rem] sm:text-base"
-                aria-label="Know More"
+                aria-label="View Resume"
+                target="_blank"
               >
-                About me
+                View Resume
               </a>
             </Link>
           </div>

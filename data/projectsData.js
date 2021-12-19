@@ -1,14 +1,15 @@
 const projectsData = [
   {
-    title: "io.karuppusamy.me",
-    description: "comming soon...",
+    title: "Turnsmart.io",
+    description:
+      "It is a website that simplifies the process of creating and integrating IoT projects with Google assistant by providing an easy to use API.",
     imgSrc: "/static/images/twitter-card.png",
     href: "https://io.karuppusamy.me/",
   },
   {
     title: "TechBuz.net",
     description:
-      "It is a mobile comparison website built on top of Next.Js. I have optimized it for speed and SEO. It also supports PWA so it can be installed as a regular app. It consists of more than 2.6K mobiles and 3.3M pages.",
+      "It is a mobile comparison website built on top of Next.Js. I have optimized it for speed and SEO. It also supports PWA. So it can be installed as a regular app. It consists of more than 2.7K mobiles and 2.4M pages.",
     imgSrc: "/static/images/projects/techbuz.png",
     href: "https://techbuz.net/",
   },
