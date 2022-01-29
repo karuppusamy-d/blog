@@ -1,12 +1,11 @@
 const colors = require("tailwindcss/colors");
 
 module.exports = {
-  mode: "jit",
-  purge: [
-    "./pages/**/*.js",
-    "./components/**/*.js",
-    "./layouts/**/*.js",
-    "./lib/**/*.js",
+  content: [
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
+    "./layouts/**/*.{js,ts,jsx,tsx}",
+    "./lib/**/*.{js,ts,jsx,tsx}",
   ],
   darkMode: "class",
   theme: {
@@ -17,6 +16,7 @@ module.exports = {
       },
       colors: {
         blue: colors.sky,
+        gray: colors.neutral,
       },
       typography: (theme) => ({
         DEFAULT: {
@@ -144,9 +144,6 @@ module.exports = {
         "light-lg": "0 2px 20px 0 rgba(0, 0, 0, 0.09)",
       },
     },
-  },
-  variants: {
-    typography: ["dark"],
   },
   plugins: [require("@tailwindcss/forms"), require("@tailwindcss/typography")],
 };

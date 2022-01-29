@@ -48,7 +48,7 @@ const MobileNav = () => {
       </button>
 
       <div
-        className={`fixed w-9/12 h-full top-16 right-0 bg-gray-200 dark:bg-gray-800 z-10 transform ease-in-out duration-500 ${
+        className={`fixed w-9/12 h-full top-16 right-0 bg-gray-200 dark:bg-gray-800 z-10 ease-in-out duration-500 ${
           navShow ? "translate-x-0" : "translate-x-full"
         }`}
       >
@@ -70,7 +70,7 @@ const MobileNav = () => {
       <button
         type="button"
         aria-label="toggle navmenu"
-        className={`fixed w-full h-full top-16 inset-x-0 backdrop-filter backdrop-blur-sm cursor-auto focus:outline-none ${
+        className={`fixed w-full h-full top-16 inset-x-0 backdrop-blur-sm cursor-auto focus:outline-none ${
           navShow ? "block" : "hidden"
         }`}
         onClick={onToggleNav}
