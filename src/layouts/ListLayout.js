@@ -26,7 +26,7 @@ export default function ListLayout({ posts, title }) {
               type="text"
               onChange={(e) => setSearchValue(e.target.value)}
               placeholder="Search articles"
-              className="block w-full px-4 py-2 text-gray-900 bg-white border border-gray-300 rounded-md dark:border-gray-900 outline-none ring-1 ring-transparent focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:text-gray-100 dark:placeholder:text-gray-500"
+              className="block w-full px-4 py-2 rounded-md text-gray-900 border border-gray-300 dark:border-gray-900 outline-none ring-1 ring-transparent focus:ring-gray-300 focus:border-gray-300 dark:focus:ring-gray-700 dark:focus:border-gray-700 dark:bg-gray-800 dark:text-gray-100 dark:placeholder:text-gray-500"
             />
             <svg
               className="absolute w-5 h-5 text-gray-400 right-3 top-3 dark:text-gray-300"
@@ -84,7 +84,7 @@ export default function ListLayout({ posts, title }) {
                     <div className="text-sm font-medium">
                       <Link
                         href={`/blog/${slug}`}
-                        className="text-blue-500 hover:text-blue-600 dark:hover:text-blue-400"
+                        className="text-primary-400 hover:text-primary-500 dark:text-primary-500 dark:hover:text-primary-400"
                         aria-label={`Read "${title}"`}
                       >
                         Read more &rarr;
