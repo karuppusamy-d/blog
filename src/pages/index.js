@@ -31,7 +31,7 @@ export default function Home({ posts }) {
           <div>
             <h1 className="mb-4 text-3xl font-bold leading-snug sm:mb-6 sm:text-[2.75rem] sm:leading-snug md:text-[3.5rem] md:leading-snug">
               Hi,
-              <br /> I'am <span className="text-blue-400">Karuppusamy</span>
+              <br /> I'am <span className="text-primary-400">Karuppusamy</span>
               <br /> Developer
             </h1>
             <Link href="https://drive.google.com/file/d/1zzxmzG-v7VOmDWEQQo_SSg4Y8WfDUi0i/view">
@@ -105,7 +105,7 @@ export default function Home({ posts }) {
                       <div className="text-sm font-medium">
                         <Link href={`/blog/${slug}`}>
                           <a
-                            className="text-blue-500 hover:text-blue-600 dark:hover:text-blue-400"
+                            className="text-primary-400 hover:text-primary-500 dark:text-primary-500 dark:hover:text-primary-400"
                             aria-label={`Read "${title}"`}
                           >
                             Read more &rarr;
@@ -124,7 +124,7 @@ export default function Home({ posts }) {
         <div className="flex justify-end font-medium">
           <Link href="/blog">
             <a
-              className="text-blue-500 hover:text-blue-600 dark:hover:text-blue-400"
+              className="text-primary-400 hover:text-primary-500 dark:text-primary-500 dark:hover:text-primary-400"
               aria-label="all posts"
             >
               All Posts &rarr;
