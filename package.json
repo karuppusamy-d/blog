@@ -11,7 +11,7 @@
   "scripts": {
     "start": "next start",
     "dev": "next dev",
-    "build": "next build && node ./scripts/generate-sitemap",
+    "build": "next build && node ./src/scripts/generate-sitemap",
     "lint": "eslint --ext js,jsx,ts,tsx --fix",
     "format": "prettier --write ./",
     "analyze": "cross-env ANALYZE=true next build"
