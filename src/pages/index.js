@@ -5,9 +5,9 @@ import Tag from "@/components/Tag";
 import siteMetadata from "@/data/siteMetadata";
 import { getAllFilesFrontMatter } from "@/lib/mdx";
 import SocialIcon from "@/components/social-icons";
+import formatDate from "@/lib/utils/formatDate";
 
 const MAX_DISPLAY = 3;
-const postDateTemplate = { year: "numeric", month: "long", day: "numeric" };
 
 export async function getStaticProps() {
   const posts = await getAllFilesFrontMatter("blog");
@@ -73,12 +73,7 @@ export default function Home({ posts }) {
                     <dl>
                       <dt className="sr-only">Published on</dt>
                       <dd className="text-sm xl:text-base font-medium text-gray-500 dark:text-gray-400">
-                        <time dateTime={date}>
-                          {new Date(date).toLocaleDateString(
-                            siteMetadata.locale,
-                            postDateTemplate
-                          )}
-                        </time>
+                        <time dateTime={date}>{formatDate(date)}</time>
                       </dd>
                     </dl>
                     <div className="space-y-1 xl:col-span-3">
