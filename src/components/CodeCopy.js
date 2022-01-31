@@ -35,9 +35,7 @@ const Pre = (props) => {
           copied
             ? "focus:outline-none focus:border-green-400 border-green-400"
             : "border-gray-400 dark:border-gray-300"
-        } ${
-          hovered ? "opacity-100" : "opacity-0"
-        } transition-opacity duration-500`}
+        } ${hovered ? "opacity-100" : "opacity-0"} transition-all duration-300`}
         onClick={onCopy}
       >
         <svg
@@ -47,7 +45,7 @@ const Pre = (props) => {
           fill="none"
           className={`${
             copied ? "text-green-400" : "text-gray-400 dark:text-gray-300"
-          }  transition-opacity duration-300`}
+          }  transition-all duration-300`}
         >
           {copied ? (
             <>

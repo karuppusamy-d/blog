@@ -22,7 +22,7 @@ const ScrollToTop = () => {
       aria-label="Scroll To Top"
       type="button"
       onClick={handleScrollTop}
-      className={`fixed gap-3 right-8 bottom-8 p-2 transition-all duration-300 rounded-full text-primary-400 bg-primary-100 hover:bg-primary-200 dark:text-gray-400 dark:bg-gray-700 dark:hover:bg-gray-600 ${
+      className={`fixed gap-3 right-8 bottom-8 p-2 transition-all duration-300 rounded-full text-primary-400 bg-primary-100 hover:bg-primary-200 dark:text-gray-400 dark:bg-gray-700 dark:hover:bg-gray-600 focus:outline-primary-400 ${
         show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
       }`}
     >
