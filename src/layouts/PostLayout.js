@@ -1,5 +1,6 @@
 import Link from "@/components/Link";
 import PageTitle from "@/components/PageTitle";
+import ScrollToTop from "@/components/ScrollToTop";
 import { BlogSeo } from "@/components/SEO";
 import SocialIcon from "@/components/social-icons";
 import Tag from "@/components/Tag";
@@ -153,6 +154,7 @@ export default function PostLayout({ children, frontMatter, next, prev }) {
           </div>
         </div>
       </article>
+      <ScrollToTop />
     </>
   );
 }
