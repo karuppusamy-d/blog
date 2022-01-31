@@ -17,6 +17,7 @@ public/sitemap.xml
 # production
 /build
 /public/index.xml
+/public/feed.xml
 /public/tags
 
 # pwa
