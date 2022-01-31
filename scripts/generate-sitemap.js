@@ -1,7 +1,7 @@
 import { writeFileSync } from "fs";
 import { globby } from "globby";
 import prettier from "prettier";
-const siteMetadata = require("../data/siteMetadata");
+import siteMetadata from "../data/siteMetadata.json";
 
 (async () => {
   const prettierConfig = await prettier.resolveConfig("./.prettierrc.js");
