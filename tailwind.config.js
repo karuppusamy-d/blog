@@ -18,9 +18,9 @@ module.exports = {
           css: {
             color: theme("colors.gray.700"),
             a: {
-              color: theme("colors.primary.500"),
+              color: theme("colors.primary.400"),
               "&:hover": {
-                color: `${theme("colors.primary.600")} !important`,
+                color: `${theme("colors.primary.500")} !important`,
               },
               code: { color: theme("colors.primary.400") },
             },
@@ -68,7 +68,7 @@ module.exports = {
               paddingLeft: "0.6em",
             },
             pre: {
-              color: theme("colors.primary.800"),
+              color: theme("colors.gray.900"),
               backgroundColor: "#f5f7ff",
             },
           },
@@ -81,7 +81,7 @@ module.exports = {
               "&:hover": {
                 color: `${theme("colors.primary.400")} !important`,
               },
-              code: { color: theme("colors.primary.400") },
+              code: { color: theme("colors.primary.500") },
             },
             h1: {
               fontWeight: "700",
@@ -102,7 +102,7 @@ module.exports = {
             },
             "p > code": {
               backgroundColor: theme("colors.gray.800"),
-              color: theme("colors.gray.200"),
+              color: theme("colors.primary.400"),
             },
             hr: { borderColor: theme("colors.gray.700") },
             "ol li::marker": {
