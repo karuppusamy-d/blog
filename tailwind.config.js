@@ -12,6 +12,7 @@ module.exports = {
       colors: {
         primary: colors.sky,
         gray: colors.neutral,
+        code: "#f5f7ff",
       },
       typography: (theme) => ({
         DEFAULT: {
@@ -43,7 +44,7 @@ module.exports = {
             },
             "p > code": {
               color: theme("colors.primary.500"),
-              backgroundColor: "#f5f7ff",
+              backgroundColor: theme("colors.code"),
               padding: "0.3em 0.6em",
               borderRadius: "0.25rem",
             },
@@ -69,7 +70,7 @@ module.exports = {
             },
             pre: {
               color: theme("colors.gray.900"),
-              backgroundColor: "#f5f7ff",
+              backgroundColor: theme("colors.code"),
             },
           },
         },
