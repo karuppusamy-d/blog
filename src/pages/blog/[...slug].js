@@ -1,5 +1,5 @@
 import fs from "fs";
-import { MDXRemote } from "next-mdx-remote";
+import { MDXLayoutRenderer } from "@/components/MDXComponents";
 import {
   getFiles,
   getFileBySlug,
@@ -7,7 +7,6 @@ import {
   formatSlug,
 } from "@/lib/mdx";
 import PostLayout from "@/layouts/PostLayout";
-import MDXComponents from "@/components/MDXComponents";
 import PageTitle from "@/components/PageTitle";
 import generateRss from "@/lib/generate-rss";
 
@@ -34,8 +33,10 @@ export async function getStaticProps({ params }) {
   const post = await getFileBySlug("blog", params.slug.join("/"));
 
   // rss
-  const rss = generateRss(allPosts);
-  fs.writeFileSync("./public/index.xml", rss);
+  if (allPosts.length > 0) {
+    const rss = generateRss(allPosts);
+    fs.writeFileSync("./public/feed.xml", rss);
+  }
 
   return { props: { post, prev, next } };
 }
@@ -47,7 +48,7 @@ export default function Blog({ post, prev, next }) {
     <>
       {frontMatter.draft !== true ? (
         <PostLayout frontMatter={frontMatter} prev={prev} next={next}>
-          <MDXRemote {...mdxSource} components={MDXComponents} />
+          <MDXLayoutRenderer mdxSource={mdxSource} />
         </PostLayout>
       ) : (
         <div className="text-center flex flex-col items-center justify-center min-h-[80vh]">

@@ -1,18 +1,16 @@
-import { readFileSync, writeFileSync } from "fs";
+import { writeFileSync } from "fs";
 import { globby } from "globby";
 import prettier from "prettier";
-
-const siteMetadata = JSON.parse(readFileSync("./data/siteMetadata.json"));
+import siteMetadata from "../data/siteMetadata.json";
 
 (async () => {
   const prettierConfig = await prettier.resolveConfig("./.prettierrc.js");
   const pages = await globby([
     "pages/*.js",
-    "data/**/*.mdx",
-    "data/**/*.md",
+    "data/blog/**/*.mdx",
+    "data/blog/**/*.md",
     "public/tags/**/*.xml",
     "!pages/_*.js",
-    "!pages/404.js",
     "!pages/api",
   ]);
 
@@ -28,11 +26,17 @@ const siteMetadata = JSON.parse(readFileSync("./data/siteMetadata.json"));
                   .replace(".js", "")
                   .replace(".mdx", "")
                   .replace(".md", "")
-                  .replace("/index.xml", "");
+                  .replace("/feed.xml", "");
                 const route = path === "/index" ? "" : path;
+                if (
+                  page === `pages/404.js` ||
+                  page === `pages/blog/[...slug].js`
+                ) {
+                  return;
+                }
                 return `
                         <url>
-                            <loc>${`${siteMetadata.siteUrl}${route}`}</loc>
+                            <loc>${siteMetadata.siteUrl}${route}</loc>
                         </url>
                     `;
               })

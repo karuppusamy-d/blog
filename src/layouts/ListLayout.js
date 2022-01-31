@@ -1,9 +1,7 @@
 import Link from "@/components/Link";
 import Tag from "@/components/Tag";
-import siteMetadata from "@/data/siteMetadata";
 import { useState } from "react";
-
-const postDateTemplate = { year: "numeric", month: "long", day: "numeric" };
+import formatDate from "@/lib/utils/formatDate";
 
 export default function ListLayout({ posts, title }) {
   const [searchValue, setSearchValue] = useState("");
@@ -54,12 +52,7 @@ export default function ListLayout({ posts, title }) {
                   <dl>
                     <dt className="sr-only">Published on</dt>
                     <dd className="text-sm xl:text-base font-medium text-gray-500 dark:text-gray-400">
-                      <time dateTime={date}>
-                        {new Date(date).toLocaleDateString(
-                          siteMetadata.locale,
-                          postDateTemplate
-                        )}
-                      </time>
+                      <time dateTime={date}>{formatDate(date)}</time>
                     </dd>
                   </dl>
                   <div className="space-y-1 xl:col-span-3">
