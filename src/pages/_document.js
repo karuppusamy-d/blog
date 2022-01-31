@@ -43,7 +43,7 @@ class MyDocument extends Document {
           <meta name="apple-mobile-web-app-capable" content="yes" />
 
           {/*  RSS Feed url */}
-          <link rel="alternate" type="application/rss+xml" href="/index.xml" />
+          <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
 
           {/* Fonts  */}
           <link
@@ -54,13 +54,6 @@ class MyDocument extends Document {
           <link
             rel="stylesheet"
             href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
-          />
-
-          <link
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css"
-            integrity="sha256-9/mhQQwkpU5okPfM5l0v3LnP9xtc6JK8dKW0/WlGaUc="
-            crossOrigin="anonymous"
           />
 
           {/* Global Site Tag (gtag.js) - Google Analytics */}
