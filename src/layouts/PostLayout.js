@@ -1,9 +1,10 @@
 import Link from "@/components/Link";
 import PageTitle from "@/components/PageTitle";
-import ScrollToTop from "@/components/ScrollToTop";
+import ScrollTo from "@/components/ScrollTo";
 import { BlogSeo } from "@/components/SEO";
 import SocialIcon from "@/components/social-icons";
 import Tag from "@/components/Tag";
+import Comments from "@/components/comments";
 import siteMetadata from "@/data/siteMetadata";
 
 const editUrl = (fileName) =>
@@ -83,6 +84,8 @@ export default function PostLayout({ children, frontMatter, next, prev }) {
               <div className="pt-8 pb-6 prose dark:prose-dark max-w-none">
                 {children}
               </div>
+
+              {/* Show social Icons */}
               <div className="flex flex-column py-6 space-x-3 text-sm sm:text-base text-gray-700 dark:text-gray-300">
                 <div className="flex flex-column text-base sm:text-[1.2rem] items-center space-x-3">
                   <SocialIcon
@@ -111,6 +114,9 @@ export default function PostLayout({ children, frontMatter, next, prev }) {
                 <div> • </div>
                 <Link href={editUrl(fileName)}>{"View on GitHub"}</Link>
               </div>
+
+              {/* Show comments */}
+              <Comments mapping={frontMatter.slug} />
             </div>
 
             <div className="text-sm font-medium divide-gray-200 xl:divide-y dark:divide-gray-700 xl:col-start-1 xl:row-start-2">
@@ -154,7 +160,7 @@ export default function PostLayout({ children, frontMatter, next, prev }) {
           </div>
         </div>
       </article>
-      <ScrollToTop />
+      <ScrollTo />
     </>
   );
 }
