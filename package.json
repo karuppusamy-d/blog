@@ -13,7 +13,7 @@
     "dev": "next dev",
     "build": "next build && node --experimental-json-modules ./scripts/generate-sitemap",
     "compose": "node ./scripts/compose",
-    "lint": "eslint --ext js,jsx,ts,tsx --fix",
+    "lint": "next lint",
     "format": "prettier --write ./",
     "analyze": "cross-env ANALYZE=true next build"
   },
@@ -44,15 +44,15 @@
     "@next/bundle-analyzer": "^12.0.9",
     "@svgr/webpack": "^6.2.1",
     "@tailwindcss/typography": "^0.5.1",
+    "@types/node": "^17.0.14",
+    "@types/react": "^17.0.38",
+    "@types/react-dom": "^17.0.11",
     "autoprefixer": "^10.4.2",
     "eslint": "^8.8.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-jsx-a11y": "^6.5.1",
-    "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-react": "^7.28.0",
-    "eslint-plugin-react-hooks": "^4.3.0",
+    "eslint-config-next": "12.0.10",
     "postcss": "^8.4.5",
     "prettier": "^2.5.1",
-    "tailwindcss": "^3.0.18"
+    "tailwindcss": "^3.0.18",
+    "typescript": "^4.5.5"
   }
 }
