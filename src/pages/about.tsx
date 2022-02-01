@@ -2,7 +2,7 @@ import siteMetadata from "@/data/siteMetadata";
 import SocialIcon from "@/components/social-icons";
 import { PageSeo } from "@/components/SEO";
 
-export default function About() {
+const About = () => {
   return (
     <>
       <PageSeo
@@ -62,4 +62,6 @@ export default function About() {
       </div>
     </>
   );
-}
+};
+
+export default About;

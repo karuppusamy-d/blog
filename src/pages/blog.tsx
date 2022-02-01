@@ -9,7 +9,7 @@ export async function getStaticProps() {
   return { props: { posts } };
 }
 
-export default function Blog({ posts }) {
+const Blog = ({ posts }) => {
   return (
     <>
       <PageSeo
@@ -20,4 +20,6 @@ export default function Blog({ posts }) {
       <ListLayout posts={posts} title="All Posts" />
     </>
   );
-}
+};
+
+export default Blog;

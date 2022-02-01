@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default function FourZeroFour() {
+const NotFound = () => {
   return (
     <div className="flex flex-col items-start justify-center divide-y divide-gray-200 dark:divide-gray-700 md:justify-center md:items-center md:flex-row md:divide-y-0 md:space-x-6 min-h-[80vh]">
       <div className="pb-4">
@@ -10,15 +10,17 @@ export default function FourZeroFour() {
       </div>
       <div className="max-w-md pt-5 md:p-0">
         <p className="mb-4 text-xl font-bold leading-normal md:text-2xl">
-          Sorry we couldn't find this page.
+          Sorry we couldn&apos;t find this page.
         </p>
         <p className="mb-6 text-gray-600 dark:text-gray-300">
           But dont worry, you can find plenty of other things on our homepage.
         </p>
-        <Link href="/">
+        <Link href="/" passHref>
           <button className="btn">Back to homepage</button>
         </Link>
       </div>
     </div>
   );
-}
+};
+
+export default NotFound;
