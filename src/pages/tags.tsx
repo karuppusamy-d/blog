@@ -11,7 +11,7 @@ export async function getStaticProps() {
   return { props: { tags } };
 }
 
-export default function Tags({ tags }) {
+const Tags = ({ tags }) => {
   const sortedTags = Object.keys(tags).sort((a, b) => tags[b] - tags[a]);
   return (
     <>
@@ -45,4 +45,6 @@ export default function Tags({ tags }) {
       </div>
     </>
   );
-}
+};
+
+export default Tags;

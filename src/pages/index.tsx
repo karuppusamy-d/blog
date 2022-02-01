@@ -1,5 +1,4 @@
 import Link from "next/link";
-
 import { PageSeo } from "@/components/SEO";
 import Tag from "@/components/Tag";
 import siteMetadata from "@/data/siteMetadata";
@@ -15,7 +14,7 @@ export async function getStaticProps() {
   return { props: { posts } };
 }
 
-export default function Home({ posts }) {
+const Home = ({ posts }) => {
   return (
     <>
       <PageSeo
@@ -31,7 +30,8 @@ export default function Home({ posts }) {
           <div>
             <h1 className="mb-4 text-3xl font-bold leading-snug sm:mb-6 sm:text-[2.75rem] sm:leading-snug md:text-[3.5rem] md:leading-snug">
               Hi,
-              <br /> I'am <span className="text-primary-400">Karuppusamy</span>
+              <br /> I&apos;am{" "}
+              <span className="text-primary-400">Karuppusamy</span>
               <br /> Developer
             </h1>
             <Link href="https://drive.google.com/file/d/1zzxmzG-v7VOmDWEQQo_SSg4Y8WfDUi0i/view">
@@ -129,4 +129,6 @@ export default function Home({ posts }) {
       )}
     </>
   );
-}
+};
+
+export default Home;

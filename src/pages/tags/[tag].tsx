@@ -10,7 +10,22 @@ import generateRss from "@/lib/generate-rss";
 
 const root = process.cwd();
 
-export async function getStaticPaths() {
+const Tag = ({ posts, tag }) => {
+  // Capitalize first letter and convert space to dash
+  const title = tag[0].toUpperCase() + tag.split(" ").join("-").slice(1);
+  return (
+    <>
+      <PageSeo
+        title={`Tags - ${title} | ${siteMetadata.title}`}
+        description={`Tags - ${title} - ${siteMetadata.title}`}
+        url={`${siteMetadata.siteUrl}/tags/${tag}`}
+      />
+      <ListLayout posts={posts} title={title} />
+    </>
+  );
+};
+
+const getStaticPaths = async () => {
   const tags = await getAllTags("blog");
 
   return {
@@ -21,9 +36,9 @@ export async function getStaticPaths() {
     })),
     fallback: false,
   };
-}
+};
 
-export async function getStaticProps({ params }) {
+const getStaticProps = async ({ params }) => {
   const allPosts = await getAllFilesFrontMatter("blog");
   const filteredPosts = allPosts.filter(
     (post) =>
@@ -38,19 +53,7 @@ export async function getStaticProps({ params }) {
   fs.writeFileSync(path.join(rssPath, "index.xml"), rss);
 
   return { props: { posts: filteredPosts, tag: params.tag } };
-}
+};
 
-export default function Tag({ posts, tag }) {
-  // Capitalize first letter and convert space to dash
-  const title = tag[0].toUpperCase() + tag.split(" ").join("-").slice(1);
-  return (
-    <>
-      <PageSeo
-        title={`Tags - ${title} | ${siteMetadata.title}`}
-        description={`Tags - ${title} - ${siteMetadata.title}`}
-        url={`${siteMetadata.siteUrl}/tags/${tag}`}
-      />
-      <ListLayout posts={posts} title={title} />
-    </>
-  );
-}
+export { getStaticPaths, getStaticProps };
+export default Tag;

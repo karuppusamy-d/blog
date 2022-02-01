@@ -1,6 +1,7 @@
 import "@/css/tailwind.css";
 
 import { ThemeProvider } from "next-themes";
+import type { AppProps } from "next/app";
 import { DefaultSeo } from "next-seo";
 import Head from "next/head";
 import Router from "next/router";
@@ -16,7 +17,7 @@ const progress = new ProgressBar({
   delay: 100,
 });
 
-const handleRouteChange = (url) => {
+const handleRouteChange = (url: string) => {
   progress.finish();
   gtag.pageview(url);
 };
@@ -25,7 +26,7 @@ Router.events.on("routeChangeStart", progress.start);
 Router.events.on("routeChangeComplete", handleRouteChange);
 Router.events.on("routeChangeError", progress.finish);
 
-export default function App({ Component, pageProps }) {
+const App = ({ Component, pageProps }: AppProps) => {
   return (
     <ThemeProvider
       defaultTheme="system"
@@ -41,4 +42,6 @@ export default function App({ Component, pageProps }) {
       </LayoutWrapper>
     </ThemeProvider>
   );
-}
+};
+
+export default App;
