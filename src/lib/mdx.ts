@@ -3,7 +3,7 @@ import matter from "gray-matter";
 import path from "path";
 import readingTime from "reading-time";
 import { bundleMDX } from "mdx-bundler";
-import getAllFilesRecursively from "./utils/files";
+import getAllFilesRecursively from "./utils/getAllFilesRecursively";
 // Remark packages
 import remarkGfm from "remark-gfm";
 import remarkFootnotes from "remark-footnotes";
