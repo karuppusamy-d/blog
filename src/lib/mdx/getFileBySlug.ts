@@ -13,6 +13,7 @@ import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypePrismPlus from "rehype-prism-plus";
 import rehypePresetMinify from "rehype-preset-minify";
+import { FrontMatter, GetFileBySlug } from "./types";
 
 const root = process.cwd();
 
@@ -47,8 +48,7 @@ const getFileBySlug: GetFileBySlug = async (type, slug) => {
 
   const { code } = await bundleMDX({
     source,
-    // mdx imports can be automatically source from the components directory
-    cwd: path.join(root, "components"),
+    cwd: root,
     xdmOptions(options) {
       // this is the recommended way to add custom remark/rehype plugins:
       // The syntax might look weird, but it protects you in case we add/remove
@@ -69,25 +69,18 @@ const getFileBySlug: GetFileBySlug = async (type, slug) => {
       ];
       return options;
     },
-    esbuildOptions: (options) => {
-      options.loader = {
-        ...options.loader,
-        ".js": "jsx",
-      };
-      return options;
-    },
   });
 
   return {
     mdxSource: code,
     frontMatter: {
       readingTime: readingTime(code),
-      slug: slug || null,
       fileName: existsSync(mdxPath) ? `${slug}.mdx` : `${slug}.md`,
       ...frontmatter,
-      date: frontmatter.date ? new Date(frontmatter.date).toISOString() : null,
+      slug: slug,
+      date: new Date(frontmatter.date).toISOString(),
     },
   };
 };
 
-export default getFileBySlug;
+export { getFileBySlug };

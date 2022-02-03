@@ -10,7 +10,7 @@ const getAllFilesFrontMatter: GetAllFilesFrontMatter = async (folder) => {
   const prefixPaths = path.join(root, "data", folder);
   const files = getAllFilesRecursively(prefixPaths);
 
-  const allFrontMatter = [] as FrontMatter[];
+  const allFrontMatter: FrontMatter[] = [];
 
   files.forEach((file) => {
     // Replace is needed to work on Windows
