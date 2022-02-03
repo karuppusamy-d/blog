@@ -1,8 +1,8 @@
 import htmlEscaper from "@/lib/utils/htmlEscaper";
-
 import siteMetadata from "@/data/siteMetadata";
+import { FrontMatter } from "./mdx/types";
 
-const generateRssItem = (post): string => `
+const generateRssItem = (post: FrontMatter): string => `
   <item>
     <guid>${siteMetadata.siteUrl}/blog/${post.slug}</guid>
     <title>${htmlEscaper(post.title)}</title>
@@ -14,7 +14,7 @@ const generateRssItem = (post): string => `
   </item>
 `;
 
-const generateRss = (posts, page = "feed.xml"): string => `
+const generateRss = (posts: FrontMatter[], page = "feed.xml"): string => `
   <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
       <title>${htmlEscaper(siteMetadata.title)}</title>

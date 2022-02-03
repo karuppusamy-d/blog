@@ -3,8 +3,8 @@ import getAllFilesRecursively from "@/lib/utils/getAllFilesRecursively";
 
 const root = process.cwd();
 
-const getFiles = (type: string): string[] => {
-  const prefixPaths = path.join(root, "data", type);
+const getFiles = (folder: string): string[] => {
+  const prefixPaths = path.join(root, "data", folder);
   const files = getAllFilesRecursively(prefixPaths);
   // Only want to return blog/path and ignore root, replace is needed to work on Windows
   return files.map((file) =>
@@ -12,4 +12,4 @@ const getFiles = (type: string): string[] => {
   );
 };
 
-export default getFiles;
+export { getFiles };

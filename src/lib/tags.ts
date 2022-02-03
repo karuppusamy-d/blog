@@ -1,21 +1,16 @@
-import fs from "fs";
-import matter from "gray-matter";
-import path from "path";
-import { getFiles } from "./mdx";
+import { getAllFilesFrontMatter } from "./mdx";
+import { ObjectMap } from "./mdx/types";
 import kebabCase from "./utils/kebabCase";
 
-const root = process.cwd();
+type GetAllTags = (type: string) => Promise<ObjectMap<number>>;
 
-export async function getAllTags(type) {
-  const files = await getFiles(type);
+const getAllTags: GetAllTags = async (folder) => {
+  const allPosts = await getAllFilesFrontMatter(folder);
+  const tagCount: ObjectMap<number> = {};
 
-  let tagCount = {};
-  // Iterate through each post, putting all found tags into `tags`
-  files.forEach((file) => {
-    const source = fs.readFileSync(path.join(root, "data", type, file), "utf8");
-    const { data } = matter(source);
-    if (data.tags && data.draft !== true) {
-      data.tags.forEach((tag) => {
+  allPosts.forEach((frontmatter) => {
+    if (frontmatter.tags.length > 0) {
+      frontmatter.tags.forEach((tag) => {
         const formattedTag = kebabCase(tag);
         if (formattedTag in tagCount) {
           tagCount[formattedTag] += 1;
@@ -27,4 +22,6 @@ export async function getAllTags(type) {
   });
 
   return tagCount;
-}
+};
+
+export { getAllTags };

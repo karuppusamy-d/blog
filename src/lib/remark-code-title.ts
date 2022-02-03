@@ -1,6 +1,6 @@
 import { visit } from "unist-util-visit";
 
-export default function remarkCodeTitles() {
+const remarkCodeTitles = () => {
   return (tree) =>
     visit(tree, "code", (node, index, parent) => {
       const nodeLang = node.lang || "";
@@ -31,4 +31,6 @@ export default function remarkCodeTitles() {
       parent.children.splice(index, 0, titleNode);
       node.lang = language;
     });
-}
+};
+
+export default remarkCodeTitles;
