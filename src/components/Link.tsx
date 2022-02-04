@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ReactElement, ReactNode } from "react";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type Props = { href: string; children: ReactNode; [key: string]: any };
 
 const CustomLink = ({ href, children, ...rest }: Props): ReactElement => {

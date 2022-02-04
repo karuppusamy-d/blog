@@ -1,5 +1,7 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, ReactElement } from "react";
 import { useTheme } from "next-themes";
+
+type Props = { mapping: string };
 
 const giscusConfig = {
   repo: process.env.NEXT_PUBLIC_GISCUS_REPO,
@@ -17,7 +19,7 @@ const giscusConfig = {
   darkTheme: "transparent_dark",
 };
 
-const Giscus = ({ mapping }) => {
+const Giscus = ({ mapping }: Props): ReactElement => {
   const [enableLoadCommentsBtn, setEnableLoadCommentsBtn] = useState(true);
   const { resolvedTheme } = useTheme();
 
@@ -28,6 +30,14 @@ const Giscus = ({ mapping }) => {
 
   // Load comments
   const LoadComments = useCallback(() => {
+    // Return if config is not set
+    if (
+      !giscusConfig.repo ||
+      !giscusConfig.repositoryId ||
+      !giscusConfig.categoryId
+    )
+      return;
+
     setEnableLoadCommentsBtn(false);
     const script = document.createElement("script");
     script.src = "https://giscus.app/client.js";

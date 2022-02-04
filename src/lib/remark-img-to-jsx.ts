@@ -2,6 +2,7 @@ import { visit } from "unist-util-visit";
 import sizeOf from "image-size";
 import fs from "fs";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type Node = import("unist").Node & { children: any };
 
 const remarkImgToJsx = () => {

@@ -1,3 +1,4 @@
+import { ReactElement } from "react";
 import Gmail from "./gmail.svg";
 import Github from "./github.svg";
 import Facebook from "./facebook.svg";
@@ -20,7 +21,15 @@ const components = {
   whatsapp: Whatsapp,
 };
 
-const SocialIcon = ({ kind, href }) => {
+type SocialIconType = ({
+  kind,
+  href,
+}: {
+  kind: keyof typeof components;
+  href: string;
+}) => ReactElement | null;
+
+const SocialIcon: SocialIconType = ({ kind, href }) => {
   if (!href) return null;
 
   const SocialSvg = components[kind];
