@@ -6,13 +6,13 @@ import { bundleMDX } from "mdx-bundler";
 // Remark packages
 import remarkGfm from "remark-gfm";
 import remarkFootnotes from "remark-footnotes";
-import remarkCodeTitles from "@/lib/remark-code-title";
 import remarkImgToJsx from "@/lib/remark-img-to-jsx";
 // Rehype packages
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypePrismPlus from "rehype-prism-plus";
 import rehypePresetMinify from "rehype-preset-minify";
+import rehypeCodeTitles from "rehype-code-titles";
 import { FrontMatter, GetFileBySlug } from "./types";
 
 const root = process.cwd();
@@ -56,12 +56,12 @@ const getFileBySlug: GetFileBySlug = async (type, slug) => {
       options.remarkPlugins = [
         ...(options.remarkPlugins ?? []),
         remarkGfm,
-        remarkCodeTitles,
         [remarkFootnotes, { inlineNotes: true }],
         remarkImgToJsx,
       ];
       options.rehypePlugins = [
         ...(options.rehypePlugins ?? []),
+        rehypeCodeTitles,
         rehypeSlug,
         rehypeAutolinkHeadings,
         [rehypePrismPlus, { ignoreMissing: true }],
