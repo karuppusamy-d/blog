@@ -11,7 +11,8 @@
   "scripts": {
     "start": "next start",
     "dev": "next dev",
-    "build": "next build && node --experimental-json-modules ./scripts/generate-sitemap",
+    "build": "next build && yarn sitemap",
+    "sitemap": "node ./scripts/generate-sitemap",
     "compose": "node ./scripts/compose",
     "lint": "next lint",
     "format": "prettier --write ./",

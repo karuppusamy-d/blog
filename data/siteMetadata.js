@@ -21,4 +21,4 @@ const siteMetaData = {
   locale: "en-US",
 };
 
-export default siteMetaData;
+module.exports = siteMetaData;
