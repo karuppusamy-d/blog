@@ -9,10 +9,6 @@ const isProd = process.env.NODE_ENV === "production";
 module.exports = withBundleAnalyzer(
   withPWA({
     reactStrictMode: true,
-    pageExtensions: ["js", "jsx", "md", "mdx"],
-    future: {
-      webpack5: true,
-    },
     webpack: (config, { dev, isServer }) => {
       // SVG Loader
       config.module.rules.push({

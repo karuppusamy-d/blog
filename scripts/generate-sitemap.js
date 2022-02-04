@@ -1,42 +1,43 @@
 import { writeFileSync } from "fs";
 import { globby } from "globby";
 import prettier from "prettier";
-import siteMetadata from "../data/siteMetadata.json";
+import siteMetadata from "../data/siteMetadata.js";
 
 (async () => {
-  const prettierConfig = await prettier.resolveConfig("./.prettierrc.js");
+  console.log("Generating sitemap...");
+
   const pages = await globby([
-    "pages/*.js",
+    "src/pages/*.tsx",
     "data/blog/**/*.mdx",
     "data/blog/**/*.md",
     "public/tags/**/*.xml",
-    "!pages/_*.js",
-    "!pages/api",
+    "!src/pages/_*.tsx",
+    "!src/pages/api",
+    "!src/pages/404.tsx",
+    "!src/pages/index.tsx",
   ]);
 
   const sitemap = `
         <?xml version="1.0" encoding="UTF-8"?>
         <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+            <url>
+                <loc>${siteMetadata.siteUrl}</loc>
+            </url>
+            
             ${pages
               .map((page) => {
                 const path = page
-                  .replace("pages/", "/")
+                  .replace("src/pages/", "/")
                   .replace("data/blog", "/blog")
                   .replace("public/", "/")
-                  .replace(".js", "")
+                  .replace(".tsx", "")
                   .replace(".mdx", "")
                   .replace(".md", "")
-                  .replace("/feed.xml", "");
-                const route = path === "/index" ? "" : path;
-                if (
-                  page === `pages/404.js` ||
-                  page === `pages/blog/[...slug].js`
-                ) {
-                  return;
-                }
+                  .replace("/index.xml", "");
+
                 return `
                         <url>
-                            <loc>${siteMetadata.siteUrl}${route}</loc>
+                            <loc>${siteMetadata.siteUrl}${path}</loc>
                         </url>
                     `;
               })
@@ -45,7 +46,6 @@ import siteMetadata from "../data/siteMetadata.json";
     `;
 
   const formatted = prettier.format(sitemap, {
-    ...prettierConfig,
     parser: "html",
   });
 
