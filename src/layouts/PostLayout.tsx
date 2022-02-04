@@ -1,3 +1,5 @@
+import { ReactNode, ReactElement } from "react";
+import Image from "next/image";
 import Link from "@/components/Link";
 import PageTitle from "@/components/PageTitle";
 import ScrollTo from "@/components/ScrollTo";
@@ -6,20 +8,21 @@ import SocialIcon from "@/components/social-icons";
 import Tag from "@/components/Tag";
 import Comments from "@/components/comments";
 import siteMetadata from "@/data/siteMetadata";
+import formatDate from "@/lib/utils/formatDate";
+import { FrontMatter, PostFrontMatter } from "@/lib/mdx/types";
 
-const editUrl = (fileName) =>
-  `${siteMetadata.siteRepo}/blob/main/data/blog/${fileName}`;
-const PageUrl = (slug) =>
+type Props = {
+  children: ReactNode;
+  frontMatter: PostFrontMatter;
+  prev: FrontMatter | null;
+  next: FrontMatter | null;
+};
+type PostLayoutType = (props: Props) => ReactElement;
+
+const pageUrl = (slug: string): string =>
   `${encodeURIComponent(`${siteMetadata.siteUrl}/blog/${slug}`)}`;
 
-const postDateTemplate = {
-  weekday: "long",
-  year: "numeric",
-  month: "long",
-  day: "numeric",
-};
-
-export default function PostLayout({ children, frontMatter, next, prev }) {
+const PostLayout: PostLayoutType = ({ children, frontMatter, next, prev }) => {
   const { slug, fileName, date, title, tags } = frontMatter;
 
   return (
@@ -36,12 +39,7 @@ export default function PostLayout({ children, frontMatter, next, prev }) {
                 <div>
                   <dt className="sr-only">Published on</dt>
                   <dd className="text-base font-medium leading-8 text-gray-500 dark:text-gray-400">
-                    <time dateTime={date}>
-                      {new Date(date).toLocaleDateString(
-                        siteMetadata.locale,
-                        postDateTemplate
-                      )}
-                    </time>
+                    <time dateTime={date}>{formatDate(date, "full")}</time>
                   </dd>
                 </div>
               </dl>
@@ -60,10 +58,12 @@ export default function PostLayout({ children, frontMatter, next, prev }) {
               <dd>
                 <ul className="flex justify-center space-x-8 xl:block sm:space-x-12 xl:space-x-0 xl:space-y-8">
                   <li className="flex items-center space-x-2">
-                    <img
+                    <Image
                       src={siteMetadata.image}
                       alt="avatar"
-                      className="w-10 h-10 rounded-full"
+                      width={"40px"}
+                      height={"40px"}
+                      className="rounded-full"
                     />
                     <dl className="text-sm font-semibold whitespace-nowrap">
                       <dt className="sr-only">Name</dt>
@@ -90,29 +90,33 @@ export default function PostLayout({ children, frontMatter, next, prev }) {
                 <div className="flex flex-column text-base sm:text-[1.2rem] items-center space-x-3">
                   <SocialIcon
                     kind="whatsapp"
-                    href={`whatsapp://send?text=${PageUrl(slug)}`}
+                    href={`whatsapp://send?text=${pageUrl(slug)}`}
                   />
                   <SocialIcon
                     kind="facebook"
-                    href={`https://www.facebook.com/share.php?display=page&u=${PageUrl(
+                    href={`https://www.facebook.com/share.php?display=page&u=${pageUrl(
                       slug
                     )}`}
                   />
                   <SocialIcon
                     kind="twitter"
-                    href={`https://twitter.com/intent/tweet?url=${PageUrl(
+                    href={`https://twitter.com/intent/tweet?url=${pageUrl(
                       slug
                     )}`}
                   />
                   <SocialIcon
                     kind="linkedin"
-                    href={`https://www.linkedin.com/sharing/share-offsite/?url=${PageUrl(
+                    href={`https://www.linkedin.com/sharing/share-offsite/?url=${pageUrl(
                       slug
                     )}`}
                   />
                 </div>
                 <div> • </div>
-                <Link href={editUrl(fileName)}>{"View on GitHub"}</Link>
+                <Link
+                  href={`${siteMetadata.siteRepo}/blob/main/data/blog/${fileName}`}
+                >
+                  View on GitHub
+                </Link>
               </div>
 
               {/* Show comments */}
@@ -163,4 +167,6 @@ export default function PostLayout({ children, frontMatter, next, prev }) {
       <ScrollTo />
     </>
   );
-}
+};
+
+export default PostLayout;

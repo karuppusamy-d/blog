@@ -1,4 +1,5 @@
-import fs from "fs";
+import { ReactElement } from "react";
+import { GetStaticPaths, GetStaticProps as GetStaticPropsNext } from "next";
 import path from "path";
 import kebabCase from "@/lib/utils/kebabCase";
 import { getAllFilesFrontMatter } from "@/lib/mdx";
@@ -7,12 +8,17 @@ import siteMetadata from "@/data/siteMetadata";
 import ListLayout from "@/layouts/ListLayout";
 import { PageSeo } from "@/components/SEO";
 import generateRss from "@/lib/generate-rss";
+import { mkdirSync, writeFileSync } from "fs";
+import { FrontMatter } from "@/lib/mdx/types";
 
 const root = process.cwd();
 
-const Tag = ({ posts, tag }) => {
-  // Capitalize first letter and convert space to dash
-  const title = tag[0].toUpperCase() + tag.split(" ").join("-").slice(1);
+type Props = { posts: FrontMatter[]; tag: string };
+type GetStaticProps = GetStaticPropsNext<Props, { tag: string }>;
+
+const Tags = ({ posts, tag }: Props): ReactElement => {
+  // Capitalize first letter and convert dash to space
+  const title = tag[0].toUpperCase() + tag.split("-").join(" ").slice(1);
   return (
     <>
       <PageSeo
@@ -25,7 +31,7 @@ const Tag = ({ posts, tag }) => {
   );
 };
 
-const getStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths = async () => {
   const tags = await getAllTags("blog");
 
   return {
@@ -38,22 +44,27 @@ const getStaticPaths = async () => {
   };
 };
 
-const getStaticProps = async ({ params }) => {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const tag = params?.tag;
+
+  if (!tag) {
+    return {
+      notFound: true,
+    };
+  }
+
   const allPosts = await getAllFilesFrontMatter("blog");
-  const filteredPosts = allPosts.filter(
-    (post) =>
-      post.draft !== true &&
-      post.tags.map((t) => kebabCase(t)).includes(params.tag)
+  const filteredPosts = allPosts.filter((post) =>
+    post.tags.map((t) => kebabCase(t)).includes(tag)
   );
 
   // rss
-  const rss = generateRss(filteredPosts, `tags/${params.tag}/index.xml`);
-  const rssPath = path.join(root, "public", "tags", params.tag);
-  fs.mkdirSync(rssPath, { recursive: true });
-  fs.writeFileSync(path.join(rssPath, "index.xml"), rss);
+  const rss = generateRss(filteredPosts, `tags/${tag}/index.xml`);
+  const rssPath = path.join(root, "public", "tags", tag);
+  mkdirSync(rssPath, { recursive: true });
+  writeFileSync(path.join(rssPath, "index.xml"), rss);
 
-  return { props: { posts: filteredPosts, tag: params.tag } };
+  return { props: { posts: filteredPosts, tag: tag } };
 };
 
-export { getStaticPaths, getStaticProps };
-export default Tag;
+export default Tags;

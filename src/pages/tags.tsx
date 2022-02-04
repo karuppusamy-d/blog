@@ -1,17 +1,16 @@
+import { ReactElement } from "react";
+import { GetStaticProps } from "next";
 import siteMetadata from "@/data/siteMetadata";
 import kebabCase from "@/lib/utils/kebabCase";
 import { getAllTags } from "@/lib/tags";
 import Tag from "@/components/Tag";
 import Link from "@/components/Link";
 import { PageSeo } from "@/components/SEO";
+import { ObjectMap } from "@/lib/mdx/types";
 
-export async function getStaticProps() {
-  const tags = await getAllTags("blog");
+type Props = { tags: ObjectMap<number> };
 
-  return { props: { tags } };
-}
-
-const Tags = ({ tags }) => {
+const Tags = ({ tags }: Props): ReactElement => {
   const sortedTags = Object.keys(tags).sort((a, b) => tags[b] - tags[a]);
   return (
     <>
@@ -45,6 +44,12 @@ const Tags = ({ tags }) => {
       </div>
     </>
   );
+};
+
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const tags = await getAllTags("blog");
+
+  return { props: { tags } };
 };
 
 export default Tags;

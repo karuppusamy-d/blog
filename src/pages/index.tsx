@@ -1,20 +1,19 @@
-import Link from "next/link";
+import { ReactElement } from "react";
+import { GetStaticProps } from "next";
 import { PageSeo } from "@/components/SEO";
 import Tag from "@/components/Tag";
 import siteMetadata from "@/data/siteMetadata";
 import { getAllFilesFrontMatter } from "@/lib/mdx";
 import SocialIcon from "@/components/social-icons";
 import formatDate from "@/lib/utils/formatDate";
+import Link from "@/components/Link";
+import { FrontMatter } from "@/lib/mdx/types";
 
 const MAX_DISPLAY = 3;
 
-export async function getStaticProps() {
-  const posts = await getAllFilesFrontMatter("blog");
+type Props = { posts: FrontMatter[] };
 
-  return { props: { posts } };
-}
-
-const Home = ({ posts }) => {
+const Home = ({ posts }: Props): ReactElement => {
   return (
     <>
       <PageSeo
@@ -34,15 +33,15 @@ const Home = ({ posts }) => {
               <span className="text-primary-400">Karuppusamy</span>
               <br /> Developer
             </h1>
-            <Link href="https://drive.google.com/file/d/1zzxmzG-v7VOmDWEQQo_SSg4Y8WfDUi0i/view">
-              <a
-                className="btn text-[0.85rem] sm:text-base"
-                aria-label="View Resume"
-                target="_blank"
-              >
-                View Resume
-              </a>
-            </Link>
+            <a
+              href="https://drive.google.com/file/d/1zzxmzG-v7VOmDWEQQo_SSg4Y8WfDUi0i/view"
+              className="btn text-[0.85rem] sm:text-base"
+              aria-label="View Resume"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View Resume
+            </a>
           </div>
         </div>
         <div className="flex my-12 text-2xl space-x-5">
@@ -98,13 +97,12 @@ const Home = ({ posts }) => {
                         </div>
                       </div>
                       <div className="text-sm font-medium">
-                        <Link href={`/blog/${slug}`}>
-                          <a
-                            className="text-primary-400 hover:text-primary-500 dark:text-primary-500 dark:hover:text-primary-400"
-                            aria-label={`Read "${title}"`}
-                          >
-                            Read more &rarr;
-                          </a>
+                        <Link
+                          className="text-primary-400 hover:text-primary-500 dark:text-primary-500 dark:hover:text-primary-400"
+                          href={`/blog/${slug}`}
+                          aria-label={`Read "${title}"`}
+                        >
+                          Read more &rarr;
                         </Link>
                       </div>
                     </div>
@@ -117,18 +115,23 @@ const Home = ({ posts }) => {
       </div>
       {posts.length > MAX_DISPLAY && (
         <div className="flex justify-end font-medium">
-          <Link href="/blog">
-            <a
-              className="text-primary-400 hover:text-primary-500 dark:text-primary-500 dark:hover:text-primary-400"
-              aria-label="all posts"
-            >
-              All Posts &rarr;
-            </a>
+          <Link
+            href="/blog"
+            className="text-primary-400 hover:text-primary-500 dark:text-primary-500 dark:hover:text-primary-400"
+            aria-label="all posts"
+          >
+            All Posts &rarr;
           </Link>
         </div>
       )}
     </>
   );
+};
+
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const posts = await getAllFilesFrontMatter("blog");
+
+  return { props: { posts } };
 };
 
 export default Home;

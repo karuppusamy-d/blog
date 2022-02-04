@@ -1,5 +1,6 @@
-import fs from "fs";
-import { MDXLayoutRenderer } from "@/components/MDXComponents";
+import { ReactElement } from "react";
+import { GetStaticPaths, GetStaticProps as GetStaticPropsNext } from "next";
+import { MDXLayoutRenderer } from "@/components/MDXLayoutRenderer";
 import {
   getFiles,
   getFileBySlug,
@@ -9,8 +10,13 @@ import {
 import PostLayout from "@/layouts/PostLayout";
 import PageTitle from "@/components/PageTitle";
 import generateRss from "@/lib/generate-rss";
+import { writeFileSync } from "fs";
+import { FrontMatter, Post } from "@/lib/mdx/types";
 
-const Blog = ({ post, prev, next }) => {
+type Props = { post: Post; prev: FrontMatter | null; next: FrontMatter | null };
+type GetStaticProps = GetStaticPropsNext<Props, { slug: string[] }>;
+
+const Blog = ({ post, prev, next }: Props): ReactElement => {
   const { mdxSource, frontMatter } = post;
 
   return (
@@ -33,7 +39,7 @@ const Blog = ({ post, prev, next }) => {
   );
 };
 
-const getStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths = async () => {
   const posts = getFiles("blog");
 
   return {
@@ -46,23 +52,30 @@ const getStaticPaths = async () => {
   };
 };
 
-const getStaticProps = async ({ params }) => {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const slug = params?.slug;
+
+  if (!slug) {
+    return {
+      notFound: true,
+    };
+  }
+
   const allPosts = await getAllFilesFrontMatter("blog");
   const postIndex = allPosts.findIndex(
-    (post) => formatSlug(post.slug) === params.slug.join("/")
+    (post) => formatSlug(post.slug) === slug.join("/")
   );
   const prev = allPosts[postIndex + 1] || null;
   const next = allPosts[postIndex - 1] || null;
-  const post = await getFileBySlug("blog", params.slug.join("/"));
+  const post = await getFileBySlug("blog", slug.join("/"));
 
   // rss
   if (allPosts.length > 0) {
     const rss = generateRss(allPosts);
-    fs.writeFileSync("./public/feed.xml", rss);
+    writeFileSync("./public/feed.xml", rss);
   }
 
   return { props: { post, prev, next } };
 };
 
-export { getStaticPaths, getStaticProps };
 export default Blog;

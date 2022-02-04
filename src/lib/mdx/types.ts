@@ -11,12 +11,14 @@ export type FrontMatter = {
   images: string[];
 };
 
+export type PostFrontMatter = FrontMatter & {
+  fileName: string;
+  readingTime: ReadTimeResults;
+};
+
 export type Post = {
   mdxSource: string;
-  frontMatter: FrontMatter & {
-    fileName: string;
-    readingTime: ReadTimeResults;
-  };
+  frontMatter: PostFrontMatter;
 };
 
 export type GetAllFilesFrontMatter = (folder: string) => Promise<FrontMatter[]>;

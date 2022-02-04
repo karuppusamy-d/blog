@@ -1,9 +1,15 @@
 import Link from "@/components/Link";
 import Tag from "@/components/Tag";
-import { useState } from "react";
+import { ReactElement, useState } from "react";
 import formatDate from "@/lib/utils/formatDate";
+import { FrontMatter } from "@/lib/mdx/types";
 
-export default function ListLayout({ posts, title }) {
+type Props = {
+  posts: FrontMatter[];
+  title: string;
+};
+
+const ListLayout = ({ posts, title }: Props): ReactElement => {
   const [searchValue, setSearchValue] = useState("");
   const filteredBlogPosts = posts.filter((frontMatter) => {
     const searchContent =
@@ -92,4 +98,6 @@ export default function ListLayout({ posts, title }) {
       </div>
     </>
   );
-}
+};
+
+export default ListLayout;

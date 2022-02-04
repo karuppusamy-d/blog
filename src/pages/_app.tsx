@@ -1,5 +1,6 @@
 import "@/styles/globals.css";
 
+import { ReactElement } from "react";
 import { ThemeProvider } from "next-themes";
 import type { AppProps } from "next/app";
 import { DefaultSeo } from "next-seo";
@@ -17,7 +18,7 @@ const progress = new ProgressBar({
   delay: 100,
 });
 
-const handleRouteChange = (url: string) => {
+const handleRouteChange = (url: string): void => {
   progress.finish();
   gtag.pageview(url);
 };
@@ -26,7 +27,7 @@ Router.events.on("routeChangeStart", progress.start);
 Router.events.on("routeChangeComplete", handleRouteChange);
 Router.events.on("routeChangeError", progress.finish);
 
-const App = ({ Component, pageProps }: AppProps) => {
+const App = ({ Component, pageProps }: AppProps): ReactElement => {
   return (
     <ThemeProvider
       defaultTheme="system"
