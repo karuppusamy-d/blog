@@ -1,6 +1,7 @@
 import Link from "next/link";
+import { ReactElement } from "react";
 
-const NotFound = () => {
+const NotFound = (): ReactElement => {
   return (
     <div className="flex flex-col items-start justify-center divide-y divide-gray-200 dark:divide-gray-700 md:justify-center md:items-center md:flex-row md:divide-y-0 md:space-x-6 min-h-[80vh]">
       <div className="pb-4">

@@ -1,8 +1,10 @@
+import { ReactElement } from "react";
 import siteMetadata from "@/data/siteMetadata";
 import SocialIcon from "@/components/social-icons";
 import { PageSeo } from "@/components/SEO";
+import Image from "next/image";
 
-const About = () => {
+const About = (): ReactElement => {
   return (
     <>
       <PageSeo
@@ -18,11 +20,16 @@ const About = () => {
         </div>
         <div className="items-center space-y-2 xl:grid xl:grid-cols-3 xl:gap-x-8 xl:space-y-0">
           <div className="flex flex-col items-center pt-8 space-x-2 xl:py-12">
-            <img
-              src={siteMetadata.image}
-              alt="avatar"
-              className="w-32 xl:w-48 h-32 xl:h-48 rounded-full"
-            />
+            <div className="w-32 xl:w-48 h-32 xl:h-48">
+              <Image
+                src={siteMetadata.image}
+                alt="avatar"
+                width={"100%"}
+                height={"100%"}
+                layout="responsive"
+                className="rounded-full"
+              />
+            </div>
             <h3 className="pt-4 pb-1 text-xl xl:text-2xl font-semibold tracking-tight">
               {siteMetadata.author}
             </h3>
