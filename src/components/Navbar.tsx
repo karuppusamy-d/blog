@@ -1,10 +1,11 @@
+import { ReactElement } from "react";
 import headerNavLinks from "@/data/headerNavLinks";
 import Logo from "@/data/logo.svg";
-import Link from "./Link";
-import MobileNav from "./MobileNav";
-import ThemeSwitch from "./ThemeSwitch";
+import Link from "@/components/Link";
+import MobileNav from "@/components/MobileNav";
+import ThemeSwitch from "@/components/ThemeSwitch";
 
-const Navbar = () => {
+const Navbar = (): ReactElement => {
   return (
     <header>
       <div className="fixed top-0 inset-x-0 bg-white dark:bg-gray-900 z-50 shadow-light dark:shadow-dark">

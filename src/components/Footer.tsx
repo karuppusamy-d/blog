@@ -1,8 +1,9 @@
-import Link from "./Link";
+import { ReactElement } from "react";
+import Link from "@/components/Link";
 import siteMetadata from "@/data/siteMetadata";
 import SocialIcon from "@/components/social-icons";
 
-export default function Footer() {
+const Footer = (): ReactElement => {
   return (
     <footer>
       <div className="flex flex-col items-center border-t-[1px] border-gray-200 dark:border-gray-600 text-gray-600 dark:text-gray-200">
@@ -23,4 +24,6 @@ export default function Footer() {
       </div>
     </footer>
   );
-}
+};
+
+export default Footer;

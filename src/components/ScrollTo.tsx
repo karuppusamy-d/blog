@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
+import { ReactElement, useEffect, useState } from "react";
 
-const ScrollTo = () => {
+const ScrollTo = (): ReactElement => {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
-    const handleWindowScroll = () => {
+    const handleWindowScroll = (): void => {
       if (window.scrollY > 500) setShow(true);
       else setShow(false);
     };
@@ -13,12 +13,12 @@ const ScrollTo = () => {
     return () => window.removeEventListener("scroll", handleWindowScroll);
   }, []);
 
-  const handleScrollTop = () => {
+  const handleScrollTop = (): void => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const handleScrollToComment = () => {
-    document.getElementById("comment").scrollIntoView();
+  const handleScrollToComment = (): void => {
+    document.getElementById("comment")?.scrollIntoView();
   };
   return (
     <div className={`fixed flex flex-col gap-3 right-8 bottom-8`}>

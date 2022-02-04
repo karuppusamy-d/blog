@@ -6,7 +6,7 @@ export type FrontMatter = {
   slug: string;
   lastmod?: string;
   tags: string[];
-  draft: boolean;
+  draft?: boolean;
   summary: string;
   images: string[];
 };
