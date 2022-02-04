@@ -2,77 +2,33 @@
 
 # Karuppusamy's Blog
 
-I am Karuppusamy, a self-learned programmer. I currently live in India with my family. A hard-working and ambitious person who isn’t afraid to face a challenge.
+I am Karuppusamy, a software engineer. I know JavaScript, Python, C++, C, Java, HTML, CSS, and some other programming languages. I also know android development, web development, and arduino programming.
 
-I do passionate about programming. Because I love what I do, I have a steady source of motivation that drives me to do my best.
+This blog is a place where I write about programming, and other things that I find interesting.
 
-[Website](https://karuppusamy.me/)
-
-## Features
-
-- PWA Support
-- SEO Optimized
-- Projects Page
-- Support for Tags
-- Light and dark theme
-- Support for Nested Routes
-- [MDX - write JSX in markdown documents!](https://mdxjs.com/)
-- Math display supported via [KaTeX](https://katex.org/)
-- Server-side syntax highlighting with [rehype-prism](https://github.com/mapbox/rehype-prism)
-- Automatic image optimization via [next/image](https://nextjs.org/docs/basic-features/image-optimization)
-
-## Quick Start Guide
-
-1. `npx degit https://github.com/karuppusamy-d/blog.git`
-2. Personalize `siteMetadata.json`
-3. Modify `projectsData.js`
-4. Modify `headerNavLinks.js` to customize navigation links
-5. Add blog posts
-6. Deploy on Vercel
-
-## Development
-
-First, run the development server:
-
-```bash
-yarn start
-# or
-yarn run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-## Extend / Customize
-
-`data/siteMetadata.json` - contains most of the site related information which should be modified for a user's need.
-
-`data/projectsData.js` - data used to generate styled card in projects page.
-
-`data/headerNavLinks.js` - navigation links.
-
-`data/logo.svg` - replace with your own logo.
-
-`data/blog` - replace with your own blog posts.
-
-`public/static` - store assets such as images and favicons.
-
-`css/tailwind.css` - contains the tailwind stylesheet which can be modified to change the overall look and feel of the site.
-
-`components/social-icons` - to add other icons, simply copy an svg file from [Simple Icons](https://simpleicons.org/) and map them in `index.js`. Other icons uses [heroicons](https://heroicons.com/).
-
-`components/MDXComponents.js` - pass your own JSX code or React component by specifying it over here. You can then call them directly in the `.mdx` or `.md` file. By default, a custom link and image component is passed.
-
-`layouts` - main templates used in pages.
-
-`pages` - pages to route to. Read the [Next.js documentation](https://nextjs.org/docs) for more information
+[karuppusamy.me](https://karuppusamy.me/)
 
 ## Post
 
-### Frontmatter
+### Compose
 
-Frontmatter follows [Hugo's standards](https://gohugo.io/content-management/front-matter/).
+Run `yarn compose ${title} ${md|mdx}` or `npm run compose ${title} ${md|mdx}` to create a new post.
+
+The first argument is the name of the post and the second optional argument is the extension (default to .mdx)
+
+Example code to generate the post called "My First Post" in markdown format
+
+```powershell
+yarn compose "My First Post" .mdx
+
+# or
+
+npm run compose "My First Post" .mdx
+```
+
+This will generate `./data/blog/my-first-post.mdx` with pre-filled front matter.
+
+### Frontmatter
 
 Currently 7 fields are supported.
 
@@ -82,53 +38,18 @@ date (required)
 tags (required, can be empty array)
 lastmod (optional)
 draft (optional)
-summary (optional)
-images (optional, if none provided defaults to socialBanner in siteMetadata config)
+summary (required)
+images (required, if none provided defaults to socialBanner in siteMetadata config)
 ```
-
-Here's an example of a post's frontmatter:
-
-```
----
-title: "Introducing Tailwind Nexjs Starter Blog"
-date: "2021-01-12"
-lastmod: "2021-01-18"
-tags: ["next-js", "tailwind", "guide"]
-draft: false
-summary: "Looking for a performant, out of the box template, with all the best in web technology to support your blogging needs? Checkout the Tailwind Nextjs Starter Blog template."
-images:
-  ["/static/images/canada/mountains.jpg", "/static/images/canada/toronto.jpg"]
----
-```
-
-### Nested Routes
-
-Simplify create multiple folders inside the main /data/blog folder and add your .md/.mdx files to them. You can even create something like /data/blog/nested-route/deeply-nested-route/your-post.md
-
-> Warning: Don't create empty folders inside /data/blog folder. It will break dev server.
-
-### Compose
-
-`scripts/compose.js` can be used to easily generate a post with pre-filled front matter.
-
-The first argument is the name of the post and the second optional argument is the extension (default to .mdx)
-
-Example code to generate the post called "My First Post" in markdown format
-
-```
-node ./scripts/compose.js "My First Post" .md
-```
-
-This will generate `./data/blog/my-first-post.md` with pre-filled front matter.
-
-## Deploy
-
-**Vercel**  
-The easiest way to deploy the template is to use the [Vercel Platform](https://vercel.com) from the creators of Next.js. Check out the [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-
-**Netlify / Github Pages / Firebase etc.**  
-As the template uses `next/image` for image optimization, additional configurations has to be made to deploy on other popular static hosting websites like [Netlify](https://www.netlify.com/) or [Github Pages](https://pages.github.com/). An alternative image optimization provider such as Imgix, Cloudinary or Akamai has to be used. Alternatively, replace the `next/image` component with a standard `<img>` tag. See [`next/image` documentation](https://nextjs.org/docs/basic-features/image-optimization) for more details.
 
 ## Credits
 
-This is a modified version of [Tailwind Nextjs Starter Blog](https://github.com/timlrx/tailwind-nextjs-starter-blog)
+This is a modified version of [Tailwind Nextjs Starter Blog](https://github.com/timlrx/tailwind-nextjs-starter-blog) by [Timothy](https://github.com/timlrx).
+
+This blog is built with [Next.js](https://nextjs.org/) and [Tailwind CSS](https://tailwindcss.com/) and hosted on [Vercel](https://vercel.com/).
+
+## Licence
+
+[MIT](https://github.com/karuppusamy-d/blog/blob/main/LICENSE) © [Karuppusamy](https://karuppusamy.me)
+
+Made with ❤️ by [Karuppusamy](https://karuppusamy.me/)
