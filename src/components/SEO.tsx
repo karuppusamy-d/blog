@@ -1,7 +1,12 @@
+import { ReactElement } from "react";
 import { NextSeo, ArticleJsonLd } from "next-seo";
 import siteMetadata from "@/data/siteMetadata";
+import { FrontMatter } from "@/lib/mdx/types";
 
-export const SEO = {
+type PageSeoProps = { title: string; description: string; url: string };
+type BlogSeoProps = { url: string } & FrontMatter;
+
+const SEO = {
   title: siteMetadata.title,
   description: siteMetadata.description,
   openGraph: {
@@ -32,7 +37,7 @@ export const SEO = {
   ],
 };
 
-export const PageSeo = ({ title, description, url }) => {
+const PageSeo = ({ title, description, url }: PageSeoProps): ReactElement => {
   return (
     <NextSeo
       title={title}
@@ -47,7 +52,7 @@ export const PageSeo = ({ title, description, url }) => {
   );
 };
 
-export const BlogSeo = ({
+const BlogSeo = ({
   title,
   summary,
   date,
@@ -55,19 +60,17 @@ export const BlogSeo = ({
   url,
   tags,
   images = [],
-}) => {
+}: BlogSeoProps): ReactElement => {
   const publishedAt = new Date(date).toISOString();
   const modifiedAt = new Date(lastmod || date).toISOString();
-  let imagesArr =
+  const imagesArr =
     images.length === 0
-      ? [siteMetadata.socialBanner]
-      : typeof images === "string"
-      ? [images]
-      : images;
+      ? [`${siteMetadata.siteUrl}${siteMetadata.socialBanner}`]
+      : images.map((img) => `${siteMetadata.siteUrl}${img}`);
 
   const featuredImages = imagesArr.map((img) => {
     return {
-      url: `${siteMetadata.siteUrl}${img}`,
+      url: img,
       alt: title,
     };
   });
@@ -103,7 +106,7 @@ export const BlogSeo = ({
         dateModified={modifiedAt}
         datePublished={publishedAt}
         description={summary}
-        images={featuredImages}
+        images={imagesArr}
         publisherName={siteMetadata.author}
         title={title}
         url={url}
@@ -111,3 +114,5 @@ export const BlogSeo = ({
     </>
   );
 };
+
+export { SEO, PageSeo, BlogSeo };

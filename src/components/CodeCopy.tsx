@@ -1,20 +1,23 @@
-import { useState, useRef } from "react";
+import { useState, useRef, ReactElement } from "react";
 
-const Pre = (props) => {
-  const textInput = useRef(null);
+type Props = { children: ReactElement };
+
+const Pre = ({ children }: Props): ReactElement => {
+  const textInput = useRef<HTMLInputElement>(null);
   const [hovered, setHovered] = useState(false);
   const [copied, setCopied] = useState(false);
 
-  const onEnter = () => {
+  const onEnter = (): void => {
     setHovered(true);
   };
-  const onExit = () => {
+  const onExit = (): void => {
     setHovered(false);
     setCopied(false);
   };
-  const onCopy = () => {
+  const onCopy = (): void => {
     setCopied(true);
-    navigator.clipboard.writeText(textInput.current.textContent);
+    if (textInput.current?.textContent)
+      navigator.clipboard.writeText(textInput.current?.textContent);
     setTimeout(() => {
       setCopied(false);
     }, 2000);
@@ -69,7 +72,7 @@ const Pre = (props) => {
         </svg>
       </button>
 
-      <pre>{props.children}</pre>
+      <pre>{children}</pre>
     </div>
   );
 };

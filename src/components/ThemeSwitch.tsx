@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+import { ReactElement, useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 
-const ThemeSwitch = () => {
+const ThemeSwitch = (): ReactElement => {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme, systemTheme } = useTheme();
   // When mounted on client, now we can show the UI

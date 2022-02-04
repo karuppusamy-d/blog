@@ -1,11 +1,11 @@
-import { useState } from "react";
-import Link from "./Link";
+import { ReactElement, useState } from "react";
+import Link from "@/components/Link";
 import headerNavLinks from "@/data/headerNavLinks";
 
-const MobileNav = () => {
+const MobileNav = (): ReactElement => {
   const [navShow, setNavShow] = useState(false);
 
-  const onToggleNav = () => {
+  const onToggleNav = (): void => {
     setNavShow((status) => {
       if (status) {
         document.body.style.overflow = "auto";
