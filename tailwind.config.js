@@ -41,6 +41,7 @@ module.exports = {
               color: theme("colors.gray.900"),
             },
             "h4,h5,h6": {
+              fontWeight: "500",
               color: theme("colors.gray.900"),
             },
             "p > code": {
