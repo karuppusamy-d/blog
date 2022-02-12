@@ -1,29 +1,29 @@
 const projectsData = [
   {
-    title: "Turnsmart.io",
+    title: "Turnsmart",
     description:
-      "It is a website that simplifies the process of creating and integrating IoT projects with Google assistant by providing an easy to use API.",
-    imgSrc: "/static/images/twitter-card.png",
-    href: "https://io.karuppusamy.me/",
+      "It is an open-source smart home development platform that allows you to build and deploy your smart home devices on your own.",
+    imgSrc: "/static/images/projects/turnsmart.png",
+    href: "https://github.com/karuppusamy-d/turnsmart",
   },
   {
     title: "TechBuz.net",
     description:
-      "It is a mobile comparison website built on top of Next.Js. I have optimized it for speed and SEO. It also supports PWA. So it can be installed as a regular app. It consists of more than 2.7K mobiles and 2.4M pages.",
+      "It is a mobile comparison website built on top of Next.Js. I have optimized it for speed and SEO. It consists of more than 2.7K mobiles and 2.4M pages.",
     imgSrc: "/static/images/projects/techbuz.png",
     href: "https://techbuz.net/",
   },
   {
     title: "Meet Attendance",
     description:
-      "It is a Chrome / Edge extension that logs attendance during online meetings in Google Meet. It monitors all participants in a set interval and outputs attendance data as an HTML file. It also has keyboard shortcuts to toggle the mic and camera.",
+      "It is a Chrome extension that logs attendance during online meetings in Google Meet. It monitors all participants between the set interval and outputs data as an HTML file.",
     imgSrc: "/static/images/projects/meet-attendance.png",
     href: "https://github.com/Karuppusamy-D/meet-attendance",
   },
   {
     title: "TDA7292 Amplifier",
     description:
-      "It is a HiFi Stereo Amplifier based on TDA7292 IC, It can provide up to 40W+40W of output power. It has isolated High power components and low power components to reduce noise. It also has mute and standby circuits to reduce power when not in use.",
+      "It is a HiFi Stereo Amplifier based on TDA7292 IC, which can provide up to 40W+40W power output. It has isolated High power components and low power components to reduce noise. It also has mute and standby circuits to reduce power when not in use.",
     imgSrc: "/static/images/projects/amplifier.png",
     href: "https://github.com/Karuppusamy-D/TDA7292-Amplifier/",
   },
