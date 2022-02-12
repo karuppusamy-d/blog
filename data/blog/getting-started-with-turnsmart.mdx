@@ -1,0 +1,142 @@
+---
+title: Getting started with turnsmart
+date: "2022-02-13"
+tags: ["turnsmart", "iot", "smart-home"]
+draft: false
+summary: Introduction to the turnsmart project and how to create your own smart-home server using turnsmart.
+images: ["/static/images/projects/turnsmart.png"]
+---
+
+## Introduction
+
+It is an [open-source](https://github.com/karuppusamy-d/turnsmart) smart-home development platform that allows you to build and deploy your smart home devices on your own. It supports a wide range of devices, including ESP8266, ESP32, Arduino, Raspberry Pi, and more.
+
+[Example projects](https://github.com/karuppusamy-d/turnsmart-examples.git)
+
+## Features
+
+- Self Hosted
+- Easy to setup
+- Easy Google Home integration
+- Deploy your own devices
+- Customizable traits
+- Works with ESP32, ESP8266, and Raspberry Pi or other microcontrollers (e.g. Arduino)
+
+## Quick Start Guide
+
+1. Clone the repo and [deploy](#deploy-guide).
+1. Create an account and log in with the new account.
+1. Create a new project and add required [endpoints](#endpoints-section).
+1. Enable smarthome in project settings and choose the [device type](#device-types).
+1. Add required [traits](#device-traits) and update target endpoints for each trait.
+1. Connect your smarthome device to the website using the [API](#api-reference).
+1. Connect your device to Google Home by going to `Google Home > Set up device > Works with Google > [test] project-name` and following the instructions.
+1. Now you can control your device from Google Home and Google Assistant.
+1. Enjoy making 🧑‍💻
+
+## Deploy Guide
+
+1. Clone the repo and deploy it on [vercel](https://vercel.com/new/git/external?repository-url=https://github.com/karuppusamy-d/turnsmart) or any other cloud provider.
+2. Create a new [Firebase project](https://console.firebase.google.com/).
+3. Enable Firebase Authentication and add your domain in authorised domains.
+4. Enable Firebase Database and set up firebase rules as in `firebase.rules` file.
+5. Enable Firebase Storage and set up respective rules.
+6. Create a new Firebase web app by going to project settings.
+7. Create a new Firebase Admin key by going to `Project settings > Service accounts > Generate a new private key`.
+8. Update the environment variables.
+9. Create a new Actions project by going to [actions console](https://console.actions.google.com/) and selecting your existing Firebase project.
+10. Set the category as `Smart Home` and name your project.
+11. Setup Account linking by going to `Develop > Account linking` and using the values below.
+
+    | Field             | Value                                      |
+    | :---------------- | :----------------------------------------- |
+    | Client ID         | environment variable: GOOGLE_CLIENT_ID     |
+    | Client secret     | environment variable: GOOGLE_CLIENT_SECRET |
+    | Authorization URL | https://your-domain/login                  |
+    | Token URL         | https://your-domain/api/auth/token         |
+
+## Sample project
+
+You can find the sample projects [here](https://github.com/karuppusamy-d/turnsmart-examples.git).
+
+## API Reference
+
+The API is available on `your-domain/api`. It is a REST API that allows you to control your smart home devices. You can use the turnsmart API to control your smart home devices. The turnsmart API is secure and can be accessed from any device.
+
+### Get data:
+
+```
+  GET /api
+```
+
+![Get request](/static/images/blog/turnsmart/api-get.jpg)
+
+#### Request
+
+You need to send the following headers with your request:
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `uid`     | `string` | **Required**. Your Project id     |
+| `secret`  | `string` | **Required**. Your Project secret |
+
+#### Response
+
+The data on your project is returned in the response as a json object.
+
+| Parameter | Type     | Description   |
+| :-------- | :------- | :------------ |
+| `data`    | `json`   | Response data |
+| `message` | `string` | Error message |
+
+### Send data:
+
+```
+  POST /api
+```
+
+![Post request](/static/images/blog/turnsmart/api-post.jpg)
+
+#### Request
+
+You need to send the following headers with your request:
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `uid`     | `string` | **Required**. Your Project id     |
+| `secret`  | `string` | **Required**. Your Project secret |
+| `data`    | `json`   | **Required**. Data to be updated  |
+
+#### Response
+
+The status of the request is returned in the response.
+
+| Parameter | Type     | Description      |
+| :-------- | :------- | :--------------- |
+| `message` | `string` | Response message |
+
+## Dashboard Settings
+
+### Endpoints section:
+
+Endpoints are used to identify the data you want to store on your server. You can create as many endpoints as you want. This data can be number or boolean or color.
+
+### Data section:
+
+In the data section, you will see the data of the endpoints you have added. You can modify the data directly from the dashboard. You can use the data to control your smart home devices. The data can be assessed using the turnsmart API from your device.
+
+### Smarthome section:
+
+In the smart home section, you can modify the Google Home integration settings. You can change device type or add/remove device traits. There are many device types available including light, fan, switch, sensor, etc.
+
+1. #### Device types
+
+   Device types are used by Google Assistant to determine what actions are available to the user. For example, if you define a device as a Light, the user can interact with the device through Google Assistant with Hey Google, turn on my light.
+
+2. #### Device traits
+   Device traits are used to define the capabilities of the device. You can add as many traits as you want. For example, if you define a device as Light, you can add the trait of brightness and color. There are many traits available including: on/off, brightness, color, etc.
+
+###### For example,
+
+1. You can add a "color" trait to a light device. This will allow you to control the color of the light.
+1. You can also add a "brightness" trait to a light device. This will allow you to control the brightness of the light.
