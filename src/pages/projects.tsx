@@ -13,16 +13,16 @@ const Projects = (): ReactElement => {
         url={`${siteMetadata.siteUrl}/projects`}
       />
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
-        <div className="pt-10 pb-4 space-y-2 xl:space-y-3 xl:pb-6">
+        <div className="space-y-2 pt-10 pb-4 xl:space-y-3 xl:pb-6">
           <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-100 xl:text-5xl">
             Projects
           </h1>
-          <p className="text-sm xl:text-base text-gray-500 dark:text-gray-400">
+          <p className="text-sm text-gray-500 dark:text-gray-400 xl:text-base">
             My awesome inventions
           </p>
         </div>
         <div className="container py-10">
-          <div className="flex flex-wrap -m-4">
+          <div className="-m-4 flex flex-wrap">
             {projectsData.map((d) => (
               <Card
                 key={d.title}

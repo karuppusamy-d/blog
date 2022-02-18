@@ -70,7 +70,7 @@ const Giscus = ({ mapping }: Props): ReactElement => {
   }, [LoadComments]);
 
   return (
-    <div className="py-6 text-sm sm:text-base text-center text-gray-700 dark:text-gray-300">
+    <div className="py-6 text-center text-sm text-gray-700 dark:text-gray-300 sm:text-base">
       {/* Show load comments button */}
       {enableLoadCommentsBtn && (
         <button onClick={LoadComments}>Load Comments</button>

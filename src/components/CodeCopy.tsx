@@ -34,9 +34,9 @@ const Pre = ({ children }: Props): ReactElement => {
         aria-label="Copy code"
         type="button"
         tabIndex={-1}
-        className={`absolute right-2 top-2 w-8 h-8 p-1 rounded border-2 bg-code dark:bg-gray-800 ${
+        className={`absolute right-2 top-2 h-8 w-8 rounded border-2 bg-code p-1 dark:bg-gray-800 ${
           copied
-            ? "focus:outline-none focus:border-green-400 border-green-400"
+            ? "border-green-400 focus:border-green-400 focus:outline-none"
             : "border-gray-400 dark:border-gray-300"
         } ${hovered ? "opacity-100" : "opacity-0"} transition-all duration-300`}
         onClick={onCopy}

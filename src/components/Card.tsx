@@ -10,14 +10,14 @@ type Props = {
 };
 
 const Card = ({ title, description, imgSrc, href }: Props): ReactElement => (
-  <div className="p-4 md:w-1/2 md" style={{ maxWidth: "544px" }}>
-    <div className="h-full border-2 border-gray-200 border-opacity-60 dark:border-gray-700 rounded-md overflow-hidden">
+  <div className="md p-4 md:w-1/2" style={{ maxWidth: "544px" }}>
+    <div className="h-full overflow-hidden rounded-md border-2 border-gray-200 border-opacity-60 dark:border-gray-700">
       {href ? (
         <Link href={href} aria-label={`Link to ${title}`}>
           <Image
             alt={title}
             src={imgSrc}
-            className="lg:h-48 md:h-36 object-cover object-center"
+            className="object-cover object-center md:h-36 lg:h-48"
             width={544}
             height={306}
           />
@@ -26,13 +26,13 @@ const Card = ({ title, description, imgSrc, href }: Props): ReactElement => (
         <Image
           alt={title}
           src={imgSrc}
-          className="lg:h-48 md:h-36 object-cover object-center"
+          className="object-cover object-center md:h-36 lg:h-48"
           width={544}
           height={306}
         />
       )}
       <div className="p-6">
-        <h2 className="text-2xl font-bold tracking-[0.015em] mb-3">
+        <h2 className="mb-3 text-2xl font-bold tracking-[0.015em]">
           {href ? (
             <Link href={href} aria-label={`Link to ${title}`}>
               {title}
@@ -41,7 +41,7 @@ const Card = ({ title, description, imgSrc, href }: Props): ReactElement => (
             title
           )}
         </h2>
-        <p className="tracking-wide leading-relaxed text-gray-600 max-w-none dark:text-gray-300 mb-3">
+        <p className="mb-3 max-w-none leading-relaxed tracking-wide text-gray-600 dark:text-gray-300">
           {description}
         </p>
         {href && (

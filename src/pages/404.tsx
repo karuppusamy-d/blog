@@ -3,9 +3,9 @@ import { ReactElement } from "react";
 
 const NotFound = (): ReactElement => {
   return (
-    <div className="flex flex-col items-start justify-center divide-y divide-gray-200 dark:divide-gray-700 md:justify-center md:items-center md:flex-row md:divide-y-0 md:space-x-6 min-h-[80vh]">
+    <div className="flex min-h-[80vh] flex-col items-start justify-center divide-y divide-gray-200 dark:divide-gray-700 md:flex-row md:items-center md:justify-center md:space-x-6 md:divide-y-0">
       <div className="pb-4">
-        <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-100 md:text-6xl md:border-r-2 md:px-6">
+        <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-100 md:border-r-2 md:px-6 md:text-6xl">
           404
         </h1>
       </div>

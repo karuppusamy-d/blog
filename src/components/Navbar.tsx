@@ -8,8 +8,8 @@ import ThemeSwitch from "@/components/ThemeSwitch";
 const Navbar = (): ReactElement => {
   return (
     <header>
-      <div className="fixed top-0 inset-x-0 bg-white dark:bg-gray-900 z-50 shadow-light dark:shadow-dark">
-        <nav className="flex items-center justify-between text-gray-800 dark:text-gray-100 mx-auto px-6 py-4 md:py-5 xl:px-0 max-w-3xl xl:max-w-5xl">
+      <div className="fixed inset-x-0 top-0 z-50 bg-white shadow-light dark:bg-gray-900 dark:shadow-dark">
+        <nav className="mx-auto flex max-w-3xl items-center justify-between px-6 py-4 text-gray-800 dark:text-gray-100 md:py-5 xl:max-w-5xl xl:px-0">
           <Link href="/" className="flex items-center justify-between text-xl">
             <Logo aria-label="Karuppusamy" />
           </Link>
@@ -20,7 +20,7 @@ const Navbar = (): ReactElement => {
                 <Link
                   key={link.title}
                   href={link.href}
-                  className="p-1 sm:p-4 font-semibold"
+                  className="p-1 font-semibold sm:p-4"
                 >
                   {link.title}
                 </Link>

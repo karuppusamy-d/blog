@@ -37,7 +37,7 @@ const SocialIcon: SocialIconType = ({ kind, href }) => {
   return (
     <a target="_blank" rel="noopener noreferrer" href={href}>
       <SocialSvg
-        className="fill-current hover:text-primary-500 dark:hover:text-primary-400 h-[1em] transition-colors duration-300"
+        className="h-[1em] fill-current transition-colors duration-300 hover:text-primary-500 dark:hover:text-primary-400"
         aria-label={kind}
       />
     </a>

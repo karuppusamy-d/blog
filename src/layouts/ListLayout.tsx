@@ -19,8 +19,8 @@ const ListLayout = ({ posts, title }: Props): ReactElement => {
 
   return (
     <>
-      <div className="divide-y divide-gray-200 dark:divide-gray-700 min-h-[80vh]">
-        <div className="pt-10 pb-5 space-y-3 xl:space-y-4 xl:pb-6">
+      <div className="min-h-[80vh] divide-y divide-gray-200 dark:divide-gray-700">
+        <div className="space-y-3 pt-10 pb-5 xl:space-y-4 xl:pb-6">
           <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-100 xl:text-5xl">
             {title}
           </h1>
@@ -30,10 +30,10 @@ const ListLayout = ({ posts, title }: Props): ReactElement => {
               type="text"
               onChange={(e) => setSearchValue(e.target.value)}
               placeholder="Search articles"
-              className="block w-full px-4 py-2 rounded-md text-gray-900 border border-gray-300 dark:border-gray-900 outline-none ring-1 ring-transparent focus:ring-gray-300 focus:border-gray-300 dark:focus:ring-gray-700 dark:focus:border-gray-700 dark:bg-gray-800 dark:text-gray-100 dark:placeholder:text-gray-500"
+              className="block w-full rounded-md border border-gray-300 px-4 py-2 text-gray-900 outline-none ring-1 ring-transparent focus:border-gray-300 focus:ring-gray-300 dark:border-gray-900 dark:bg-gray-800 dark:text-gray-100 dark:placeholder:text-gray-500 dark:focus:border-gray-700 dark:focus:ring-gray-700"
             />
             <svg
-              className="absolute w-5 h-5 text-gray-400 right-3 top-3 dark:text-gray-300"
+              className="absolute right-3 top-3 h-5 w-5 text-gray-400 dark:text-gray-300"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
@@ -54,16 +54,16 @@ const ListLayout = ({ posts, title }: Props): ReactElement => {
             const { slug, date, title, summary, tags } = frontMatter;
             return (
               <li key={slug} className="py-8 xl:py-10">
-                <article className="space-y-1 xl:grid xl:grid-cols-4 xl:space-y-0 xl:items-baseline">
+                <article className="space-y-1 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
                   <dl>
                     <dt className="sr-only">Published on</dt>
-                    <dd className="text-sm xl:text-base font-medium text-gray-500 dark:text-gray-400">
+                    <dd className="text-sm font-medium text-gray-500 dark:text-gray-400 xl:text-base">
                       <time dateTime={date}>{formatDate(date)}</time>
                     </dd>
                   </dl>
                   <div className="space-y-1 xl:col-span-3">
                     <div className="space-y-2">
-                      <h2 className="text-xl xl:text-2xl font-semibold tracking-tight">
+                      <h2 className="text-xl font-semibold tracking-tight xl:text-2xl">
                         <Link
                           href={`/blog/${slug}`}
                           className="text-gray-900 dark:text-gray-100"
@@ -77,7 +77,7 @@ const ListLayout = ({ posts, title }: Props): ReactElement => {
                         ))}
                       </div>
                     </div>
-                    <div className="tracking-wide leading-relaxed text-gray-600 max-w-none dark:text-gray-300">
+                    <div className="max-w-none leading-relaxed tracking-wide text-gray-600 dark:text-gray-300">
                       {summary}
                     </div>
                     <div className="text-sm font-medium">

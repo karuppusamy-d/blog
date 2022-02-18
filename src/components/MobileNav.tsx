@@ -21,7 +21,7 @@ const MobileNav = (): ReactElement => {
     <div className="sm:hidden">
       <button
         type="button"
-        className="w-8 h-8 ml-1 mr-1 rounded flex focus:outline-none focus-visible:ring-2 focus:ring-gray-800 dark:focus:ring-gray-200"
+        className="ml-1 mr-1 flex h-8 w-8 rounded focus:outline-none focus:ring-gray-800 focus-visible:ring-2 dark:focus:ring-gray-200"
         onClick={onToggleNav}
       >
         <svg
@@ -48,11 +48,11 @@ const MobileNav = (): ReactElement => {
       </button>
 
       <div
-        className={`fixed w-9/12 h-full top-16 right-0 bg-gray-200 dark:bg-gray-800 z-10 ease-in-out duration-500 ${
+        className={`fixed top-16 right-0 z-10 h-full w-9/12 bg-gray-200 duration-500 ease-in-out dark:bg-gray-800 ${
           navShow ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="fixed h-full mt-4">
+        <div className="fixed mt-4 h-full">
           {headerNavLinks.map((link) => (
             <div key={link.title} className="px-8 py-4">
               <Link
@@ -70,7 +70,7 @@ const MobileNav = (): ReactElement => {
       <button
         type="button"
         aria-label="toggle navmenu"
-        className={`fixed w-full h-full top-16 inset-x-0 backdrop-blur-sm cursor-auto focus:outline-none ${
+        className={`fixed inset-x-0 top-16 h-full w-full cursor-auto backdrop-blur-sm focus:outline-none ${
           navShow ? "block" : "hidden"
         }`}
         onClick={onToggleNav}

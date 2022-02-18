@@ -44,7 +44,7 @@ const Home = ({ posts }: Props): ReactElement => {
             </a>
           </div>
         </div>
-        <div className="flex my-12 text-2xl space-x-5">
+        <div className="my-12 flex space-x-5 text-2xl">
           <SocialIcon kind="gmail" href={`mailto:${siteMetadata.email}`} />
           <SocialIcon kind="facebook" href={siteMetadata.facebook} />
           <SocialIcon kind="twitter" href={siteMetadata.twitter} />
@@ -56,7 +56,7 @@ const Home = ({ posts }: Props): ReactElement => {
       </div>
 
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
-        <div className="pt-8 pb-6 space-y-2 md:space-y-3">
+        <div className="space-y-2 pt-8 pb-6 md:space-y-3">
           <h1 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100 md:text-4xl">
             Recent Posts
           </h1>
@@ -68,17 +68,17 @@ const Home = ({ posts }: Props): ReactElement => {
             return (
               <li key={slug} className="py-8 xl:py-10">
                 <article>
-                  <div className="space-y-1 xl:grid xl:grid-cols-4 xl:space-y-0 xl:items-baseline">
+                  <div className="space-y-1 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
                     <dl>
                       <dt className="sr-only">Published on</dt>
-                      <dd className="text-sm xl:text-base font-medium text-gray-500 dark:text-gray-400">
+                      <dd className="text-sm font-medium text-gray-500 dark:text-gray-400 xl:text-base">
                         <time dateTime={date}>{formatDate(date)}</time>
                       </dd>
                     </dl>
                     <div className="space-y-1 xl:col-span-3">
                       <div className="space-y-2">
                         <div>
-                          <h2 className="text-xl xl:text-2xl font-semibold tracking-tight">
+                          <h2 className="text-xl font-semibold tracking-tight xl:text-2xl">
                             <Link
                               href={`/blog/${slug}`}
                               className="text-gray-900 dark:text-gray-100"
@@ -92,7 +92,7 @@ const Home = ({ posts }: Props): ReactElement => {
                             ))}
                           </div>
                         </div>
-                        <div className="tracking-wide leading-relaxed text-gray-600 max-w-none dark:text-gray-300">
+                        <div className="max-w-none leading-relaxed tracking-wide text-gray-600 dark:text-gray-300">
                           {summary}
                         </div>
                       </div>

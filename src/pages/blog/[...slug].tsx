@@ -26,7 +26,7 @@ const Blog = ({ post, prev, next }: Props): ReactElement => {
           <MDXLayoutRenderer mdxSource={mdxSource} />
         </PostLayout>
       ) : (
-        <div className="text-center flex flex-col items-center justify-center min-h-[80vh]">
+        <div className="flex min-h-[80vh] flex-col items-center justify-center text-center">
           <PageTitle>
             Under Construction{" "}
             <span role="img" aria-label="roadwork sign">
