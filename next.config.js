@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const withPWA = require("next-pwa");
 
 const withBundleAnalyzer = require("@next/bundle-analyzer")({

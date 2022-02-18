@@ -12,15 +12,15 @@ const About = (): ReactElement => {
         description={siteMetadata.description}
         url={`${siteMetadata.siteUrl}/about`}
       />
-      <div className="divide-y divide-gray-200 dark:divide-gray-700 min-h-[80vh]">
+      <div className="min-h-[80vh] divide-y divide-gray-200 dark:divide-gray-700">
         <div className="pt-10 pb-5 xl:pb-6">
           <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-100 xl:text-5xl">
             About
           </h1>
         </div>
         <div className="items-center space-y-2 xl:grid xl:grid-cols-3 xl:gap-x-8 xl:space-y-0">
-          <div className="flex flex-col items-center pt-8 space-x-2 xl:py-12">
-            <div className="w-32 xl:w-48 h-32 xl:h-48">
+          <div className="flex flex-col items-center space-x-2 pt-8 xl:py-12">
+            <div className="h-32 w-32 xl:h-48 xl:w-48">
               <Image
                 src={siteMetadata.image}
                 alt="avatar"
@@ -30,7 +30,7 @@ const About = (): ReactElement => {
                 className="rounded-full"
               />
             </div>
-            <h3 className="pt-4 pb-1 text-xl xl:text-2xl font-semibold tracking-tight">
+            <h3 className="pt-4 pb-1 text-xl font-semibold tracking-tight xl:text-2xl">
               {siteMetadata.author}
             </h3>
             <div className="text-gray-500 dark:text-gray-400">
@@ -39,7 +39,7 @@ const About = (): ReactElement => {
             {/* <div className="text-gray-500 dark:text-gray-400">
               Stanford University
             </div> */}
-            <div className="flex pt-4 xl:pt-6 space-x-2 xl:space-x-3 text-xl xl:text-2xl text-gray-700 dark:text-gray-300">
+            <div className="flex space-x-2 pt-4 text-xl text-gray-700 dark:text-gray-300 xl:space-x-3 xl:pt-6 xl:text-2xl">
               <SocialIcon kind="gmail" href={`mailto:${siteMetadata.email}`} />
               <SocialIcon kind="facebook" href={siteMetadata.facebook} />
               <SocialIcon kind="twitter" href={siteMetadata.twitter} />
@@ -49,7 +49,7 @@ const About = (): ReactElement => {
               <SocialIcon kind="github" href={siteMetadata.github} />
             </div>
           </div>
-          <div className="pt-6 prose dark:prose-dark leading-relaxed max-w-none xl:pb-6 xl:col-span-2">
+          <div className="prose max-w-none pt-6 leading-relaxed dark:prose-dark xl:col-span-2 xl:pb-6">
             <p>
               I am Karuppusamy, a self-learned programmer. I currently live in
               India with my family. A hard-working and ambitious person who

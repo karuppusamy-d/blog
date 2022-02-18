@@ -50,13 +50,13 @@ const PostLayout: PostLayoutType = ({ children, frontMatter, next, prev }) => {
           </header>
 
           <div
-            className="divide-y divide-gray-200 xl:divide-y-0 dark:divide-gray-700 xl:grid xl:grid-cols-4 xl:gap-x-6"
+            className="divide-y divide-gray-200 dark:divide-gray-700 xl:grid xl:grid-cols-4 xl:gap-x-6 xl:divide-y-0"
             style={{ gridTemplateRows: "auto 1fr" }}
           >
-            <dl className="pt-6 pb-8 xl:py-8 xl:border-b xl:border-gray-200 xl:dark:border-gray-700">
+            <dl className="pt-6 pb-8 xl:border-b xl:border-gray-200 xl:py-8 xl:dark:border-gray-700">
               <dt className="sr-only">Author</dt>
               <dd>
-                <ul className="flex justify-center space-x-8 xl:block sm:space-x-12 xl:space-x-0 xl:space-y-8">
+                <ul className="flex justify-center space-x-8 sm:space-x-12 xl:block xl:space-x-0 xl:space-y-8">
                   <li className="flex items-center space-x-2">
                     <Image
                       src={siteMetadata.image}
@@ -65,7 +65,7 @@ const PostLayout: PostLayoutType = ({ children, frontMatter, next, prev }) => {
                       height={"40px"}
                       className="rounded-full"
                     />
-                    <dl className="text-sm font-semibold whitespace-nowrap">
+                    <dl className="whitespace-nowrap text-sm font-semibold">
                       <dt className="sr-only">Name</dt>
                       <dd className="text-gray-800 dark:text-gray-300">
                         {siteMetadata.author}
@@ -80,14 +80,14 @@ const PostLayout: PostLayoutType = ({ children, frontMatter, next, prev }) => {
               </dd>
             </dl>
 
-            <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:pb-0 xl:col-span-3 xl:row-span-2">
-              <div className="pt-8 pb-6 prose dark:prose-dark max-w-none">
+            <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
+              <div className="prose max-w-none pt-8 pb-6 dark:prose-dark">
                 {children}
               </div>
 
               {/* Show social Icons */}
-              <div className="flex flex-column py-6 space-x-3 text-sm sm:text-base text-gray-700 dark:text-gray-300">
-                <div className="flex flex-column text-base sm:text-[1.2rem] items-center space-x-3">
+              <div className="flex-column flex space-x-3 py-6 text-sm text-gray-700 dark:text-gray-300 sm:text-base">
+                <div className="flex-column flex items-center space-x-3 text-base sm:text-[1.2rem]">
                   <SocialIcon
                     kind="whatsapp"
                     href={`whatsapp://send?text=${pageUrl(slug)}`}
@@ -123,10 +123,10 @@ const PostLayout: PostLayoutType = ({ children, frontMatter, next, prev }) => {
               <Comments mapping={frontMatter.slug} />
             </div>
 
-            <div className="text-sm font-medium divide-gray-200 xl:divide-y dark:divide-gray-700 xl:col-start-1 xl:row-start-2">
+            <div className="divide-gray-200 text-sm font-medium dark:divide-gray-700 xl:col-start-1 xl:row-start-2 xl:divide-y">
               {tags && (
                 <div className="pt-8 pb-4 xl:py-8">
-                  <h2 className="text-sm tracking-wide text-gray-500 uppercase dark:text-gray-400">
+                  <h2 className="text-sm uppercase tracking-wide text-gray-500 dark:text-gray-400">
                     Tags
                   </h2>
                   <div className="flex flex-wrap">
@@ -140,7 +140,7 @@ const PostLayout: PostLayoutType = ({ children, frontMatter, next, prev }) => {
                 <div className="flex justify-between pt-4 pb-2 xl:block xl:space-y-8 xl:py-8">
                   {prev && (
                     <div>
-                      <h2 className="text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">
+                      <h2 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
                         Previous Article
                       </h2>
                       <div className="text-primary-400 hover:text-primary-500 dark:text-primary-500 dark:hover:text-primary-400">
@@ -150,7 +150,7 @@ const PostLayout: PostLayoutType = ({ children, frontMatter, next, prev }) => {
                   )}
                   {next && (
                     <div>
-                      <h2 className="text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">
+                      <h2 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
                         Next Article
                       </h2>
                       <div className="text-primary-400 hover:text-primary-500 dark:text-primary-500 dark:hover:text-primary-400">
