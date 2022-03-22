@@ -22,7 +22,7 @@
   "dependencies": {
     "@badrap/bar-of-progress": "^0.1.2",
     "@types/gtag.js": "^0.0.8",
-    "esbuild": "^0.14.18",
+    "esbuild": "^0.14.23",
     "globby": "^13.1.1",
     "gray-matter": "^4.0.3",
     "image-size": "^1.0.1",
