@@ -49,7 +49,7 @@ const getFileBySlug: GetFileBySlug = async (type, slug) => {
   const { code } = await bundleMDX({
     source,
     cwd: root,
-    xdmOptions(options) {
+    mdxOptions(options) {
       // this is the recommended way to add custom remark/rehype plugins:
       // The syntax might look weird, but it protects you in case we add/remove
       // plugins in the future.
