@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const withPWA = require("next-pwa");
+const siteMetaData = require("./data/siteMetadata");
 
 const withBundleAnalyzer = require("@next/bundle-analyzer")({
   enabled: process.env.ANALYZE === "true",
@@ -32,6 +33,17 @@ module.exports = withBundleAnalyzer(
     pwa: {
       dest: "public",
       disable: !isProd,
+    },
+
+    // Redirects
+    async redirects() {
+      return [
+        {
+          source: "/resume",
+          destination: siteMetaData.resume,
+          permanent: false,
+        },
+      ];
     },
   })
 );

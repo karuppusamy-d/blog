@@ -34,7 +34,7 @@ const Home = ({ posts }: Props): ReactElement => {
               <br /> Developer
             </h1>
             <a
-              href="https://drive.google.com/file/d/1zzxmzG-v7VOmDWEQQo_SSg4Y8WfDUi0i/view"
+              href={siteMetadata.resume}
               className="btn text-[0.85rem] sm:text-base"
               aria-label="View Resume"
               target="_blank"
