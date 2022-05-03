@@ -12,6 +12,8 @@ const siteMetaData = {
   image: "/static/images/profile.jpg",
   socialBanner: "/static/images/twitter-card.png",
   email: "d.karuppusamy@outlook.com",
+  resume:
+    "https://docs.google.com/document/d/1yFAAIaPOf4rdAWLQ6OYzFa8Gif18hg4Wxe3n6bxVrLQ/preview",
   github: "https://github.com/karuppusamy-d",
   facebook: "https://facebook.com/karuppusamy2001/",
   twitter: "https://twitter.com/karuppusamy_",
