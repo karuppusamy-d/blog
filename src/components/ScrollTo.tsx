@@ -21,13 +21,13 @@ const ScrollTo = (): ReactElement => {
     document.getElementById("comment")?.scrollIntoView();
   };
   return (
-    <div className={`fixed right-8 bottom-8 flex flex-col gap-3`}>
+    <div className={`fixed right-8 bottom-8 hidden flex-col gap-3 sm:flex`}>
       <button
         aria-label="Scroll To Comment"
         type="button"
         tabIndex={-1}
         onClick={handleScrollToComment}
-        className={`rounded-full bg-primary-100 p-3 text-primary-300 shadow-md transition-all duration-300 hover:text-primary-400 dark:bg-gray-700 dark:text-gray-400 dark:hover:bg-gray-600 ${
+        className={`rounded-full bg-white p-3 text-primary-300 shadow-scroll-to transition-all duration-300 hover:text-primary-400 dark:bg-gray-700 dark:text-gray-400 dark:hover:bg-gray-600 ${
           show ? "translate-y-0" : "translate-y-[3.75rem]"
         }`}
       >
@@ -44,7 +44,7 @@ const ScrollTo = (): ReactElement => {
         type="button"
         tabIndex={-1}
         onClick={handleScrollTop}
-        className={`rounded-full bg-primary-100 p-3 text-primary-300 shadow-md transition-all duration-300 hover:text-primary-400 dark:bg-gray-700 dark:text-gray-400 dark:hover:bg-gray-600 ${
+        className={`rounded-full bg-white p-3 text-primary-300 shadow-scroll-to transition-all duration-300 hover:text-primary-400 dark:bg-gray-700 dark:text-gray-400 dark:hover:bg-gray-600 ${
           show ? "translate-y-0 opacity-100" : "translate-y-20 opacity-0"
         }`}
       >
