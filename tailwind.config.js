@@ -141,6 +141,7 @@ module.exports = {
         light: "0 0 12px 0 rgba(0, 0, 0, 0.09)",
         dark: "0 1px 1px 0 rgba(75, 85, 99, 0.3)",
         "light-lg": "0 2px 20px 0 rgba(0, 0, 0, 0.09)",
+        "scroll-to": "0px 2px 15px 2px rgb(0 0 0 / 9%)",
       },
     },
   },
