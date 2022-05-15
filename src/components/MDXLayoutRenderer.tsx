@@ -1,13 +1,13 @@
 import { ReactElement, useMemo } from "react";
 import { getMDXComponent } from "mdx-bundler/client";
 import Image from "next/image";
-import CustomLink from "@/components/Link";
+import Link from "@/components/Link";
 import CodeCopy from "@/components/CodeCopy";
 import { MDXComponents } from "mdx/types";
 
 const components = {
   Image,
-  a: CustomLink,
+  a: Link,
   pre: CodeCopy,
 } as MDXComponents;
 
