@@ -145,5 +145,17 @@ module.exports = {
       },
     },
   },
-  plugins: [require("@tailwindcss/typography")],
+  plugins: [
+    require("@tailwindcss/typography"),
+    function ({ addVariant }) {
+      addVariant(
+        "supports-scrollbars",
+        "@supports selector(::-webkit-scrollbar)"
+      );
+      addVariant("children", "& > *");
+      addVariant("scrollbar", "&::-webkit-scrollbar");
+      addVariant("scrollbar-track", "&::-webkit-scrollbar-track");
+      addVariant("scrollbar-thumb", "&::-webkit-scrollbar-thumb");
+    },
+  ],
 };
