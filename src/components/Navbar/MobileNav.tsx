@@ -1,8 +1,8 @@
 import { ReactElement, useState } from "react";
 import Link from "@/components/Link";
-import headerNavLinks from "@/data/headerNavLinks";
+import { NavLinks } from "./Navbar";
 
-const MobileNav = (): ReactElement => {
+const MobileNav = ({ navLinks }: { navLinks: NavLinks }): ReactElement => {
   const [navShow, setNavShow] = useState(false);
 
   const onToggleNav = (): void => {
@@ -53,7 +53,7 @@ const MobileNav = (): ReactElement => {
         }`}
       >
         <div className="fixed mt-4 h-full">
-          {headerNavLinks.map((link) => (
+          {navLinks.map((link) => (
             <div key={link.title} className="px-8 py-4">
               <Link
                 href={link.href}

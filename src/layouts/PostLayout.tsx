@@ -4,7 +4,7 @@ import Link from "@/components/Link";
 import PageTitle from "@/components/PageTitle";
 import ScrollTo from "@/components/ScrollTo";
 import { BlogSeo } from "@/components/SEO";
-import SocialIcon from "@/components/social-icons";
+import SocialIcon from "@/components/SocialIcons";
 import Tag from "@/components/Tag";
 import Comments from "@/components/comments";
 import siteMetadata from "@/data/siteMetadata";

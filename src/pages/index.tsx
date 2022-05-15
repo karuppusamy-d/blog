@@ -4,7 +4,7 @@ import { PageSeo } from "@/components/SEO";
 import Tag from "@/components/Tag";
 import siteMetadata from "@/data/siteMetadata";
 import { getAllFilesFrontMatter } from "@/lib/mdx";
-import SocialIcon from "@/components/social-icons";
+import SocialIcon from "@/components/SocialIcons";
 import formatDate from "@/lib/utils/formatDate";
 import Link from "@/components/Link";
 import { FrontMatter } from "@/lib/mdx/types";
