@@ -44,7 +44,7 @@ module.exports = {
               fontWeight: "500",
               color: theme("colors.gray.900"),
             },
-            "p > code": {
+            code: {
               color: theme("colors.primary.500"),
               backgroundColor: theme("colors.code"),
               padding: "0.3em 0.6em",
@@ -73,6 +73,9 @@ module.exports = {
             pre: {
               color: theme("colors.gray.900"),
               backgroundColor: theme("colors.code"),
+            },
+            "pre > code": {
+              color: theme("colors.gray.900"),
             },
           },
         },
@@ -103,7 +106,7 @@ module.exports = {
             "h4,h5,h6": {
               color: theme("colors.gray.100"),
             },
-            "p > code": {
+            code: {
               backgroundColor: theme("colors.gray.800"),
               color: theme("colors.primary.400"),
             },
@@ -132,6 +135,9 @@ module.exports = {
             },
             pre: {
               backgroundColor: theme("colors.gray.800"),
+              color: theme("colors.gray.200"),
+            },
+            "pre > code": {
               color: theme("colors.gray.200"),
             },
           },
