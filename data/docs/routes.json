@@ -6,36 +6,36 @@
     "routes": [
       {
         "title": "Submenu 1",
-        "path": "menu-2/pages"
+        "path": "getting-started"
       },
       {
         "title": "Submenu 2",
         "routes": [
           {
             "title": "Submenu 2.1",
-            "path": "menu-2/submenu-2/submenu-2-1"
+            "path": "getting-started"
           },
           {
             "title": "Submenu 2.2",
-            "path": "menu-2/submenu-2/submenu-2-2"
+            "path": "getting-started"
           }
         ]
       },
       {
         "title": "Submenu 3",
-        "path": "menu-2/submenu-3"
+        "path": "getting-started"
       },
       {
         "title": "Submenu 4",
-        "path": "menu-2/submenu-4"
+        "path": "getting-started"
       },
       {
         "title": "Submenu 5",
-        "path": "menu-2/submenu-5"
+        "path": "getting-started"
       },
       {
         "title": "Submenu 6",
-        "path": "menu-2/submenu-6"
+        "path": "getting-started"
       }
     ]
   },
@@ -44,19 +44,19 @@
     "routes": [
       {
         "title": "Submenu 1",
-        "path": "menu-3/submenu-1"
+        "path": "getting-started"
       },
       {
         "title": "Submenu 2",
-        "path": "menu-3/submenu-2"
+        "path": "getting-started"
       },
       {
         "title": "Submenu 3",
-        "path": "menu-3/submenu-3"
+        "path": "getting-started"
       },
       {
         "title": "Submenu 4",
-        "path": "menu-3/submenu-4"
+        "path": "getting-started"
       }
     ]
   },
@@ -65,19 +65,19 @@
     "routes": [
       {
         "title": "Submenu 1",
-        "path": "menu-4/submenu-1"
+        "path": "getting-started"
       },
       {
         "title": "Submenu 2",
-        "path": "menu-4/submenu-2"
+        "path": "getting-started"
       },
       {
         "title": "Submenu 3",
-        "path": "menu-4/submenu-3"
+        "path": "getting-started"
       },
       {
         "title": "Submenu 4",
-        "path": "menu-4/submenu-4"
+        "path": "getting-started"
       }
     ]
   }

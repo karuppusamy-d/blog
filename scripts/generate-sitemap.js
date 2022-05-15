@@ -10,6 +10,8 @@ import siteMetadata from "../data/siteMetadata.js";
     "src/pages/*.tsx",
     "data/blog/**/*.mdx",
     "data/blog/**/*.md",
+    "data/docs/**/*.mdx",
+    "data/docs/**/*.md",
     "public/tags/**/*.xml",
     "!src/pages/_*.tsx",
     "!src/pages/api",
@@ -29,6 +31,7 @@ import siteMetadata from "../data/siteMetadata.js";
                 const path = page
                   .replace("src/pages/", "/")
                   .replace("data/blog", "/blog")
+                  .replace("data/docs", "/docs")
                   .replace("public/", "/")
                   .replace(".tsx", "")
                   .replace(".mdx", "")
