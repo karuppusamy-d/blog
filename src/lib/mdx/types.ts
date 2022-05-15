@@ -21,6 +21,13 @@ export type Post = {
   frontMatter: PostFrontMatter;
 };
 
+export type Route = {
+  title: string;
+  path?: string;
+  open?: boolean;
+  routes?: Route[];
+};
+
 export type GetAllFilesFrontMatter = (folder: string) => Promise<FrontMatter[]>;
 
 export type GetFileBySlug = (type: string, slug: string) => Promise<Post>;

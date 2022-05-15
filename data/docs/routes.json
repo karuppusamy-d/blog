@@ -1,0 +1,84 @@
+[
+  { "title": "Menu 1", "path": "getting-started" },
+  {
+    "title": "Menu 2",
+    "open": true,
+    "routes": [
+      {
+        "title": "Submenu 1",
+        "path": "menu-2/pages"
+      },
+      {
+        "title": "Submenu 2",
+        "routes": [
+          {
+            "title": "Submenu 2.1",
+            "path": "menu-2/submenu-2/submenu-2-1"
+          },
+          {
+            "title": "Submenu 2.2",
+            "path": "menu-2/submenu-2/submenu-2-2"
+          }
+        ]
+      },
+      {
+        "title": "Submenu 3",
+        "path": "menu-2/submenu-3"
+      },
+      {
+        "title": "Submenu 4",
+        "path": "menu-2/submenu-4"
+      },
+      {
+        "title": "Submenu 5",
+        "path": "menu-2/submenu-5"
+      },
+      {
+        "title": "Submenu 6",
+        "path": "menu-2/submenu-6"
+      }
+    ]
+  },
+  {
+    "title": "Menu 3",
+    "routes": [
+      {
+        "title": "Submenu 1",
+        "path": "menu-3/submenu-1"
+      },
+      {
+        "title": "Submenu 2",
+        "path": "menu-3/submenu-2"
+      },
+      {
+        "title": "Submenu 3",
+        "path": "menu-3/submenu-3"
+      },
+      {
+        "title": "Submenu 4",
+        "path": "menu-3/submenu-4"
+      }
+    ]
+  },
+  {
+    "title": "Menu 4",
+    "routes": [
+      {
+        "title": "Submenu 1",
+        "path": "menu-4/submenu-1"
+      },
+      {
+        "title": "Submenu 2",
+        "path": "menu-4/submenu-2"
+      },
+      {
+        "title": "Submenu 3",
+        "path": "menu-4/submenu-3"
+      },
+      {
+        "title": "Submenu 4",
+        "path": "menu-4/submenu-4"
+      }
+    ]
+  }
+]
