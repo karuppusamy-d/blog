@@ -1,7 +1,7 @@
 import { ReactElement } from "react";
 import Link from "@/components/Link";
 import siteMetadata from "@/data/siteMetadata";
-import SocialIcon from "@/components/social-icons";
+import SocialIcon from "@/components/SocialIcons";
 
 const Footer = (): ReactElement => {
   return (

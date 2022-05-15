@@ -1,18 +1,18 @@
-import Link from "next/link";
+import NextLink from "next/link";
 import { ReactElement, ReactNode } from "react";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type Props = { href: string; children: ReactNode; [key: string]: any };
 
-const CustomLink = ({ href, children, ...rest }: Props): ReactElement => {
+const Link = ({ href, children, ...rest }: Props): ReactElement => {
   const isInternalLink = href && href.startsWith("/");
   const isAnchorLink = href && href.startsWith("#");
 
   if (isInternalLink) {
     return (
-      <Link href={href}>
+      <NextLink href={href}>
         <a {...rest}>{children}</a>
-      </Link>
+      </NextLink>
     );
   }
 
@@ -31,4 +31,4 @@ const CustomLink = ({ href, children, ...rest }: Props): ReactElement => {
   );
 };
 
-export default CustomLink;
+export default Link;

@@ -1,6 +1,6 @@
 import { ReactElement } from "react";
 import siteMetadata from "@/data/siteMetadata";
-import SocialIcon from "@/components/social-icons";
+import SocialIcon from "@/components/SocialIcons";
 import { PageSeo } from "@/components/SEO";
 import Image from "next/image";
 

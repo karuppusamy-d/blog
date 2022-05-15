@@ -1,9 +1,21 @@
 import { ReactElement } from "react";
-import headerNavLinks from "@/data/headerNavLinks";
 import Logo from "@/data/logo.svg";
 import Link from "@/components/Link";
-import MobileNav from "@/components/MobileNav";
-import ThemeSwitch from "@/components/ThemeSwitch";
+import MobileNav from "./MobileNav";
+import ThemeSwitch from "./ThemeSwitch";
+
+export type NavLinks = {
+  href: string;
+  title: string;
+}[];
+
+const navLinks: NavLinks = [
+  { href: "/", title: "Home" },
+  { href: "/blog", title: "Blog" },
+  { href: "/tags", title: "Tags" },
+  { href: "/projects", title: "Projects" },
+  { href: "/about", title: "About" },
+];
 
 const Navbar = (): ReactElement => {
   return (
@@ -16,7 +28,7 @@ const Navbar = (): ReactElement => {
 
           <div className="flex items-center text-base leading-5">
             <div className="hidden sm:block">
-              {headerNavLinks.map((link) => (
+              {navLinks.map((link) => (
                 <Link
                   key={link.title}
                   href={link.href}
@@ -27,7 +39,7 @@ const Navbar = (): ReactElement => {
               ))}
             </div>
             <ThemeSwitch />
-            <MobileNav />
+            <MobileNav navLinks={navLinks} />
           </div>
         </nav>
       </div>
