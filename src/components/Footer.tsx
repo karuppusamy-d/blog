@@ -6,7 +6,7 @@ import SocialIcon from "@/components/SocialIcons";
 const Footer = (): ReactElement => {
   return (
     <footer>
-      <div className="flex flex-col items-center border-t-[1px] border-gray-200 text-gray-600 dark:border-gray-600 dark:text-gray-200">
+      <div className="flex flex-col items-center border-t-[1px] border-gray-200 text-gray-600 dark:border-gray-800 dark:text-gray-300">
         <div className="mt-[1.75rem] mb-3 flex space-x-3 text-xl">
           <SocialIcon kind="facebook" href={siteMetadata.facebook} />
           <SocialIcon kind="twitter" href={siteMetadata.twitter} />

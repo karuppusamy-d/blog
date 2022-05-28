@@ -107,7 +107,7 @@ module.exports = {
               color: theme("colors.gray.100"),
             },
             code: {
-              backgroundColor: theme("colors.gray.800"),
+              backgroundColor: theme("colors.gray.900"),
               color: theme("colors.primary.400"),
             },
             hr: { borderColor: theme("colors.gray.700") },
@@ -126,15 +126,15 @@ module.exports = {
             },
             tbody: {
               tr: {
-                borderBottomColor: theme("colors.gray.700"),
+                borderBottomColor: theme("colors.gray.500"),
               },
             },
             blockquote: {
               color: theme("colors.gray.100"),
-              borderLeftColor: theme("colors.gray.700"),
+              borderLeftColor: theme("colors.gray.800"),
             },
             pre: {
-              backgroundColor: theme("colors.gray.800"),
+              backgroundColor: theme("colors.gray.900"),
               color: theme("colors.gray.200"),
             },
             "pre > code": {
@@ -145,7 +145,7 @@ module.exports = {
       }),
       boxShadow: {
         light: "0 0 12px 0 rgba(0, 0, 0, 0.09)",
-        dark: "0 1px 1px 0 rgba(75, 85, 99, 0.3)",
+        dark: "0 1px 1px 0 rgba(75, 85, 99, 0.5)",
         "light-lg": "0 2px 20px 0 rgba(0, 0, 0, 0.09)",
         "scroll-to": "0px 2px 15px 2px rgb(0 0 0 / 9%)",
       },

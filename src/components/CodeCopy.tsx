@@ -34,7 +34,7 @@ const Pre = ({ children }: Props): ReactElement => {
         aria-label="Copy code"
         type="button"
         tabIndex={-1}
-        className={`absolute right-2 top-2 h-8 w-8 rounded border-2 bg-code p-1 dark:bg-gray-800 ${
+        className={`absolute right-3 top-3 h-8 w-8 rounded border-2 bg-transparent p-1 ${
           copied
             ? "border-green-400 focus:border-green-400 focus:outline-none"
             : "border-gray-400 dark:border-gray-300"

@@ -19,7 +19,7 @@ const ListLayout = ({ posts, title }: Props): ReactElement => {
 
   return (
     <>
-      <div className="min-h-[80vh] divide-y divide-gray-200 dark:divide-gray-700">
+      <div className="min-h-[80vh] divide-y divide-gray-200 dark:divide-gray-800">
         <div className="space-y-3 pt-10 pb-5 xl:space-y-4 xl:pb-6">
           <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-100 xl:text-5xl">
             {title}
@@ -30,10 +30,10 @@ const ListLayout = ({ posts, title }: Props): ReactElement => {
               type="text"
               onChange={(e) => setSearchValue(e.target.value)}
               placeholder="Search articles"
-              className="block w-full rounded-md border border-gray-300 px-4 py-2 text-gray-900 outline-none ring-1 ring-transparent focus:border-gray-300 focus:ring-gray-300 dark:border-gray-900 dark:bg-gray-800 dark:text-gray-100 dark:placeholder:text-gray-500 dark:focus:border-gray-700 dark:focus:ring-gray-700"
+              className="block w-full rounded-md border border-gray-300 px-4 py-2 text-gray-900 outline-none ring-1 ring-transparent placeholder:text-sm focus:ring-gray-300 dark:border-gray-900 dark:bg-gray-900 dark:text-gray-100 dark:placeholder:text-gray-500 dark:focus:border-gray-900 dark:focus:ring-gray-800"
             />
             <svg
-              className="absolute right-3 top-3 h-5 w-5 text-gray-400 dark:text-gray-300"
+              className="absolute right-3 top-3 h-5 w-5 text-gray-400 dark:text-gray-500"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
@@ -48,7 +48,7 @@ const ListLayout = ({ posts, title }: Props): ReactElement => {
             </svg>
           </div>
         </div>
-        <ul className="divide-y divide-gray-200 dark:divide-gray-700">
+        <ul className="divide-y divide-gray-200 dark:divide-gray-800">
           {!filteredBlogPosts.length && "No posts found."}
           {filteredBlogPosts.map((frontMatter) => {
             const { slug, date, title, summary, tags } = frontMatter;

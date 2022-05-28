@@ -8,7 +8,7 @@ const LayoutWrapper = ({ children }: Props): ReactElement => {
   return (
     <>
       <Navbar />
-      <main className="mt-[4.5rem] mb-10">
+      <main className="mt-16 mb-10 md:mt-[4.25rem]">
         <div className="mx-auto max-w-3xl px-6 xl:max-w-5xl xl:px-0">
           {children}
         </div>

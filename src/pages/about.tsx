@@ -12,7 +12,7 @@ const About = (): ReactElement => {
         description={siteMetadata.description}
         url={`${siteMetadata.siteUrl}/about`}
       />
-      <div className="min-h-[80vh] divide-y divide-gray-200 dark:divide-gray-700">
+      <div className="min-h-[80vh] divide-y divide-gray-200 dark:divide-gray-800">
         <div className="pt-10 pb-5 xl:pb-6">
           <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-100 xl:text-5xl">
             About

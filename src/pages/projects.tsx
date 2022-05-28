@@ -12,7 +12,7 @@ const Projects = (): ReactElement => {
         description={siteMetadata.projectsDescription}
         url={`${siteMetadata.siteUrl}/projects`}
       />
-      <div className="divide-y divide-gray-200 dark:divide-gray-700">
+      <div className="divide-y divide-gray-200 dark:divide-gray-800">
         <div className="space-y-2 pt-10 pb-4 xl:space-y-3 xl:pb-6">
           <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-100 xl:text-5xl">
             Projects
