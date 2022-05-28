@@ -11,7 +11,7 @@ type Props = {
 
 const Card = ({ title, description, imgSrc, href }: Props): ReactElement => (
   <div className="md p-4 md:w-1/2" style={{ maxWidth: "544px" }}>
-    <div className="h-full overflow-hidden rounded-md border-2 border-gray-200 border-opacity-60 dark:border-gray-700">
+    <div className="h-full overflow-hidden rounded-md border-2 border-gray-200 border-opacity-60 dark:border-gray-800">
       {href ? (
         <Link href={href} aria-label={`Link to ${title}`}>
           <Image

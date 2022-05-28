@@ -27,7 +27,7 @@ const ScrollTo = (): ReactElement => {
         type="button"
         tabIndex={-1}
         onClick={handleScrollToComment}
-        className={`rounded-full bg-white p-3 text-primary-300 shadow-scroll-to transition-all duration-300 hover:text-primary-400 dark:bg-gray-700 dark:text-gray-400 dark:hover:bg-gray-600 ${
+        className={`rounded-full bg-white p-3 text-primary-300 shadow-scroll-to transition-all duration-300 hover:text-primary-400 dark:bg-gray-900 dark:text-gray-400 dark:hover:bg-gray-800 ${
           show ? "translate-y-0" : "translate-y-[3.75rem]"
         }`}
       >
@@ -44,7 +44,7 @@ const ScrollTo = (): ReactElement => {
         type="button"
         tabIndex={-1}
         onClick={handleScrollTop}
-        className={`rounded-full bg-white p-3 text-primary-300 shadow-scroll-to transition-all duration-300 hover:text-primary-400 dark:bg-gray-700 dark:text-gray-400 dark:hover:bg-gray-600 ${
+        className={`rounded-full bg-white p-3 text-primary-300 shadow-scroll-to transition-all duration-300 hover:text-primary-400 dark:bg-gray-900 dark:text-gray-400 dark:hover:bg-gray-800 ${
           show ? "translate-y-0 opacity-100" : "translate-y-20 opacity-0"
         }`}
       >

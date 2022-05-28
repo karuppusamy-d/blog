@@ -32,7 +32,7 @@ const PostLayout: PostLayoutType = ({ children, frontMatter, next, prev }) => {
         {...frontMatter}
       />
       <article>
-        <div className="xl:divide-y xl:divide-gray-200 xl:dark:divide-gray-700">
+        <div className="xl:divide-y xl:divide-gray-200 xl:dark:divide-gray-800">
           <header className="pt-8 xl:pb-9 xl:pt-12">
             <div className="space-y-1 text-center">
               <dl className="space-y-10">
@@ -50,7 +50,7 @@ const PostLayout: PostLayoutType = ({ children, frontMatter, next, prev }) => {
           </header>
 
           <div
-            className="divide-y divide-gray-200 dark:divide-gray-700 xl:grid xl:grid-cols-4 xl:gap-x-6 xl:divide-y-0"
+            className="divide-y divide-gray-200 dark:divide-gray-800 xl:grid xl:grid-cols-4 xl:gap-x-6 xl:divide-y-0"
             style={{ gridTemplateRows: "auto 1fr" }}
           >
             <dl className="pt-6 pb-8 xl:border-b xl:border-gray-200 xl:py-8 xl:dark:border-gray-700">
@@ -71,7 +71,7 @@ const PostLayout: PostLayoutType = ({ children, frontMatter, next, prev }) => {
                         {siteMetadata.author}
                       </dd>
                       <dt className="sr-only">Headline</dt>
-                      <dd className="text-xs font-medium text-gray-500 dark:text-gray-400">
+                      <dd className="mt-0.5 text-xs font-medium text-gray-500 dark:text-gray-400">
                         {siteMetadata.headline}
                       </dd>
                     </dl>
@@ -80,7 +80,7 @@ const PostLayout: PostLayoutType = ({ children, frontMatter, next, prev }) => {
               </dd>
             </dl>
 
-            <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
+            <div className="divide-y divide-gray-200 dark:divide-gray-800 xl:col-span-3 xl:row-span-2 xl:pb-0">
               <div className="prose max-w-none pt-8 pb-6 dark:prose-dark">
                 {children}
               </div>
@@ -123,13 +123,13 @@ const PostLayout: PostLayoutType = ({ children, frontMatter, next, prev }) => {
               <Comments mapping={frontMatter.slug} />
             </div>
 
-            <div className="divide-gray-200 text-sm font-medium dark:divide-gray-700 xl:col-start-1 xl:row-start-2 xl:divide-y">
+            <div className="divide-gray-200 text-sm font-medium dark:divide-gray-800 xl:col-start-1 xl:row-start-2 xl:divide-y">
               {tags && (
                 <div className="pt-8 pb-4 xl:py-8">
                   <h2 className="text-sm uppercase tracking-wide text-gray-500 dark:text-gray-400">
                     Tags
                   </h2>
-                  <div className="flex flex-wrap">
+                  <div className="mt-0.5 flex flex-wrap">
                     {tags.map((tag) => (
                       <Tag key={tag} text={tag} />
                     ))}
@@ -137,23 +137,23 @@ const PostLayout: PostLayoutType = ({ children, frontMatter, next, prev }) => {
                 </div>
               )}
               {(next || prev) && (
-                <div className="flex justify-between pt-4 pb-2 xl:block xl:space-y-8 xl:py-8">
+                <div className="flex justify-between pt-4 pb-2 xl:block xl:space-y-6 xl:py-8">
                   {prev && (
                     <div>
-                      <h2 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                      <h2 className="text-sm uppercase tracking-wide text-gray-500 dark:text-gray-400">
                         Previous Article
                       </h2>
-                      <div className="text-primary-400 hover:text-primary-500 dark:text-primary-500 dark:hover:text-primary-400">
+                      <div className="mt-0.5 leading-relaxed text-primary-400 hover:text-primary-500 dark:text-primary-500 dark:hover:text-primary-400">
                         <Link href={`/blog/${prev.slug}`}>{prev.title}</Link>
                       </div>
                     </div>
                   )}
                   {next && (
                     <div>
-                      <h2 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                      <h2 className="text-sm uppercase tracking-wide text-gray-500 dark:text-gray-400">
                         Next Article
                       </h2>
-                      <div className="text-primary-400 hover:text-primary-500 dark:text-primary-500 dark:hover:text-primary-400">
+                      <div className="mt-0.5 leading-relaxed text-primary-400 hover:text-primary-500 dark:text-primary-500 dark:hover:text-primary-400">
                         <Link href={`/blog/${next.slug}`}>{next.title}</Link>
                       </div>
                     </div>
