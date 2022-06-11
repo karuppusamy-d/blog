@@ -18,7 +18,7 @@ const MobileNav = ({ navLinks }: { navLinks: NavLinks }): ReactElement => {
   };
 
   return (
-    <div className="sm:hidden">
+    <div className="md:hidden">
       <button
         type="button"
         className="ml-1 mr-1 flex h-8 w-8 rounded focus:outline-none focus:ring-gray-800 focus-visible:ring-2 dark:focus:ring-gray-200"
