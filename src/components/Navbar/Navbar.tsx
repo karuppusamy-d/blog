@@ -27,12 +27,12 @@ const Navbar = (): ReactElement => {
           </Link>
 
           <div className="flex items-center text-base leading-5">
-            <div className="hidden sm:block">
+            <div className="hidden md:block">
               {navLinks.map((link) => (
                 <Link
                   key={link.title}
                   href={link.href}
-                  className="p-1 font-semibold sm:p-4"
+                  className="p-1 font-semibold md:p-4"
                 >
                   {link.title}
                 </Link>
