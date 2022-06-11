@@ -50,7 +50,7 @@ a {
 
 /* Code Block Title */
 .rehype-code-title {
-  @apply rounded-t px-5 py-3 font-mono text-sm font-bold dark:bg-gray-700 dark:text-gray-200;
+  @apply rounded-t px-5 py-3 font-mono text-sm font-bold dark:bg-gray-800 dark:text-gray-300;
   background-color: hsl(228, 55%, 93%);
   color: hsl(217, 19%, 27%);
 }

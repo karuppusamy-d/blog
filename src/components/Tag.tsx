@@ -8,7 +8,7 @@ const Tag = ({ text }: Props): ReactElement => {
   return (
     <Link
       href={`/tags/${kebabCase(text)}`}
-      className="mr-3 text-sm font-medium uppercase text-primary-400 hover:text-primary-500 dark:text-primary-500 dark:hover:text-primary-400"
+      className="mr-3 text-sm font-medium uppercase leading-relaxed text-primary-400 hover:text-primary-500 dark:text-primary-500 dark:hover:text-primary-400"
     >
       {text.split(" ").join("-")}
     </Link>

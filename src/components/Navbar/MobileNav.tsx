@@ -48,7 +48,7 @@ const MobileNav = ({ navLinks }: { navLinks: NavLinks }): ReactElement => {
       </button>
 
       <div
-        className={`fixed top-16 right-0 z-10 h-full w-9/12 bg-gray-200 duration-500 ease-in-out dark:bg-gray-800 ${
+        className={`fixed top-16 right-0 z-10 h-screen w-9/12 bg-gray-200 duration-500 ease-in-out dark:bg-gray-900 ${
           navShow ? "translate-x-0" : "translate-x-full"
         }`}
       >
@@ -70,7 +70,7 @@ const MobileNav = ({ navLinks }: { navLinks: NavLinks }): ReactElement => {
       <button
         type="button"
         aria-label="toggle navmenu"
-        className={`fixed inset-x-0 top-16 h-full w-full cursor-auto backdrop-blur-sm focus:outline-none ${
+        className={`fixed inset-x-0 top-16 h-screen w-full cursor-auto backdrop-blur-sm focus:outline-none ${
           navShow ? "block" : "hidden"
         }`}
         onClick={onToggleNav}
