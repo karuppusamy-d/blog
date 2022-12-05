@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, ReactElement } from "react";
+import { useState, useEffect, useCallback, ReactElement } from "react";
 import { useTheme } from "next-themes";
 
 type Props = { mapping: string };

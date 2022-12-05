@@ -10,8 +10,8 @@ const Link = ({ href, children, ...rest }: Props): ReactElement => {
 
   if (isInternalLink) {
     return (
-      <NextLink href={href}>
-        <a {...rest}>{children}</a>
+      <NextLink href={href} {...rest}>
+        {children}
       </NextLink>
     );
   }

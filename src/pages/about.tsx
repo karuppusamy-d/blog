@@ -24,8 +24,8 @@ const About = (): ReactElement => {
               <Image
                 src={siteMetadata.image}
                 alt="avatar"
-                width={"100%"}
-                height={"100%"}
+                width={192}
+                height={192}
                 layout="responsive"
                 className="rounded-full"
               />
