@@ -10,9 +10,9 @@ const remarkImgToJsx = () => {
     visit(
       tree,
       // only visit p tags that contain an img element
-      (node) =>
+      (node: Node) =>
         node.type === "paragraph" &&
-        (node as Node).children.some((n: Node) => n.type === "image"),
+        node.children.some((n: Node) => n.type === "image"),
       (node) => {
         const imageNode = node.children.find((n: Node) => n.type === "image");
 
