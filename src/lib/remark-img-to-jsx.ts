@@ -1,20 +1,21 @@
 import { visit } from "unist-util-visit";
 import sizeOf from "image-size";
 import fs from "fs";
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-type Node = import("unist").Node & { children: any };
+import { Node, Parent } from "unist";
 
 const remarkImgToJsx = () => {
-  return (tree: Node) => {
+  return (tree: Parent<Node>) => {
     visit(
       tree,
       // only visit p tags that contain an img element
-      (node: Node) =>
+      (node) =>
         node.type === "paragraph" &&
-        node.children.some((n: Node) => n.type === "image"),
+        (node as Parent).children.some((n: Node) => n.type === "image"),
       (node) => {
-        const imageNode = node.children.find((n: Node) => n.type === "image");
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const imageNode = (node as Parent<any>).children.find(
+          (n: Node) => n.type === "image"
+        );
 
         // only local files
         if (fs.existsSync(`${process.cwd()}/public${imageNode.url}`)) {
@@ -40,7 +41,7 @@ const remarkImgToJsx = () => {
 
           // Change node type from p to div to avoid nesting error
           node.type = "div";
-          node.children = [imageNode];
+          (node as Parent).children = [imageNode];
         }
       }
     );
